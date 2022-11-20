@@ -1,0 +1,57 @@
+PREFIX agr: <http://promsns.org/def/agr#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX agro: <http://aims.fao.org/aos/agrontology#>
+prefix agrovoc: <http://aims.fao.org/aos/agrovoc/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+Construct {
+  ?tree skos:prefLabel ?lbl .
+
+  ?tree skos:altLabel ?altlbl.
+  ?tree agro:isUsedAs ?usage .
+  ?usage skos:prefLabel ?usagelbl .
+  ?tree agro:hasPart ?part .
+  ?part skos:prefLabel ?partlbl.
+
+  ?tree agro:hasPathogen ?pathogen .
+  ?pathogen skos:prefLabel ?patholbl.
+   
+  ?tree agro:produces ?product .
+  ?product skos:prefLabel ?prodlbl.
+} where {
+  Values(?trees){
+    (<http://aims.fao.org/aos/agrovoc/c_6409>)
+    (<http://aims.fao.org/aos/agrovoc/c_6281>)
+    (<http://aims.fao.org/aos/agrovoc/c_34744>)
+}
+  BIND(?trees AS ?tree)
+   # GET LABEL IN ENGLISH
+  ?tree skos:prefLabel ?lbl .
+    filter langMatches(lang(?lbl), 'en')
+  # GET ALTERNATIVE LBL AND POSSIBLE USAGE OF TREE
+  OPTIONAL{
+      ?tree skos:altLabel ?altlbl 
+          filter langMatches(lang(?altlbl), 'en').
+      ?tree agro:isUsedAs ?usage .
+      ?usage skos:prefLabel ?usagelbl .
+          filter langMatches(lang(?usagelbl), 'en')
+   }
+  # GET PART RELATIONSHIP
+   OPTIONAL{
+      ?tree agro:hasPart ?part .
+      ?part skos:prefLabel ?partlbl.
+          filter langMatches(lang(?partlbl), 'en')
+   }
+  # GET PATHOGEN AND LABELS
+  OPTIONAL{
+      ?tree agro:hasPathogen ?pathogen .
+      ?pathogen skos:prefLabel ?patholbl;
+          filter langMatches(lang(?patholbl), 'en')
+  }
+  # GET POSSIBLE PRODUCT OF TREE
+  OPTIONAL {
+      ?tree agro:produces ?product .
+      ?product skos:prefLabel ?prodlbl.
+          filter langMatches(lang(?prodlbl), 'en')
+  }
+}

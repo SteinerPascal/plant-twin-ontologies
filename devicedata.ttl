@@ -1,0 +1,53 @@
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://twin-example/geneva#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix config: <http://twin-example/config#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+ex:TempSens_0 rdf:type sosa:Sensor ;
+	rdfs:label "Temperature Sensor".
+
+<urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949> config:hostedOn config:localmongo.
+
+config:localmongo rdf:type config:MongoEndpoint;
+	config:urlEndpoint "http://localhost:3001/api/td/" ;
+	config:databaseName "tddatabase";
+	config:collectionName "tdcollection".
+
+ex:TempSens_1 rdf:type sosa:Sensor ;
+	rdfs:label "TemperatureSens_193".
+
+ex:Phytl_1 rdf:type sosa:Sensor ;
+    sosa:observes ex:Oak_0;
+	rdfs:label "PhytlSigns_1";
+	ex:hasThingDescription <urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949>.
+
+ex:Phytl_2 rdf:type sosa:Sensor ;
+    sosa:observes ex:plat_3;
+	ex:hasThingDescription <urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949>;
+	rdfs:label "PhytlSigns_2".
+
+ex:Phytl_3 rdf:type sosa:Sensor ;
+	sosa:triggersActionOn ex:Irrigation_2;
+	ex:hasThingDescription <urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949>;
+    sosa:observes ex:plat_2;
+	rdfs:label "PhytlSigns_3".
+
+ex:Irrigation_0 rdf:type sosa:Actuator ;
+    sosa:observes ex:Oak_0;
+	rdfs:label "Water Irrigation x2039".
+
+ex:Irrigation_1 rdf:type sosa:Actuator ;
+    sosa:actsOnProperty ex:prun_0;
+	rdfs:label "Water Irrigation x2039".
+
+ex:Irrigation_2 rdf:type sosa:Actuator ;
+	sosa:actsOnProperty ex:plat_2;
+    sosa:observes ex:plat_0;
+	rdfs:label "Water Irrigation h33".
+
+ex:Irrigation_3 rdf:type sosa:Actuator ;
+    sosa:actsOnProperty ex:plat_3;
+	rdfs:label "Water Irrigation g620".

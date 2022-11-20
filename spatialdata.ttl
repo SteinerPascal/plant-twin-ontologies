@@ -1,0 +1,73 @@
+@prefix schema: <http://schema.org/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix geof: <http://www.opengis.net/def/function/geosparql/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://twin-example/geneva#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+ex:Oak_0 geo:hasGeometry ex:Point1 .	
+
+ex:prun_0 geo:hasGeometry ex:Point2 .	
+
+ex:prun_0 geo:hasGeometry ex:Point3 .	
+
+ex:plat_0 geo:hasGeometry ex:Point4 .	
+
+ex:plat_1 geo:hasGeometry ex:Point5 .	
+
+ex:plat_2 geo:hasGeometry ex:Point6 .	
+
+ex:plat_3 geo:hasGeometry ex:Point7 .	
+
+ex:Park_0 geo:hasGeometry ex:Polygon2 .
+
+ex:Park_1 geo:hasGeometry ex:Polygon3 .	
+
+ex:TempSens_0 geo:hasGeometry ex:Point8.
+
+ex:TempSens_1 geo:hasGeometry ex:Point9.
+
+ex:Phytl_1 geo:hasGeometry ex:Point1 .
+	
+ex:Phytl_2 geo:hasGeometry ex:Point7 .	
+
+ex:Phytl_3 geo:hasGeometry ex:Point6 .	
+
+ex:Irrigation_0 geo:hasGeometry ex:Point1 .
+
+ex:Irrigation_1 geo:hasGeometry ex:Point2 .
+	
+ex:Irrigation_2 geo:hasGeometry ex:Point4 .	
+
+ex:Irrigation_3 geo:hasGeometry ex:Point7 .
+	
+ex:Point1 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.22774431495321 6.132807148725261)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+ex:Point2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.23356296433821 6.1443084609811205)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+ex:Point3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.22275104402075 6.1506593227386475)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+ex:Point4 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.22085819351427 6.152890920639038)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+ex:Point5 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.22399806281245 6.143213510513306)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+ex:Point6 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.21842337220128 6.1293089389801025)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+ex:Point7  geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.214451709413 6.138546466827393)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+ex:Polygon1 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Polygon((46.23394983682874 6.127622944624176, 46.22299490344514 6.126635891706695,46.224895102811374 6.149638516218414,46.23475133147803 6.147063595564117,46.23394983682874 6.127622944624176))"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Polygon .
+
+ex:Polygon2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Polygon((46.21970760543488 6.129566431045532, 46.219573987192106 6.1293840408325195, 46.21985606976772 6.128815412521362, 46.21812643538638 6.126444339752197, 46.21619630694927 6.130671501159668, 46.21772556813916 6.132291555404662, 46.21806704783072 6.131808757781982,46.21836398496676 6.132237911224365, 46.218549569861366 6.131916046142578, 46.219299326449665 6.13287091255188, 46.2205538467548 6.130639314651489,46.220256921461214 6.130306720733643, 46.22035342235776 6.13009214401245, 46.22010845821223 6.1296844482421875, 46.219908032189366 6.129856109619141, 46.21970760543488 6.129566431045532))"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Polygon .
+
+ex:Polygon3  geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Polygon((46.23364665536529 6.1395978927612305, 46.23150926726495 6.138482093811035, 46.22919366955466 6.139082908630371, 46.22524505327882 6.137065887451172, 46.22275104402075 6.139726638793945, 46.22423558698984 6.147923469543457, 46.23067803830134 6.14908218383789, 46.230351480621366 6.145992279052734, 46.23284514458242 6.144232749938964, 46.23385445254634 6.142945289611816, 46.23364665536529 6.1395978927612305))"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Polygon .
+

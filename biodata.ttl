@@ -1,0 +1,91 @@
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://twin-example/geneva#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix agro: <http://aims.fao.org/aos/agrontology/> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix wd: <http://www.wikidata.org/entity/>.
+
+
+ex:Oak_0 rdf:type ex:Tree; 
+	ex:hasAgrovocTerm agrovoc:c_6409  ;
+	ex:hasWikidataEntry wd:Q12004;
+	rdfs:comment "This tree has been taken care of by Edward";
+	rdfs:label "Oak tree" .
+
+ex:prun_0 rdf:type ex:Tree;
+	ex:hasAgrovocTerm agrovoc:c_6281 ;
+	ex:hasWikidataEntry wd:Q165137;
+	rdfs:label "Prunus avium" .
+
+ex:prun_0 rdf:type ex:Tree;
+	ex:hasAgrovocTerm agrovoc:c_6281 ;
+	ex:hasWikidataEntry wd:Q165137;
+	rdfs:comment "This tree is not doing well. We probably need to replace it.";
+	rdfs:label "Prunus avium" .
+
+ex:plat_0 rdf:type ex:Tree;
+	ex:hasAgrovocTerm agrovoc:c_34744 ;
+	ex:hasWikidataEntry wd:Q157739;
+	rdfs:label "Platanus occidentalis" .
+
+ex:plat_1 rdf:type ex:Tree;
+	ex:hasAgrovocTerm agrovoc:c_34744 ;
+	ex:hasWikidataEntry wd:Q157739;
+	rdfs:comment "This tree had a pathogen and must be checked upon every week.";
+	rdfs:label "Platanus occidentalis" .
+
+ex:plat_2 rdf:type ex:Tree; 
+	ex:hasAgrovocTerm agrovoc:c_34744 ;
+	ex:hasWikidataEntry wd:Q157739;
+	rdfs:comment "This tree has been taken care of by Edward";
+	rdfs:label "Platanus occidentalis" .
+
+ex:plat_3 rdf:type ex:Tree;
+	ex:hasAgrovocTerm agrovoc:c_34744 ;
+	ex:hasWikidataEntry wd:Q157739;
+	rdfs:label "Platanus occidentalis" .
+
+ex:Park_0 rdf:type ex:Space; 
+	ex:hasAgrovocTerm agrovoc:c_fdfbb37f ;
+	ex:hasWikidataEntry wd:Q3364177;
+	rdfs:comment "New waste management for that park is planned";
+	rdfs:label "Parc de l'Ariana" .
+
+ex:Park_1 rdf:type ex:Space;
+	ex:hasAgrovocTerm agrovoc:c_fdfbb37f ;
+	ex:hasWikidataEntry wd:Q3363921;
+	rdfs:comment "The Parc is closed from September till Januaray due to sanitary issues";
+	rdfs:label "Parc Trembley" .
+
+
+#################################################################
+#    Agrovoc SPARQL results
+#################################################################
+
+<http://aims.fao.org/aos/agrovoc/c_9441c375> <http://www.w3.org/2004/02/skos/core#prefLabel> "Erysiphe extensa"@en .
+
+<http://aims.fao.org/aos/agrovoc/c_34744> <http://aims.fao.org/aos/agrontology#hasPathogen> <http://aims.fao.org/aos/agrovoc/c_9441c375> .
+<http://aims.fao.org/aos/agrovoc/c_9441c375>  rdf:type <http://aims.fao.org/aos/agrovoc/c_5630> .
+<http://aims.fao.org/aos/agrovoc/c_34744> <http://aims.fao.org/aos/agrontology#hasPathogen> <http://aims.fao.org/aos/agrovoc/c_f2a34c55> .
+<http://aims.fao.org/aos/agrovoc/c_f2a34c55> rdf:type <http://aims.fao.org/aos/agrovoc/c_5630> .
+<http://aims.fao.org/aos/agrovoc/c_34744> <http://www.w3.org/2004/02/skos/core#prefLabel> "Platanus occidentalis"@en .
+<http://aims.fao.org/aos/agrovoc/c_f2a34c55> <http://www.w3.org/2004/02/skos/core#prefLabel> "Erysiphe platani"@en .
+<http://aims.fao.org/aos/agrovoc/c_6fed830f> <http://www.w3.org/2004/02/skos/core#prefLabel> "Podosphaera clandestina"@en .
+<http://aims.fao.org/aos/agrovoc/c_8fd5d2a9> <http://www.w3.org/2004/02/skos/core#prefLabel> "Alternaria mali"@en .
+<http://aims.fao.org/aos/agrovoc/c_23986> <http://www.w3.org/2004/02/skos/core#prefLabel> "acorns"@en .
+<http://aims.fao.org/aos/agrovoc/c_7776> <http://www.w3.org/2004/02/skos/core#prefLabel> "timber trees"@en .
+<http://aims.fao.org/aos/agrovoc/c_26413> <http://www.w3.org/2004/02/skos/core#prefLabel> "Botrytis cinerea"@en .
+<http://aims.fao.org/aos/agrovoc/c_6409> <http://aims.fao.org/aos/agrontology#hasPart> <http://aims.fao.org/aos/agrovoc/c_23986> .
+<http://aims.fao.org/aos/agrovoc/c_6409> <http://aims.fao.org/aos/agrontology#isUsedAs> <http://aims.fao.org/aos/agrovoc/c_7776> .
+<http://aims.fao.org/aos/agrovoc/c_6409> <http://www.w3.org/2004/02/skos/core#altLabel> "Oak (tree)"@en .
+<http://aims.fao.org/aos/agrovoc/c_6409> <http://www.w3.org/2004/02/skos/core#prefLabel> "Quercus"@en .
+<http://aims.fao.org/aos/agrovoc/c_928e7845> <http://www.w3.org/2004/02/skos/core#prefLabel> "Podosphaera tridactyla"@en .
+<http://aims.fao.org/aos/agrovoc/c_1534> <http://www.w3.org/2004/02/skos/core#prefLabel> "cherries"@en .
+<http://aims.fao.org/aos/agrovoc/c_6281> <http://aims.fao.org/aos/agrontology#hasPathogen> <http://aims.fao.org/aos/agrovoc/c_6fed830f> .
+<http://aims.fao.org/aos/agrovoc/c_6281> <http://aims.fao.org/aos/agrontology#hasPathogen> <http://aims.fao.org/aos/agrovoc/c_928e7845> .
+<http://aims.fao.org/aos/agrovoc/c_6281> <http://aims.fao.org/aos/agrontology#hasPathogen> <http://aims.fao.org/aos/agrovoc/c_8fd5d2a9> .
+<http://aims.fao.org/aos/agrovoc/c_6281> <http://aims.fao.org/aos/agrontology#produces> <http://aims.fao.org/aos/agrovoc/c_1534> .
+<http://aims.fao.org/aos/agrovoc/c_6281> <http://aims.fao.org/aos/agrontology#hasPathogen> <http://aims.fao.org/aos/agrovoc/c_26413> .
+<http://aims.fao.org/aos/agrovoc/c_6281> <http://www.w3.org/2004/02/skos/core#prefLabel> "Prunus avium"@en .

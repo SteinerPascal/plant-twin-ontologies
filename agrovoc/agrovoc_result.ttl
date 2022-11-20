@@ -1,0 +1,39 @@
+@prefix agr: <http://promsns.org/def/agr#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix agro: <http://aims.fao.org/aos/agrontology#> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf4j: <http://rdf4j.org/schema/rdf4j#> .
+@prefix sesame: <http://www.openrdf.org/schema/sesame#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix fn: <http://www.w3.org/2005/xpath-functions#> .
+
+agrovoc:c_6409 skos:prefLabel "Quercus"@en;
+  skos:altLabel "Oak (tree)"@en;
+  agro:isUsedAs agrovoc:c_7776;
+  agro:hasPart agrovoc:c_23986 .
+
+agrovoc:c_23986 skos:prefLabel "acorns"@en .
+
+agrovoc:c_6281 skos:prefLabel "Prunus avium"@en;
+  agro:hasPathogen agrovoc:c_26413, agrovoc:c_8fd5d2a9, agrovoc:c_928e7845, agrovoc:c_6fed830f;
+  agro:produces agrovoc:c_1534 .
+
+agrovoc:c_26413 skos:prefLabel "Botrytis cinerea"@en .
+
+agrovoc:c_1534 skos:prefLabel "cherries"@en .
+
+agrovoc:c_8fd5d2a9 skos:prefLabel "Alternaria mali"@en .
+
+agrovoc:c_928e7845 skos:prefLabel "Podosphaera tridactyla"@en .
+
+agrovoc:c_6fed830f skos:prefLabel "Podosphaera clandestina"@en .
+
+agrovoc:c_34744 skos:prefLabel "Platanus occidentalis"@en;
+  agro:hasPathogen agrovoc:c_f2a34c55, agrovoc:c_9441c375 .
+
+agrovoc:c_f2a34c55 skos:prefLabel "Erysiphe platani"@en .
+
+agrovoc:c_9441c375 skos:prefLabel "Erysiphe extensa"@en .
