@@ -271,8 +271,16 @@ caso:State rdf:type owl:Class .
 :IrrigationActuation rdf:type owl:Class ;
                      rdfs:subClassOf caso:Actuation ,
                                      [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                       owl:someValuesFrom :Tree
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
                                        owl:onProperty <http://www.w3.org/ns/sosa/actsOnProperty> ;
                                        owl:hasValue :act_prop_root_zone_current
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty caso:triggersFunction ;
+                                       owl:hasValue :irrigation_function
                                      ] ;
                      rdfs:comment "IrrigationActuation - Act of carrying out an Irrigation (Actuation) Procedure to change the State of a Moisture ActuatableProperty of a Soil FeatureOfInterest using a watering Actuator. This act is performed during the context exploitation phase of a context aware system. Links to an Actuator to describe what made the Actuation and how; links to an ActuatableProperty to describe the target that the Actuation change; links to a FeatureOfInterest to detail what that property was associated with. When the act is performed based on a Deduction, it should be linked to this Deduction by the wasInfluencedBy property. Links to the Function that is triggered by the Actuation."@en ;
                      rdfs:label "Irrigation actuation"@en ;
@@ -328,6 +336,10 @@ caso:State rdf:type owl:Class .
                                                                    ]
                                                                  ) ;
                                               rdf:type owl:Class
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty caso:hasResultState ;
+                                              owl:someValuesFrom :RainIntensityState
                                             ] ;
                         rdfs:subClassOf caso:Deduction ;
                         rdfs:comment "RainIntensityDeduction - a defined class that represents act of carrying out a procedure to estimate the state of the intensity property for the rain entity. The intensity property is represented by the individual irrig:observableProperty_rain_intensity. The rain entity is represented by the individual irrig:featureOfInterest_rain. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_rain_intensity via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rain via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:RainIntensityState by the caso:hasResultState object property; is linked to an instance of the class irrig:RainDailyTotalQuantityObservation by the prov:wasInformedBy object property; and is linked to a sensor to describe the agent that made the deduction."@en ;
@@ -407,7 +419,27 @@ caso:State rdf:type owl:Class .
 
 ###  http://www.w3id.org/def/irrig#RootZoneMoistureLevelDeduction
 :RootZoneMoistureLevelDeduction rdf:type owl:Class ;
-                                rdfs:subClassOf caso:Deduction ;
+                                rdfs:subClassOf caso:Deduction ,
+                                                [ owl:intersectionOf ( caso:Deduction
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                                         owl:someValuesFrom :Tree
+                                                                       ]
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                                         owl:hasValue :observableProperty_rootZone_moistureLevel
+                                                                       ]
+                                                                     ) ;
+                                                  rdf:type owl:Class
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty prov:wasInformedBy ;
+                                                  owl:someValuesFrom :RootZoneDailyAverageMoistureObservation
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty caso:hasResultState ;
+                                                  owl:someValuesFrom :RootZoneMoistureLevelState
+                                                ] ;
                                 rdfs:comment "RootZoneMoistureLevelDeduction - A defined class that represents the act of carrying out a procedure to estimate the state of the moisture level property for the root zone entity. The moisture level property is represented by the individual irrig:observableProperty_rootZone_moistureLevel. The root zone entity is represented by the individual irrig:featureOfInterest_rootZone. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_rootZone_moistureLevel} via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rootZone via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:RootZoneMoistureLevelState by the caso:hasResultState object property; is linked to an instance of the class irrig:RootZoneDailyAverageMoistureObservation by the prov:wasInformedBy object property; and is linked to a sensor to describe the agent that made the deduction."@en ;
                                 rdfs:label "Root Zone Moisture Level Deduction"@en ;
                                 skos:example "A RootZoneMoistureLevelDeduction that made by an inference engine based on observations from an aggregator."@en .
@@ -530,12 +562,31 @@ caso:State rdf:type owl:Class .
                       [ rdf:type owl:Restriction ;
                         owl:onProperty ssn:hasProperty ;
                         owl:hasValue :observableProperty_rootZone_dailyAverageMoisture
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty ssn:hasProperty ;
+                        owl:hasValue :observableProperty_tree_growth
                       ] .
 
 
 ###  http://www.w3id.org/def/irrig#TreeGrowthDeduction
 :TreeGrowthDeduction rdf:type owl:Class ;
-                     rdfs:subClassOf caso:Deduction ;
+                     rdfs:subClassOf [ owl:intersectionOf ( caso:Deduction
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                              owl:someValuesFrom :Tree
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                              owl:hasValue :observableProperty_tree_growth
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty caso:hasResultState ;
+                                       owl:someValuesFrom :TreeGrowthState
+                                     ] ;
                      rdfs:comment "TreeGrowthDeduction - A defined class that represents the act of carrying out a procedure to estimate the state of the growth property for the tree entity. The growth property is represented by the individual irrig:observableProperty_tree_growth. The tree entity is represented by the individual of class irrig:Tree. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_tree_growth via the sosa:observedProperty object property; (2) All instance of this class are linked to the individual irrig:featureOfInterest of thype irrig:Tree  via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:TreeGrowthState by the caso:hasResultState object property, is linked to an instance of the class irrig:TreeGrowthObservation by the prov:wasInformedBy object property, and is linked to a sensor to describe the agent that made the deduction."@en ;
                      rdfs:label "Tree Growth Deduction"@en ;
                      skos:example "A TreeGrowthDeduction is made by an inference engine based on human observation."@en .
@@ -570,6 +621,10 @@ caso:State rdf:type owl:Class .
                                                                    ]
                                                                  ) ;
                                               rdf:type owl:Class
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty caso:hasResultState ;
+                                              owl:someValuesFrom :TreeWaterNeedState
                                             ] ;
                         rdfs:subClassOf caso:Deduction ;
                         rdfs:comment "TreeWaterNeedDeduction - a defined class represents act of carrying out an (Observation) Procedure to estimate a State of the irrig:ObservableProperty_tree_waterNeed of individual of class  irrig:Tree. The Observation may be performed by an inference engine. Links to a State to describe what the result is. Links to a TemporalEntity to indicate when the result is valid and for how many time."@en ;
@@ -623,6 +678,11 @@ caso:State rdf:type owl:Class .
                                                 rdfs:subClassOf <https://w3id.org/saref#Actuator> ;
                                                 rdfs:comment "An actuator that open the water valve."@en ;
                                                 rdfs:label "Watering Valve"@en .
+
+
+###  https://w3id.org/saref#ActuatingFunction
+<https://w3id.org/saref#ActuatingFunction> rdf:type owl:Class ;
+                                           rdfs:subClassOf <https://w3id.org/saref#Function> .
 
 
 ###  https://w3id.org/saref#Actuator
@@ -791,6 +851,13 @@ In the example of Arvalis' dataset, the value of boundary rootzone tension very 
                             ssn:hasProperty :observableProperty_sleepingDuration ;
                             rdfs:comment "FeatureOfInterest_sleeping - an instance of the class sosa:FeatureOfInterest that represents sleeping phenomenon."@en ;
                             rdfs:label "Feature Of Interest Sleeping" .
+
+
+###  http://www.w3id.org/def/irrig#irrigation_function
+:irrigation_function rdf:type owl:NamedIndividual ,
+                              <https://w3id.org/saref#ActuatingFunction> ;
+                     rdfs:comment "Irrigation Function: This functions aim is to increase the Root Zone Moisture Level. This function can only increase the Root Zone Moisture level." ;
+                     rdfs:label "Irrigation Function" .
 
 
 ###  http://www.w3id.org/def/irrig#observableProperty_action_potential
