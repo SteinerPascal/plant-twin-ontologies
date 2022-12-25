@@ -703,6 +703,14 @@ caso:State rdf:type owl:Class .
                               rdfs:label "Actuatable Property root zone daily avg" .
 
 
+###  http://www.w3id.org/def/irrig#FeatureOfInterest_RootZone
+:FeatureOfInterest_RootZone rdf:type owl:NamedIndividual ,
+                                     <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+                            ssn:hasProperty :observableProperty_rootZone_dailyAverageMoisture ,
+                                            :observableProperty_rootZone_moistureLevel ;
+                            rdfs:label "Feature Of Interest Root Zone" .
+
+
 ###  http://www.w3id.org/def/irrig#act_prop_root_zone_current
 :act_prop_root_zone_current rdf:type owl:NamedIndividual ,
                                      <http://www.w3.org/ns/sosa/ActuatableProperty> ;

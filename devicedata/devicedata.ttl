@@ -1,0 +1,176 @@
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://twin-example/geneva#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix config: <http://twin-example/config#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix saref4agri: <https://w3id.org/def/saref4agri>.
+@prefix irrig: <http://www.w3id.org/def/irrig#>.
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+
+ex:tempsens_0 rdf:type saref4agri:Thermometer ;
+	ssn-system:hasSystemCapability ex:normalThermSensCond;
+	sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
+	rdfs:label "Temperature Sensor 0";
+	geo:hasGeometry ex:Point0.
+
+ex:Point0 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.539884289342975 47.36875793851416)"^^geo:wktLiteral ;
+	rdf:type geo:Point .
+
+ex:ThermSensCond_0 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
+  rdfs:comment "The capabilities of the temperature sensor in normal temperature and humidity conditions." ;
+  ssn-system:inCondition ex:NormalTemperatureCondition , ex:NormalHumidityCondition ;
+  ssn-system:hasSystemProperty ex:TemperatureSensorPrecision , ex:TemperatureSensorAccuracy , ex:TemperatureSensorSensitivity  , ex:TemperatureSensorFrequency , ex:TemperatureSensorSensingRadius_0 .
+
+  ex:TemperatureSensorSensingRadius_0 a ssn:Property , ssn-system:SpatialCoverage;
+  rdfs:comment: "Spatial coverage refers to a geographical area where data was collected, a place which is the subject of a collection, or a location which is the focus of an activity.";
+  geo:hasGeometry ex:SpatRadius .
+  
+  ex:SpatRadius_0 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON((8.539970120031452 47.36579316540567,8.542330463964557 47.36634543969276,8.541600903112506 47.371112198447655,8.536794384557819 47.36977522421873,8.539970120031452 47.36579316540567))"^^geo:wktLiteral ;
+	rdf:type geo:Polygon .
+
+  ex:TemperatureSensorAccuracy a ssn:Property , ssn-system:Accuracy , schema:PropertyValue ;
+  rdfs:comment "The accuracy of the temperature sensor is +-0.5 °C in normal temperature and humidity conditions."@en ;
+  schema:minValue -0.5 ;
+  schema:maxValue 0.5 ;
+  schema:unitCode qudt-unit-1-1:DegreeCelsius .
+
+ex:TemperatureSensorSensitivity a ssn:Property , ssn-system:Sensitivity , ssn-system:Resolution , schema:PropertyValue ;
+  rdfs:comment "The sensitivity and resolution of the temperature sensor is 0.1 °C in normal temperature and humidity conditions."@en ;
+  schema:value 0.1 ;
+  schema:unitCode qudt-unit-1-1:DegreeCelsius .
+
+ex:TemperatureSensorPrecision a ssn:Property , ssn-system:Precision , schema:PropertyValue ;
+  rdfs:comment "The precision (= repeatability) of the temperature sensor is +-0.2 °C in normal temperature and humidity conditions."@en ;
+  schema:minValue 0.2 ;
+  schema:maxValue 0.2 ;
+  schema:unitCode qudt-unit-1-1:DegreeCelsius .
+
+ex:TemperatureSensorFrequency a ssn:Property , ssn-system:Frequency , schema:PropertyValue ;
+  rdfs:comment "The smallest possible time between one observation and the next is 2 s on average."@en ;
+  schema:value 2 ;
+  schema:unitCode qudt-unit-1-1:Second .
+
+ex:NormalOperatingCondition a ssn-system:Condition , schema:PropertyValue ;
+  rdfs:comment "A temperature range of -40 to 80 Celsius."@en ;
+  schema:minValue -40.0 ;
+  schema:maxValue 80.0 ;
+  schema:unitCode qudt-unit-1-1:DegreeCelsius .
+
+ex:NormalHumidityCondition a ssn-system:Condition , schema:PropertyValue ;
+  rdfs:comment "A relative humidity range of 5 to 85 %."@en ;
+  schema:minValue 5.0 ;
+  schema:maxValue 85.0 ;
+  schema:unitCode qudt-unit-1-1:Percent .
+
+# TEMPSENS 1
+
+ex:tempsens_1 rdf:type saref4agri:Thermometer ;
+	ssn-system:hasSystemCapability ex:normalThermSensCond;
+	sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
+	rdfs:label "Temperature Sensor 1";
+	geo:hasGeometry ex:Point1.
+
+ex:ThermSensCond_1 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
+  rdfs:comment "The capabilities of the temperature sensor in normal temperature and humidity conditions." ;
+  ssn-system:inCondition ex:NormalTemperatureCondition , ex:NormalHumidityCondition ;
+  ssn-system:hasSystemProperty ex:TemperatureSensorPrecision , ex:TemperatureSensorAccuracy , ex:TemperatureSensorSensitivity  , ex:TemperatureSensorFrequency , ex:TemperatureSensorSensingRadius_1 .
+
+ex:TemperatureSensorSensingRadius_1 a ssn:Property , ssn-system:SpatialCoverage;
+  rdfs:comment: "Spatial coverage refers to a geographical area where data was collected, a place which is the subject of a collection, or a location which is the focus of an activity.";
+  geo:hasGeometry ex:SpatRadius_1 .
+
+ex:SpatRadius_1 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON((8.53250285013399 47.37119939124185,8.538038929540729 47.36843821609751,8.539540966589069 47.37128658389188,8.53353281839571 47.373001343380864,8.53250285013399 47.37119939124185))"^^geo:wktLiteral ;
+  rdf:type geo:Polygon .
+
+ex:Point1 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.535549839574909 47.371025005509296)"^^geo:wktLiteral ;
+	rdf:type geo:Point .
+
+#TEMPSENSOR 2
+
+ex:tempsens_2 rdf:type saref4agri:Thermometer ;
+	ssn-system:hasSystemCapability ex:normalThermSensCond;
+	sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
+	rdfs:label "Temperature Sensor 2";
+	geo:hasGeometry ex:Point3.
+
+ex:ThermSensCond_2 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
+  rdfs:comment "The capabilities of the temperature sensor in normal temperature and humidity conditions." ;
+  ssn-system:inCondition ex:NormalTemperatureCondition , ex:NormalHumidityCondition ;
+  ssn-system:hasSystemProperty ex:TemperatureSensorPrecision , ex:TemperatureSensorAccuracy , ex:TemperatureSensorSensitivity  , ex:TemperatureSensorFrequency , ex:TemperatureSensorSensingRadius_2 .
+
+ex:TemperatureSensorSensingRadius_2 a ssn:Property , ssn-system:SpatialCoverage;
+  rdfs:comment: "Spatial coverage refers to a geographical area where data was collected, a place which is the subject of a collection, or a location which is the focus of an activity.";
+  geo:hasGeometry ex:SpatRadius_2 .
+
+ex:SpatRadius_2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON((8.53928347452364 47.374803233950544,8.535378178197956 47.372623519807966,8.540442188818073 47.36986241922328,8.541600903112506 47.372420075224454,8.541557987768268 47.37529728996431,8.53928347452364 47.374803233950544))"^^geo:wktLiteral ;
+  rdf:type geo:Polygon .
+
+ex:Point2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.539111813146686 47.37305946984413)"^^geo:wktLiteral ;
+	rdf:type geo:Point .
+
+
+# PLUVIOMETER 1
+
+ex:pluviometer_1 rdf:type saref4agri:Pluviometer;
+	sosa:hasFeatureOfInterest irrig:featureOfInterest_rain;
+	ssn-system:hasSystemCapability ex:NormalPluviometerCap_1;
+	geo:hasGeometry ex:Point4;
+	rdfs:label "Pluviometer 1".
+
+ex:NormalPluviometerCap_1 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
+  rdfs:comment "The capabilities of an pluviometer in normal conditions." ;
+  ssn-system:hasSystemProperty ex:PluviometerSensingRadius_1 .
+
+ex:PluviometerSensingRadius_1 a ssn:Property , ssn-system:SpatialCoverage;
+  rdfs:comment: "Spatial coverage refers to a geographical area where data was collected, a place which is the subject of a collection, or a location which is the focus of an activity.";
+  geo:hasGeometry ex:SpatRadius_3 .
+
+ex:SpatRadius_3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON((8.500144680578327 47.38731305036476,8.585632046300983 47.38731305036476,8.585632046300983 47.35778453845758,8.500144680578327 47.35778453845758,8.500144680578327 47.38731305036476))"^^geo:wktLiteral ;
+  rdf:type geo:Polygon .
+
+ex:Point3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.534305294591999 47.382199059040225)"^^geo:wktLiteral ;
+	rdf:type geo:Point .
+
+
+
+# REST
+
+ex:tensiometer_1 rdf:type saref4agri:Tensiometer;
+	sosa:hasFeatureOfInterest irrig:featureOfInterest_rootZone;
+	rdfs:label "Tensiometer 1".
+
+
+ex:phytl_1 rdf:type ex:PhytlSign ;
+    sosa:hasFeatureOfInterest ex:Oak_0;
+	rdfs:label "PhytlSigns_1";
+	ex:hasThingDescription <urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949>.
+
+ex:phytl_2 rdf:type ex:PhytlSign ;
+    sosa:hasFeatureOfInterest ex:plat_3;
+	ex:hasThingDescription <urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949>;
+	rdfs:label "PhytlSigns_2".
+
+ex:phytl_3 rdf:type ex:PhytlSign ;
+	sosa:hasFeatureOfInterest ex:prun_0;
+	ex:hasThingDescription <urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949>;
+    sosa:observes ex:plat_2;
+	rdfs:label "PhytlSigns_3".
+
+ex:irrigation_0 rdf:type sosa:Actuator ;
+    sosa:hasFeatureOfInterest ex:Oak_0;
+	rdfs:label "Water Irrigation x2039".
+
+ex:irrigation_1 rdf:type sosa:Actuator ;
+    sosa:hasFeatureOfInterest ex:prun_0;
+	rdfs:label "Water Irrigation x2039".
+
+ex:irrigation_2 rdf:type sosa:Actuator ;
+	sosa:hasFeatureOfInterest ex:plat_2;
+	rdfs:label "Water Irrigation h33".
+
+ex:irrigation_3 rdf:type sosa:Actuator ;
+    sosa:hasFeatureOfInterest ex:plat_3;
+	rdfs:label "Water Irrigation g620".

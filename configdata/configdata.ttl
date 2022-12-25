@@ -1,0 +1,6 @@
+<urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949> config:hostedOn config:localmongo.
+
+config:localmongo rdf:type config:MongoEndpoint;
+	config:urlEndpoint "http://localhost:3001/api/td/" ;
+	config:databaseName "tddatabase";
+	config:collectionName "tdcollection".

@@ -23,7 +23,7 @@ ex:Park_0 geo:hasGeometry ex:Polygon2 .
 
 ex:Park_1 geo:hasGeometry ex:Polygon3 .	
 
-ex:TempSens_0 geo:hasGeometry ex:Point8.
+
 
 ex:TempSens_1 geo:hasGeometry ex:Point9.
 
@@ -47,8 +47,7 @@ ex:Point1 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.227
 ex:Point2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.23356296433821 6.1443084609811205)"^^geo:wktLiteral ;
 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
 
-ex:Point3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.22275104402075 6.1506593227386475)"^^geo:wktLiteral ;
-	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
 
 ex:Point4 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.22085819351427 6.152890920639038)"^^geo:wktLiteral ;
 	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
