@@ -53,7 +53,7 @@ def bindPrefixes(g):
     g.bind("ex",EX)
     g.bind('skos',SKOS)
     g.bind('xsd',XSD)
-    g.bind('irrig',Tree)
+    g.bind('irrig',IRRIG)
 
 
 def main():
@@ -69,7 +69,7 @@ def main():
         for feature in features:
             objId = feature["properties"]["objid"]
             subject = URIRef(f'{EX}tree_{objId}')
-            g.add((subject,RDF.type,EX.Tree))
+            g.add((subject,RDF.type,IRRIG.Tree))
             addGeometry(subject,feature,objId,g)
             addFamilyInformation(subject,feature,objId,g)
         outpath = f'./baumkataster.ttl'

@@ -6,13 +6,16 @@
 @prefix config: <http://twin-example/config#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix saref4agri: <https://w3id.org/def/saref4agri>.
+@prefix saref: <https://saref.etsi.org/core/> .
 @prefix irrig: <http://www.w3id.org/def/irrig#>.
 @prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/>.
+@prefix qudt-1-1: <http://qudt.org/1.1/schema/qudt#> .
+@prefix qudt-unit-1-1: <http://qudt.org/1.1/vocab/unit#> .
 
-ex:tempsens_0 rdf:type saref4agri:Thermometer ;
+ex:tempsens_0 rdf:type saref4agri:Thermometer , saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalThermSensCond;
-	sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
 	rdfs:label "Temperature Sensor 0";
 	geo:hasGeometry ex:Point0.
 
@@ -67,9 +70,8 @@ ex:NormalHumidityCondition a ssn-system:Condition , schema:PropertyValue ;
 
 # TEMPSENS 1
 
-ex:tempsens_1 rdf:type saref4agri:Thermometer ;
+ex:tempsens_1 rdf:type saref4agri:Thermometer  , saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalThermSensCond;
-	sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
 	rdfs:label "Temperature Sensor 1";
 	geo:hasGeometry ex:Point2.
 
@@ -91,9 +93,8 @@ ex:Point2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.5391
 
 #TEMPSENSOR 2
 
-ex:tempsens_2 rdf:type saref4agri:Thermometer ;
+ex:tempsens_2 rdf:type saref4agri:Thermometer  , saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalThermSensCond;
-	sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
 	rdfs:label "Temperature Sensor 2";
 	geo:hasGeometry ex:Point3.
 
@@ -115,8 +116,7 @@ ex:Point3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.5411
 
 # PLUVIOMETER 1
 
-ex:pluviometer_1 rdf:type saref4agri:Pluviometer;
-	sosa:hasFeatureOfInterest irrig:featureOfInterest_rain;
+ex:pluviometer_1 rdf:type saref4agri:Pluviometer  , saref:Sensor ;
 	ssn-system:hasSystemCapability ex:NormalPluviometerCap_1;
 	geo:hasGeometry ex:Point4;
 	rdfs:label "Pluviometer 1".
@@ -135,47 +135,45 @@ ex:SpatRadius_3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGO
 ex:Point3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.534305294591999 47.382199059040225)"^^geo:wktLiteral ;
 	rdf:type geo:Point .
 
+# PHYTLSIGNS 
+ex:phytlsigns_0 rdf:type saref:Sensor ;
+	ssn-system:hasSystemCapability ex:normalPhytlCap;
+	rdfs:label "PhytlSigns 0".
 
 # PHYTLSIGNS 1
 ex:phytlsigns_1 rdf:type saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalPhytlCap;
-	sosa:hasFeatureOfInterest ex:tree_186903;
 	rdfs:label "PhytlSigns 1".
 
 # PHYTLSIGNS 2
 ex:phytlsigns_2 rdf:type saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalPhytlCap;
-	sosa:hasFeatureOfInterest ex:tree_186930;
 	rdfs:label "PhytlSigns 2".
 
 # PHYTLSIGNS 3
 ex:phytlsigns_3 rdf:type saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalPhytlCap;
-	sosa:hasFeatureOfInterest ex:tree_186993;
 	rdfs:label "PhytlSigns 3".
 
 # PHYTLSIGNS 4
 ex:phytlsigns_4 rdf:type saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalPhytlCap;
-	sosa:hasFeatureOfInterest ex:tree_187074;
 	rdfs:label "PhytlSigns 4".
 
 # PHYTLSIGNS 5
 ex:phytlsigns_5 rdf:type saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalPhytlCap;
-	sosa:hasFeatureOfInterest ex:Oak_0;
 	rdfs:label "PhytlSigns 5".
 
 # PHYTLSIGNS 6
 ex:phytlsigns_6 rdf:type saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalPhytlCap;
-	sosa:hasFeatureOfInterest ex:Oak_0;
 	rdfs:label "PhytlSigns 6".
 
 
 # REST
 
-ex:tensiometer_1 rdf:type saref4agri:Tensiometer;
+ex:tensiometer_1 rdf:type saref4agri:Tensiometer , saref:Sensor ;
 	sosa:hasFeatureOfInterest irrig:featureOfInterest_rootZone;
 	rdfs:label "Tensiometer 1".
 

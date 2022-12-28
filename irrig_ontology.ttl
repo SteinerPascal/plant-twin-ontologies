@@ -12,6 +12,7 @@
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix terms: <http://purl.org/dc/terms/> .
 @prefix schema: <http://schema.org/> .
+@prefix saref:<https://saref.etsi.org/core/> .
 @base <http://www.w3id.org/def/irrig> .
 
 <http://www.w3id.org/def/irrig> rdf:type owl:Ontology ;
@@ -150,22 +151,22 @@ caso:lesserThan rdf:type owl:ObjectProperty .
 #    Data properties
 #################################################################
 
-###  https://w3id.org/saref#hasManufacturer
-<https://w3id.org/saref#hasManufacturer> rdf:type owl:DatatypeProperty ;
+###  saref:hasManufacturer
+saref:hasManufacturer rdf:type owl:DatatypeProperty ;
                                          rdfs:range xsd:string ;
                                          rdfs:comment "A relationship identifying the manufacturer of an entity (e.g., device)" ;
                                          rdfs:label "has manufacturer" .
 
 
-###  https://w3id.org/saref#hasModel
-<https://w3id.org/saref#hasModel> rdf:type owl:DatatypeProperty ;
+###  saref:hasModel
+saref:hasModel rdf:type owl:DatatypeProperty ;
                                   rdfs:range xsd:string ;
                                   rdfs:comment "A relationship identifying the model of an entity (e.g., device)" ;
                                   rdfs:label "has model" .
 
 
-###  https://w3id.org/saref#hasName
-<https://w3id.org/saref#hasName> rdf:type owl:DatatypeProperty ;
+###  saref:hasName
+saref:hasName rdf:type owl:DatatypeProperty ;
                                  rdfs:range xsd:string ;
                                  rdfs:comment "A relationship providing the name of an entity (e.g., device)" ;
                                  rdfs:label "has name" .
@@ -177,7 +178,7 @@ caso:lesserThan rdf:type owl:ObjectProperty .
 
 ###  http://twin-example/geneva#PhytlSign
 <http://twin-example/geneva#PhytlSign> rdf:type owl:Class ;
-                                       rdfs:subClassOf <https://w3id.org/saref#Sensor> .
+                                       rdfs:subClassOf saref:Sensor .
 
 
 ###  http://www.w3.org/ns/sosa/ActuatableProperty
@@ -487,7 +488,7 @@ caso:State rdf:type owl:Class .
 
 ###  http://www.w3id.org/def/irrig#RuleEngine
 :RuleEngine rdf:type owl:Class ;
-            rdfs:subClassOf <https://w3id.org/saref#Sensor> ,
+            rdfs:subClassOf saref:Sensor ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty <http://www.w3.org/ns/sosa/madeObservation> ;
                               owl:allValuesFrom caso:Deduction
@@ -641,15 +642,15 @@ caso:State rdf:type owl:Class .
 
 
 ###  https://w3id.org/def/saref4agri#Pluviometer
-<https://w3id.org/def/saref4agri#Pluviometer> rdf:type owl:Class ;
-                                              rdfs:subClassOf <https://w3id.org/saref#Sensor> ;
+<https://w3id.org/def/4agri#Pluviometer> rdf:type owl:Class ;
+                                              rdfs:subClassOf saref:Sensor ;
                                               rdfs:comment "A sensor that measures the rain fall."@en ;
                                               rdfs:label "Pluviometer"@en .
 
 
 ###  https://w3id.org/def/saref4agri#SoilTensiometer
 <https://w3id.org/def/saref4agri#SoilTensiometer> rdf:type owl:Class ;
-                                                  rdfs:subClassOf <https://w3id.org/saref#Sensor> ,
+                                                  rdfs:subClassOf saref:Sensor ,
                                                                   [ rdf:type owl:Restriction ;
                                                                     owl:onProperty <http://www.w3.org/ns/sosa/madeObservation> ;
                                                                     owl:someValuesFrom :RootZoneMoistureObservation
@@ -660,7 +661,7 @@ caso:State rdf:type owl:Class .
 
 ###  https://w3id.org/def/saref4agri#Thermometer
 <https://w3id.org/def/saref4agri#Thermometer> rdf:type owl:Class ;
-                                              rdfs:subClassOf <https://w3id.org/saref#Sensor> ,
+                                              rdfs:subClassOf saref:Sensor ,
                                                               [ rdf:type owl:Restriction ;
                                                                 owl:onProperty <http://www.w3.org/ns/sosa/madeObservation> ;
                                                                 owl:someValuesFrom :TemperatureObservation
@@ -675,22 +676,22 @@ caso:State rdf:type owl:Class .
 
 ###  https://w3id.org/def/saref4agri#WateringValve
 <https://w3id.org/def/saref4agri#WateringValve> rdf:type owl:Class ;
-                                                rdfs:subClassOf <https://w3id.org/saref#Actuator> ;
+                                                rdfs:subClassOf saref:Actuator ;
                                                 rdfs:comment "An actuator that open the water valve."@en ;
                                                 rdfs:label "Watering Valve"@en .
 
 
-###  https://w3id.org/saref#ActuatingFunction
-<https://w3id.org/saref#ActuatingFunction> rdf:type owl:Class ;
-                                           rdfs:subClassOf <https://w3id.org/saref#Function> .
+###  saref:ActuatingFunction
+saref:ActuatingFunction rdf:type owl:Class ;
+                                           rdfs:subClassOf saref:Function .
 
 
-###  https://w3id.org/saref#Actuator
-<https://w3id.org/saref#Actuator> rdf:type owl:Class .
+###  saref:Actuator
+saref:Actuator rdf:type owl:Class .
 
 
-###  https://w3id.org/saref#Sensor
-<https://w3id.org/saref#Sensor> rdf:type owl:Class .
+###  saref:Sensor
+saref:Sensor rdf:type owl:Class .
 
 
 #################################################################
@@ -863,7 +864,7 @@ In the example of Arvalis' dataset, the value of boundary rootzone tension very 
 
 ###  http://www.w3id.org/def/irrig#irrigation_function
 :irrigation_function rdf:type owl:NamedIndividual ,
-                              <https://w3id.org/saref#ActuatingFunction> ;
+                              saref:ActuatingFunction ;
                      rdfs:comment "Irrigation Function: This functions aim is to increase the Root Zone Moisture Level. This function can only increase the Root Zone Moisture level." ;
                      rdfs:label "Irrigation Function" .
 

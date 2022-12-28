@@ -1,0 +1,80 @@
+@prefix ex: <http://twin-example/zurich#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix irrig: <http://www.w3id.org/def/irrig#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:tree_186903 a irrig:Tree ;
+    ex:category "Strassenbaum"^^xsd:string ;
+    ex:hasDiameter 8 ;
+    ex:neighbourhood "Werd"^^xsd:string ;
+    ex:poiId "AU-150"^^xsd:string ;
+    ex:street "Morgartenstr."^^xsd:string ;
+    geo:hasGeometry ex:Point_186903 ;
+    skos:altLabel "Baumhasel",
+        "colurna" ;
+    skos:broader [ skos:prefLabel "Corylus" ] ;
+    skos:prefLabel "Corylus colurna" .
+
+
+
+ex:tree_186930 a irrig:Tree ;
+    ex:category "Strassenbaum"^^xsd:string ;
+    ex:hasDiameter 10 ;
+    ex:neighbourhood "Hochschulen"^^xsd:string ;
+    ex:poiId "AA-1373"^^xsd:string ;
+    ex:street "Schanzengasse"^^xsd:string ;
+    geo:hasGeometry ex:Point_186930 ;
+    skos:altLabel "Gemeine Hain- oder Weissbuche",
+        "betulus" ;
+    skos:broader [ skos:prefLabel "Carpinus" ] ;
+    skos:prefLabel "Carpinus betulus" .
+
+
+ex:tree_186993 a irrig:Tree ;
+    ex:category "Strassenbaum"^^xsd:string ;
+    ex:hasDiameter 3 ;
+    ex:neighbourhood "Alt-Wiedikon"^^xsd:string ;
+    ex:poiId "WD-10995"^^xsd:string ;
+    ex:street "Allmendstr."^^xsd:string ;
+    geo:hasGeometry ex:Point_186993 ;
+    skos:altLabel "Südlicher Zürgelbaum",
+        "australis" ;
+    skos:broader [ skos:prefLabel "Celtis" ] ;
+    skos:prefLabel "Celtis australis" .
+
+ex:tree_187074 a irrig:Tree ;
+    ex:category "Strassenbaum"^^xsd:string ;
+    ex:hasDiameter 11 ;
+    ex:neighbourhood "Unterstrass"^^xsd:string ;
+    ex:poiId "UN-1168"^^xsd:string ;
+    ex:street "Kornhausstr."^^xsd:string ;
+    geo:hasGeometry ex:Point_187074 ;
+    skos:altLabel "Japanischer Schnurbaum",
+        "japonica" ;
+    skos:broader [ skos:prefLabel "Sophora" ] ;
+    skos:prefLabel "Sophora japonica" .
+
+ex:tree_71460 a irrig:Tree ;
+    ex:category "Parkbaum"^^xsd:string ;
+    ex:hasDiameter 8 ;
+    ex:neighbourhood "Alt-Wiedikon"^^xsd:string ;
+    ex:poiId "WD-4314"^^xsd:string ;
+    ex:street "Saalsporthalle, Giesshübelstr. 41"^^xsd:string ;
+    geo:hasGeometry ex:Point_71460 ;
+    skos:altLabel "Persische Eiche",
+        "macranthera" ;
+    skos:broader [ skos:prefLabel "Quercus" ] ;
+    skos:prefLabel "Quercus macranthera" .
+
+ex:tree_29838 a irrig:Tree ;
+    ex:category "Parkbaum"^^xsd:string ;
+    ex:hasDiameter 13 ;
+    ex:neighbourhood "Weinegg"^^xsd:string ;
+    ex:poiId "RI-5487"^^xsd:string ;
+    ex:street "Neumünsterpark, Neumünsterstr."^^xsd:string ;
+    geo:hasGeometry ex:Point_29838 ;
+    skos:altLabel "Gemeine Rosskastanie",
+        "hippocastanum" ;
+    skos:broader [ skos:prefLabel "Aesculus" ] ;
+    skos:prefLabel "Aesculus hippocastanum" .
