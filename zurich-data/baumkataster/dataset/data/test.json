@@ -1,0 +1,56 @@
+{
+	"type" : "FeatureCollection",
+	"name" : "gsz.baumkataster_baumstandorte",
+	"features" : [
+        {
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 8.5339812471, 47.3451051089 ]
+			},
+			"properties" : {
+				"objid" : "3897",
+				"poi_id" : "WO-263",
+				"kategorie" : "Parkbaum",
+				"quartier" : "Wollishofen",
+				"strasse" : "Seestr.",
+				"baumgattunglat" : "Tilia",
+				"baumartlat" : "x europaea",
+				"baumnamelat" : "Tilia x europaea 'Euchlora'",
+				"baumnamedeu" : "Krim-Linde (cordata x platyphyllos)",
+				"baumnummer" : "WO-263",
+				"status" : "Grünanlage",
+				"baumtyp" : "4",
+				"baumtyptext" : "Höhe:10-20m, Breite:<10m",
+				"pflanzjahr" : "2002",
+				"genauigkeit" : "Eingemessen",
+				"kronendurchmesser" : 8
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 8.5340005434, 47.3451354106 ]
+			},
+			"properties" : {
+				"objid" : "3900",
+				"poi_id" : "WO-262",
+				"kategorie" : "Parkbaum",
+				"quartier" : "Wollishofen",
+				"strasse" : "Seestr.",
+				"baumgattunglat" : "Tilia",
+				"baumartlat" : "x europaea",
+				"baumnamelat" : "Tilia x europaea 'Euchlora'",
+				"baumnamedeu" : "Krim-Linde (cordata x platyphyllos)",
+				"baumnummer" : "WO-262",
+				"status" : "Grünanlage",
+				"baumtyp" : "4",
+				"baumtyptext" : "Höhe:10-20m, Breite:<10m",
+				"pflanzjahr" : "2002",
+				"genauigkeit" : "Eingemessen",
+				"kronendurchmesser" : 8
+			}
+		}
+    ]
+}
