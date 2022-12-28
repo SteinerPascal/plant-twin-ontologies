@@ -1,0 +1,106 @@
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://twin-example/geneva#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix agro: <http://aims.fao.org/aos/agrontology/> .
+@prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix wd: <http://www.wikidata.org/entity/>.
+@prefix irrig: <http://www.w3id.org/def/irrig#>.
+
+
+# OAK 0
+ex:Oak_0 rdf:type irrig:Tree; 
+	ex:hasAgrovocTerm agrovoc:c_6409  ;
+	ex:hasWikidataEntry wd:Q12004;
+	rdfs:comment "This tree has been taken care of by Edward";
+	rdfs:label "Oak tree" ;
+	geo:hasGeometry ex:Point2 .
+
+
+ex:Point2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.22774431495321 6.132807148725261)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+#Prun 0
+
+ex:prun_0 rdf:type irrig:Tree;
+	ex:hasAgrovocTerm agrovoc:c_6281 ;
+	ex:hasWikidataEntry wd:Q165137;
+	rdfs:label "Prunus avium" ;
+	rdfs:comment "This tree is not doing well. We probably need to replace it.";
+	geo:hasGeometry ex:Point1.
+
+ex:Point1 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.23356296433821 6.1443084609811205)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+#Plat 0
+
+ex:plat_0 rdf:type irrig:Tree;
+	ex:hasAgrovocTerm agrovoc:c_34744 ;
+	ex:hasWikidataEntry wd:Q157739;
+	rdfs:label "Platanus occidentalis" ;
+	geo:hasGeometry ex:Point3.
+
+ex:Point3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.23356296433821 6.1443084609811205)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+# Plat 1
+
+ex:plat_1 rdf:type irrig:Tree;
+	ex:hasAgrovocTerm agrovoc:c_34744 ;
+	ex:hasWikidataEntry wd:Q157739;
+	rdfs:comment "This tree had a pathogen and must be checked upon every week.";
+	rdfs:label "Platanus occidentalis" ;
+	geo:hasGeometry ex:Point4.
+
+ex:Point4 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.23356296433821 6.1443084609811205)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+# Plat 2
+
+ex:plat_2 rdf:type irrig:Tree; 
+	ex:hasAgrovocTerm agrovoc:c_34744 ;
+	ex:hasWikidataEntry wd:Q157739;
+	rdfs:comment "This tree has been taken care of by Edward";
+	rdfs:label "Platanus occidentalis" ;
+	geo:hasGeometry ex:Point5.
+
+ex:Point5 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.23356296433821 6.1443084609811205)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .	
+
+#Plat 3
+
+ex:plat_3 rdf:type irrig:Tree;
+	ex:hasAgrovocTerm agrovoc:c_34744 ;
+	ex:hasWikidataEntry wd:Q157739;
+	rdfs:label "Platanus occidentalis" ;
+	geo:hasGeometry ex:Point6.
+
+ex:Point6 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Point(46.23356296433821 6.1443084609811205)"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Point .
+
+
+# Park 0
+
+ex:Park_0 rdf:type ex:Space; 
+	ex:hasAgrovocTerm agrovoc:c_fdfbb37f ;
+	ex:hasWikidataEntry wd:Q3364177;
+	rdfs:comment "New waste management for that park is planned";
+	rdfs:label "Parc de l'Ariana" ;
+	geo:hasGeometry ex:Polygon0.
+
+ex:Polygon1 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Polygon((46.23394983682874 6.127622944624176, 46.22299490344514 6.126635891706695,46.224895102811374 6.149638516218414,46.23475133147803 6.147063595564117,46.23394983682874 6.127622944624176))"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Polygon .
+
+
+# Park1
+
+ex:Park_1 rdf:type ex:Space;
+	ex:hasAgrovocTerm agrovoc:c_fdfbb37f ;
+	ex:hasWikidataEntry wd:Q3363921;
+	rdfs:comment "The Parc is closed from September till Januaray due to sanitary issues";
+	rdfs:label "Parc Trembley" ;
+	geo:hasGeometry ex:Polygon1.
+
+ex:Polygon1 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> Polygon((46.23394983682874 6.127622944624176, 46.22299490344514 6.126635891706695,46.224895102811374 6.149638516218414,46.23475133147803 6.147063595564117,46.23394983682874 6.127622944624176))"^^geo:wktLiteral ;
+	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type> geo:Polygon .

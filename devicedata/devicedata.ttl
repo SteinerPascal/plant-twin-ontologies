@@ -71,7 +71,7 @@ ex:tempsens_1 rdf:type saref4agri:Thermometer ;
 	ssn-system:hasSystemCapability ex:normalThermSensCond;
 	sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
 	rdfs:label "Temperature Sensor 1";
-	geo:hasGeometry ex:Point1.
+	geo:hasGeometry ex:Point2.
 
 ex:ThermSensCond_1 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
   rdfs:comment "The capabilities of the temperature sensor in normal temperature and humidity conditions." ;
@@ -85,8 +85,9 @@ ex:TemperatureSensorSensingRadius_1 a ssn:Property , ssn-system:SpatialCoverage;
 ex:SpatRadius_1 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON((8.53250285013399 47.37119939124185,8.538038929540729 47.36843821609751,8.539540966589069 47.37128658389188,8.53353281839571 47.373001343380864,8.53250285013399 47.37119939124185))"^^geo:wktLiteral ;
   rdf:type geo:Polygon .
 
-ex:Point1 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.535549839574909 47.371025005509296)"^^geo:wktLiteral ;
+ex:Point2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.539111813146686 47.37305946984413)"^^geo:wktLiteral ;
 	rdf:type geo:Point .
+
 
 #TEMPSENSOR 2
 
@@ -108,7 +109,7 @@ ex:TemperatureSensorSensingRadius_2 a ssn:Property , ssn-system:SpatialCoverage;
 ex:SpatRadius_2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON((8.53928347452364 47.374803233950544,8.535378178197956 47.372623519807966,8.540442188818073 47.36986241922328,8.541600903112506 47.372420075224454,8.541557987768268 47.37529728996431,8.53928347452364 47.374803233950544))"^^geo:wktLiteral ;
   rdf:type geo:Polygon .
 
-ex:Point2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.539111813146686 47.37305946984413)"^^geo:wktLiteral ;
+ex:Point3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.541180444264729 47.373779132123836)"^^geo:wktLiteral ;
 	rdf:type geo:Point .
 
 
@@ -135,6 +136,42 @@ ex:Point3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.5343
 	rdf:type geo:Point .
 
 
+# PHYTLSIGNS 1
+ex:phytlsigns_1 rdf:type saref:Sensor ;
+	ssn-system:hasSystemCapability ex:normalPhytlCap;
+	sosa:hasFeatureOfInterest ex:tree_186903;
+	rdfs:label "PhytlSigns 1".
+
+# PHYTLSIGNS 2
+ex:phytlsigns_2 rdf:type saref:Sensor ;
+	ssn-system:hasSystemCapability ex:normalPhytlCap;
+	sosa:hasFeatureOfInterest ex:tree_186930;
+	rdfs:label "PhytlSigns 2".
+
+# PHYTLSIGNS 3
+ex:phytlsigns_3 rdf:type saref:Sensor ;
+	ssn-system:hasSystemCapability ex:normalPhytlCap;
+	sosa:hasFeatureOfInterest ex:tree_186993;
+	rdfs:label "PhytlSigns 3".
+
+# PHYTLSIGNS 4
+ex:phytlsigns_4 rdf:type saref:Sensor ;
+	ssn-system:hasSystemCapability ex:normalPhytlCap;
+	sosa:hasFeatureOfInterest ex:tree_187074;
+	rdfs:label "PhytlSigns 4".
+
+# PHYTLSIGNS 5
+ex:phytlsigns_5 rdf:type saref:Sensor ;
+	ssn-system:hasSystemCapability ex:normalPhytlCap;
+	sosa:hasFeatureOfInterest ex:Oak_0;
+	rdfs:label "PhytlSigns 5".
+
+# PHYTLSIGNS 6
+ex:phytlsigns_6 rdf:type saref:Sensor ;
+	ssn-system:hasSystemCapability ex:normalPhytlCap;
+	sosa:hasFeatureOfInterest ex:Oak_0;
+	rdfs:label "PhytlSigns 6".
+
 
 # REST
 
@@ -142,35 +179,18 @@ ex:tensiometer_1 rdf:type saref4agri:Tensiometer;
 	sosa:hasFeatureOfInterest irrig:featureOfInterest_rootZone;
 	rdfs:label "Tensiometer 1".
 
-
-ex:phytl_1 rdf:type ex:PhytlSign ;
-    sosa:hasFeatureOfInterest ex:Oak_0;
-	rdfs:label "PhytlSigns_1";
-	ex:hasThingDescription <urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949>.
-
-ex:phytl_2 rdf:type ex:PhytlSign ;
-    sosa:hasFeatureOfInterest ex:plat_3;
-	ex:hasThingDescription <urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949>;
-	rdfs:label "PhytlSigns_2".
-
-ex:phytl_3 rdf:type ex:PhytlSign ;
-	sosa:hasFeatureOfInterest ex:prun_0;
-	ex:hasThingDescription <urn:uuid:cf6464b1-89fe-40e1-a4d2-951fd6759949>;
-    sosa:observes ex:plat_2;
-	rdfs:label "PhytlSigns_3".
-
 ex:irrigation_0 rdf:type sosa:Actuator ;
-    sosa:hasFeatureOfInterest ex:Oak_0;
+    sosa:hasFeatureOfInterest ex:tree_186903;
 	rdfs:label "Water Irrigation x2039".
 
 ex:irrigation_1 rdf:type sosa:Actuator ;
-    sosa:hasFeatureOfInterest ex:prun_0;
+    sosa:hasFeatureOfInterest ex:tree_186930;
 	rdfs:label "Water Irrigation x2039".
 
 ex:irrigation_2 rdf:type sosa:Actuator ;
-	sosa:hasFeatureOfInterest ex:plat_2;
+	sosa:hasFeatureOfInterest ex:tree_186993;
 	rdfs:label "Water Irrigation h33".
 
 ex:irrigation_3 rdf:type sosa:Actuator ;
-    sosa:hasFeatureOfInterest ex:plat_3;
+    sosa:hasFeatureOfInterest ex:tree_187074;
 	rdfs:label "Water Irrigation g620".
