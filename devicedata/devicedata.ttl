@@ -11,8 +11,7 @@
 @prefix ssn-system: <http://www.w3.org/ns/ssn/systems/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix ssn: <http://www.w3.org/ns/ssn/>.
-@prefix qudt-1-1: <http://qudt.org/1.1/schema/qudt#> .
-@prefix qudt-unit-1-1: <http://qudt.org/1.1/vocab/unit#> .
+@prefix om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 
 ex:tempsens_0 rdf:type saref4agri:Thermometer , saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalThermSensCond;
@@ -38,35 +37,35 @@ ex:ThermSensCond_0 rdf:type ssn:Property , ssn-system:SystemCapability , schema:
   rdfs:comment "The accuracy of the temperature sensor is +-0.5 °C in normal temperature and humidity conditions."@en ;
   schema:minValue -0.5 ;
   schema:maxValue 0.5 ;
-  schema:unitCode qudt-unit-1-1:DegreeCelsius .
+  schema:unitCode om-2:degreeCelsius .
 
 ex:TemperatureSensorSensitivity a ssn:Property , ssn-system:Sensitivity , ssn-system:Resolution , schema:PropertyValue ;
   rdfs:comment "The sensitivity and resolution of the temperature sensor is 0.1 °C in normal temperature and humidity conditions."@en ;
   schema:value 0.1 ;
-  schema:unitCode qudt-unit-1-1:DegreeCelsius .
+  schema:unitCode om-2:degreeCelsius .
 
 ex:TemperatureSensorPrecision a ssn:Property , ssn-system:Precision , schema:PropertyValue ;
   rdfs:comment "The precision (= repeatability) of the temperature sensor is +-0.2 °C in normal temperature and humidity conditions."@en ;
   schema:minValue 0.2 ;
   schema:maxValue 0.2 ;
-  schema:unitCode qudt-unit-1-1:DegreeCelsius .
+  schema:unitCode om-2:degreeCelsius .
 
 ex:TemperatureSensorFrequency a ssn:Property , ssn-system:Frequency , schema:PropertyValue ;
   rdfs:comment "The smallest possible time between one observation and the next is 2 s on average."@en ;
   schema:value 2 ;
-  schema:unitCode qudt-unit-1-1:Second .
+  schema:unitCode om-2:Second .
 
 ex:NormalOperatingCondition a ssn-system:Condition , schema:PropertyValue ;
   rdfs:comment "A temperature range of -40 to 80 Celsius."@en ;
   schema:minValue -40.0 ;
   schema:maxValue 80.0 ;
-  schema:unitCode qudt-unit-1-1:DegreeCelsius .
+  schema:unitCode om-2:degreeCelsius .
 
 ex:NormalHumidityCondition a ssn-system:Condition , schema:PropertyValue ;
   rdfs:comment "A relative humidity range of 5 to 85 %."@en ;
   schema:minValue 5.0 ;
   schema:maxValue 85.0 ;
-  schema:unitCode qudt-unit-1-1:Percent .
+  schema:unitCode om-2:percent .
 
 # TEMPSENS 1
 
@@ -134,6 +133,12 @@ ex:SpatRadius_3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGO
 
 ex:Point3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.534305294591999 47.382199059040225)"^^geo:wktLiteral ;
 	rdf:type geo:Point .
+
+# Moisture sensor 1
+ex:moisture_sensor_1 rdf:type saref:Sensor ;
+  ssn-system:hasSystemCapability ex:normalMoistCap;
+  geo:hasGeometry ex:Point4;
+  rdfs:label "Moisture sensor 1" .
 
 # PHYTLSIGNS 
 ex:phytlsigns_0 rdf:type saref:Sensor ;

@@ -33,7 +33,7 @@ ex:ded_tempsens_1 rdf:type irrig:TemperatureDeduction;
     prov:wasInformedBy ex:obs_tempsens_1;
     caso:hasResultState irrig:state_rain_quantity_moderate.
 
-ex:obs_tempsens_2 rdf:type iriig:TemperatureObservation ;
+ex:obs_tempsens_2 rdf:type irrig:TemperatureObservation ;
     sosa:madeBySensor ex:tempsens_2;
     sosa:observedProperty irrig:observableProperty_air_temperature;
     sosa:hasFeatureOfInterest irrig:featureOfInterest_air;

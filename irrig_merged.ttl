@@ -1,0 +1,1596 @@
+@prefix : <http://www.w3id.org/def/irrig#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix ssn: <http://www.w3.org/ns/ssn/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix caso: <http://www.w3id.org/def/caso#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix saref: <https://saref.etsi.org/core/> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@base <http://www.irrig/master/thesis/2022> .
+
+<http://www.irrig/master/thesis/2022> rdf:type owl:Ontology ;
+                                       dc:description "CASO (Context Aware System Observation) is an ontology for context aware system and observation services. Its goal is to describe all the processing of the context."@en ,
+                                                      """IRRIG is an ontology specified for modeling data from a decision support system (DSS) experimented in UR1471 TSCF - Research Unit Technologies and Information Systems for Agrosystems, INRAE, center Clermont Ferrand. The DSS automatize the IRRINOV©, a manual irrigation method build by Arvalis and their partners. 
+The website of TSCF: https://www6.ara.inrae.fr/tscf/"""@en ;
+                                       dc:issued "2019-11-26T00:00:00+01:00"^^xsd:dateTime ;
+                                       dc:modified "2021-03-01T00:00:00+01:00"^^xsd:dateTime ;
+                                       dc:publisher <https://www6.clermont.inrae.fr/tscf> ;
+                                       dc:title "Context Aware System Observation Ontology"@en ,
+                                                "Irrigation ontology for experimentation in TSCF"@en ;
+                                       terms:contributor <https://orcid.org/0000-0002-0421-452X> ,
+                                                         <https://orcid.org/0000-0002-7011-4535> ;
+                                       terms:creator <https://orcid.org/0000-0002-3076-5499> ,
+                                                     <https://orcid.org/0000-0002-3517-0945> ,
+                                                     <https://orcid.org/0000-0003-3587-0367> ;
+                                       terms:license <http://purl.org/NET/rdflicense/cc-by4.0> ;
+                                       vann:preferredNamespacePrefix "caso" ,
+                                                                     "irrig" ;
+                                       vann:preferredNamespaceUri "http://www.w3id.org/def/caso"^^xsd:anyURI ,
+                                                                  "http://www.w3id.org/def/irrig#"^^xsd:anyURI ;
+                                       owl:versionInfo "1.2.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/description
+dc:description rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/issued
+dc:issued rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/modified
+dc:modified rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/publisher
+dc:publisher rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+dc:title rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+terms:contributor rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+terms:creator rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+terms:license rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+vann:preferredNamespacePrefix rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+vann:preferredNamespaceUri rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/domainIncludes
+schema:domainIncludes rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/rangeIncludes
+schema:rangeIncludes rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#example
+skos:example rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#note
+skos:note rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#category
+prov:category rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#component
+prov:component rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#inverse
+prov:inverse rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/ns/prov#qualifiedForm
+prov:qualifiedForm rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
+<http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> rdf:type owl:ObjectProperty ;
+                                                                    rdfs:range <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> ;
+                                                                    rdfs:comment "This property links an entity to a om:Unit instance."@en ;
+                                                                    rdfs:label "has unit" .
+
+
+###  http://www.w3.org/ns/prov#used
+prov:used rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf prov:wasInfluencedBy ;
+          rdfs:comment "Usage is the beginning of utilizing an entity by an activity. Before usage, the activity had not begun to utilize this entity and could not have been affected by the entity."@en ;
+          rdfs:label "used" .
+
+
+###  http://www.w3.org/ns/prov#wasDerivedFrom
+prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf prov:wasInfluencedBy ;
+                    rdfs:comment "A derivation is a transformation of an entity into another, an update of an entity resulting in a new one, or the construction of a new entity based on a pre-existing entity."@en ;
+                    rdfs:label "wasDerivedFrom" .
+
+
+###  http://www.w3.org/ns/prov#wasInfluencedBy
+prov:wasInfluencedBy rdf:type owl:ObjectProperty ;
+                     rdfs:comment "Influence is the capacity of an entity, activity, or agent to have an effect on the character, development, or behavior of another by means of usage, start, end, generation, invalidation, communication, derivation, attribution, association, or delegation."@en ;
+                     rdfs:label "was influence by"@en .
+
+
+###  http://www.w3.org/ns/prov#wasInformedBy
+prov:wasInformedBy rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf prov:wasInfluencedBy ;
+                   rdfs:comment "An activity a2 is dependent on or informed by another activity a1, by way of some unspecified entity that is generated by a1 and used by a2."@en ;
+                   rdfs:isDefinedBy <http://www.w3.org/ns/prov-o#> ;
+                   rdfs:label "wasInformedBy" ;
+                   prov:category "starting-point" ;
+                   prov:component "entities-activities" ;
+                   prov:inverse "informed" ;
+                   prov:qualifiedForm prov:Communication ,
+                                      prov:qualifiedCommunication .
+
+
+###  http://www.w3.org/ns/sosa/actsOnProperty
+<http://www.w3.org/ns/sosa/actsOnProperty> rdf:type owl:ObjectProperty ;
+                                           owl:inverseOf <http://www.w3.org/ns/sosa/isActedOnBy> ;
+                                           schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation> ;
+                                           schema:rangeIncludes <http://www.w3.org/ns/sosa/ActuatableProperty> ;
+                                           rdfs:comment "Relation between an Actuation and the property of a FeatureOfInterest it is acting upon."@en ;
+                                           rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                           rdfs:label "acts on property"@en ;
+                                           skos:example "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. "@en .
+
+
+###  http://www.w3.org/ns/sosa/hasFeatureOfInterest
+<http://www.w3.org/ns/sosa/hasFeatureOfInterest> rdf:type owl:ObjectProperty ;
+                                                 owl:inverseOf <http://www.w3.org/ns/sosa/isFeatureOfInterestOf> ;
+                                                 schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation> ,
+                                                                       <http://www.w3.org/ns/sosa/Observation> ,
+                                                                       <http://www.w3.org/ns/sosa/Sampling> ;
+                                                 schema:rangeIncludes <http://www.w3.org/ns/sosa/FeatureOfInterest> ,
+                                                                      <http://www.w3.org/ns/sosa/Sample> ;
+                                                 rdfs:comment "A relation between an Observation and the entity whose quality was observed, or between an Actuation and the entity whose property was modified, or between an act of Sampling and the entity that was sampled."@en ;
+                                                 rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                                 rdfs:label "has feature of interest"@en ;
+                                                 skos:example "For example, in an Observation of the weight of a person, the FeatureOfInterest is the person and the property is its weight."@en .
+
+
+###  http://www.w3.org/ns/sosa/hasResult
+<http://www.w3.org/ns/sosa/hasResult> rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf <http://www.w3.org/ns/sosa/isResultOf> ;
+                                      schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation> ,
+                                                            <http://www.w3.org/ns/sosa/Observation> ,
+                                                            <http://www.w3.org/ns/sosa/Sampling> ;
+                                      schema:rangeIncludes <http://www.w3.org/ns/sosa/Result> ,
+                                                           <http://www.w3.org/ns/sosa/Sample> ;
+                                      rdfs:comment "Relation linking an Observation and a Sensor or Actuator and a Result, which contains a value representing the value associated with the observed Property."@en ,
+                                                   "Relation linking an Observation or Actuation or act of Sampling and a Result or Sample."@en ;
+                                      rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                      rdfs:label "has result"@en .
+
+
+###  http://www.w3.org/ns/sosa/hasSample
+<http://www.w3.org/ns/sosa/hasSample> rdf:type owl:ObjectProperty ;
+                                      owl:inverseOf <http://www.w3.org/ns/sosa/isSampleOf> ;
+                                      rdf:type owl:InverseFunctionalProperty ;
+                                      schema:domainIncludes <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+                                      schema:rangeIncludes <http://www.w3.org/ns/sosa/Sample> ;
+                                      rdfs:comment "Relation between a FeatureOfInterest and the Sample used to represent it."@en ;
+                                      rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                      rdfs:label "has sample"@en .
+
+
+###  http://www.w3.org/ns/sosa/hosts
+<http://www.w3.org/ns/sosa/hosts> rdf:type owl:ObjectProperty ;
+                                  owl:inverseOf <http://www.w3.org/ns/sosa/isHostedBy> ;
+                                  schema:domainIncludes <http://www.w3.org/ns/sosa/Platform> ;
+                                  schema:rangeIncludes <http://www.w3.org/ns/sosa/Actuator> ,
+                                                       <http://www.w3.org/ns/sosa/Platform> ,
+                                                       <http://www.w3.org/ns/sosa/Sampler> ,
+                                                       <http://www.w3.org/ns/sosa/Sensor> ;
+                                  rdfs:comment "Relation between a Platform and a Sensor, Actuator, Sampler, or Platform, hosted or mounted on it."@en ;
+                                  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                  rdfs:label "hosts"@en .
+
+
+###  http://www.w3.org/ns/sosa/isActedOnBy
+<http://www.w3.org/ns/sosa/isActedOnBy> rdf:type owl:ObjectProperty ;
+                                        schema:domainIncludes <http://www.w3.org/ns/sosa/ActuatableProperty> ;
+                                        schema:rangeIncludes <http://www.w3.org/ns/sosa/Actuation> ;
+                                        rdfs:comment "Relation between an ActuatableProperty of a FeatureOfInterest and an Actuation changing its state."@en ;
+                                        rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                        rdfs:label "is acted on by"@en ;
+                                        skos:example "In the activity (Actuation) of automatically closing a window if the temperature in a room drops below 20 degrees Celsius, the property on which the Actuator acts upon is the state of the window as it changes from being open to being closed. "@en .
+
+
+###  http://www.w3.org/ns/sosa/isFeatureOfInterestOf
+<http://www.w3.org/ns/sosa/isFeatureOfInterestOf> rdf:type owl:ObjectProperty ;
+                                                  schema:domainIncludes <http://www.w3.org/ns/sosa/FeatureOfInterest> ,
+                                                                        <http://www.w3.org/ns/sosa/Sample> ;
+                                                  schema:rangeIncludes <http://www.w3.org/ns/sosa/Actuation> ,
+                                                                       <http://www.w3.org/ns/sosa/Observation> ,
+                                                                       <http://www.w3.org/ns/sosa/Sampling> ;
+                                                  rdfs:comment "A relation between a FeatureOfInterest and an Observation about it, an Actuation acting on it, or an act of Sampling that sampled it."@en ;
+                                                  rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                                  rdfs:label "is feature of interest of"@en .
+
+
+###  http://www.w3.org/ns/sosa/isHostedBy
+<http://www.w3.org/ns/sosa/isHostedBy> rdf:type owl:ObjectProperty ;
+                                       schema:domainIncludes <http://www.w3.org/ns/sosa/Actuator> ,
+                                                             <http://www.w3.org/ns/sosa/Platform> ,
+                                                             <http://www.w3.org/ns/sosa/Sampler> ,
+                                                             <http://www.w3.org/ns/sosa/Sensor> ;
+                                       schema:rangeIncludes <http://www.w3.org/ns/sosa/Platform> ;
+                                       rdfs:comment "Relation between a Sensor, Actuator, Sampler, or Platform, and the Platform that it is mounted on or hosted by."@en ;
+                                       rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                       rdfs:label "is hosted by"@en .
+
+
+###  http://www.w3.org/ns/sosa/isObservedBy
+<http://www.w3.org/ns/sosa/isObservedBy> rdf:type owl:ObjectProperty ;
+                                         owl:inverseOf <http://www.w3.org/ns/sosa/observes> ;
+                                         schema:domainIncludes <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                                         schema:rangeIncludes <http://www.w3.org/ns/sosa/Sensor> ;
+                                         rdfs:comment "Relation between an ObservableProperty and the Sensor able to observe it."@en ;
+                                         rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                         rdfs:label "is observed by"@en .
+
+
+###  http://www.w3.org/ns/sosa/isResultOf
+<http://www.w3.org/ns/sosa/isResultOf> rdf:type owl:ObjectProperty ;
+                                       schema:domainIncludes <http://www.w3.org/ns/sosa/Result> ,
+                                                             <http://www.w3.org/ns/sosa/Sample> ;
+                                       schema:rangeIncludes <http://www.w3.org/ns/sosa/Actuation> ,
+                                                            <http://www.w3.org/ns/sosa/Observation> ,
+                                                            <http://www.w3.org/ns/sosa/Sampling> ;
+                                       rdfs:comment "Relation linking a Result to the Observation or Actuation or act of Sampling that created or caused it."@en ;
+                                       rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                       rdfs:label "is result of"@en .
+
+
+###  http://www.w3.org/ns/sosa/isSampleOf
+<http://www.w3.org/ns/sosa/isSampleOf> rdf:type owl:ObjectProperty ,
+                                                owl:FunctionalProperty ;
+                                       schema:domainIncludes <http://www.w3.org/ns/sosa/Sample> ;
+                                       schema:rangeIncludes <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+                                       rdfs:comment "Relation from a Sample to the FeatureOfInterest that it is intended to be representative of."@en ;
+                                       rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                       rdfs:label "is sample of"@en .
+
+
+###  http://www.w3.org/ns/sosa/madeActuation
+<http://www.w3.org/ns/sosa/madeActuation> rdf:type owl:ObjectProperty ;
+                                          owl:inverseOf <http://www.w3.org/ns/sosa/madeByActuator> ;
+                                          schema:domainIncludes <http://www.w3.org/ns/sosa/Actuator> ;
+                                          schema:rangeIncludes <http://www.w3.org/ns/sosa/Actuation> ;
+                                          rdfs:comment "Relation between an Actuator and the Actuation it has made."@en ;
+                                          rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                          rdfs:label "made actuation"@en .
+
+
+###  http://www.w3.org/ns/sosa/madeByActuator
+<http://www.w3.org/ns/sosa/madeByActuator> rdf:type owl:ObjectProperty ;
+                                           schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation> ;
+                                           schema:rangeIncludes <http://www.w3.org/ns/sosa/Actuator> ;
+                                           rdfs:comment "Relation linking an Actuation to the Actuator that made that Actuation."@en ;
+                                           rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                           rdfs:label "made by actuator"@en .
+
+
+###  http://www.w3.org/ns/sosa/madeBySensor
+<http://www.w3.org/ns/sosa/madeBySensor> rdf:type owl:ObjectProperty ;
+                                         owl:inverseOf <http://www.w3.org/ns/sosa/madeObservation> ;
+                                         schema:domainIncludes <http://www.w3.org/ns/sosa/Observation> ;
+                                         schema:rangeIncludes <http://www.w3.org/ns/sosa/Sensor> ;
+                                         rdfs:comment "Relation between an Observation and the Sensor which made the Observation."@en ;
+                                         rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                         rdfs:label "made by sensor"@en .
+
+
+###  http://www.w3.org/ns/sosa/madeObservation
+<http://www.w3.org/ns/sosa/madeObservation> rdf:type owl:ObjectProperty ;
+                                            schema:domainIncludes <http://www.w3.org/ns/sosa/Sensor> ;
+                                            schema:rangeIncludes <http://www.w3.org/ns/sosa/Observation> ;
+                                            rdfs:comment "Relation between a Sensor and an Observation made by the Sensor."@en ;
+                                            rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                            rdfs:label "made observation"@en .
+
+
+###  http://www.w3.org/ns/sosa/observedProperty
+<http://www.w3.org/ns/sosa/observedProperty> rdf:type owl:ObjectProperty ;
+                                             schema:domainIncludes <http://www.w3.org/ns/sosa/Observation> ;
+                                             schema:rangeIncludes <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                                             rdfs:comment "Relation linking an Observation to the property that was observed. The ObservableProperty should be a property of the FeatureOfInterest (linked by hasFeatureOfInterest) of this Observation."@en ;
+                                             rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                             rdfs:label "observed property"@en .
+
+
+###  http://www.w3.org/ns/sosa/observes
+<http://www.w3.org/ns/sosa/observes> rdf:type owl:ObjectProperty ;
+                                     schema:domainIncludes <http://www.w3.org/ns/sosa/Sensor> ;
+                                     schema:rangeIncludes <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                                     rdfs:comment "Relation between a Sensor and an ObservableProperty that it is capable of sensing."@en ;
+                                     rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                     rdfs:label "observes"@en .
+
+
+###  http://www.w3.org/ns/sosa/phenomenonTime
+<http://www.w3.org/ns/sosa/phenomenonTime> rdf:type owl:ObjectProperty ;
+                                           schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation> ,
+                                                                 <http://www.w3.org/ns/sosa/Observation> ,
+                                                                 <http://www.w3.org/ns/sosa/Sampling> ;
+                                           schema:rangeIncludes <http://www.w3.org/2006/time#TemporalEntity> ;
+                                           rdfs:comment "The time that the Result of an Observation, Actuation or Sampling applies to the FeatureOfInterest. Not necessarily the same as the resultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en ;
+                                           rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                           rdfs:label "phenomenon time"@en .
+
+
+###  http://www.w3.org/ns/ssn/hasProperty
+ssn:hasProperty rdf:type owl:ObjectProperty ;
+                owl:inverseOf ssn:isPropertyOf ;
+                rdfs:comment "Relation between an entity and a Property of that entity."@en ;
+                rdfs:isDefinedBy ssn: ;
+                rdfs:label "has property"@en .
+
+
+###  http://www.w3.org/ns/ssn/isPropertyOf
+ssn:isPropertyOf rdf:type owl:ObjectProperty ;
+                 rdfs:comment "Relation between a Property and the entity it belongs to."@en ;
+                 rdfs:isDefinedBy ssn: ;
+                 rdfs:label "is property of"@en .
+
+
+###  http://www.w3id.org/def/caso#greaterThan
+caso:greaterThan rdf:type owl:ObjectProperty ;
+                 rdfs:domain caso:State ;
+                 rdfs:range caso:State ;
+                 rdfs:comment "greater than - Relation between States to define an order. The domain State is greater than the range State."@en ;
+                 rdfs:label "greater than"@en .
+
+
+###  http://www.w3id.org/def/caso#greaterThanOrEqualTo
+caso:greaterThanOrEqualTo rdf:type owl:ObjectProperty ;
+                          rdfs:domain caso:State ;
+                          rdfs:range caso:State ;
+                          rdfs:comment "greater than or equal to - Relation between States to define an order. The domain State is greater than or equal to the range State."@en ;
+                          rdfs:label "greater than or equal to"@en .
+
+
+###  http://www.w3id.org/def/caso#hasClosedLowerBoundary
+caso:hasClosedLowerBoundary rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf owl:topObjectProperty ;
+                            rdfs:domain caso:State ;
+                            rdfs:comment "has closed lower boundary - Relation from a State to its lower Boundary. The State is reached when the associated state value is equal or superior to the lower Boundary value."@en ;
+                            rdfs:label "has closed lower boundary"@en .
+
+
+###  http://www.w3id.org/def/caso#hasClosedUpperBoundary
+caso:hasClosedUpperBoundary rdf:type owl:ObjectProperty ;
+                            rdfs:subPropertyOf owl:topObjectProperty ;
+                            rdfs:domain caso:State ;
+                            rdfs:comment "has closed upper boundary - Relation from a State to its upper Boundary. The State is reached when the associated state value is equal or inferior  to the upper Boundary value."@en ;
+                            rdfs:label "has closed upper boundary"@en .
+
+
+###  http://www.w3id.org/def/caso#hasOpenLowerBoundary
+caso:hasOpenLowerBoundary rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:domain caso:State ;
+                          rdfs:comment "has open lower boundary - Relation from a State to its lower Boundary. The State is reached when the associated state value is superior to the lower Boundary value."@en ;
+                          rdfs:label "has open lower boundary"@en .
+
+
+###  http://www.w3id.org/def/caso#hasOpenUpperBoundary
+caso:hasOpenUpperBoundary rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf owl:topObjectProperty ;
+                          rdfs:domain caso:State ;
+                          rdfs:comment "has open upper boundary - Relation from a State to its upper Boundary. The State is reached when the associated state value is inferior to the upper Boundary value."@en ;
+                          rdfs:label "has open upper boundary"@en .
+
+
+###  http://www.w3id.org/def/caso#hasResultState
+caso:hasResultState rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf <http://www.w3.org/ns/sosa/hasResult> ;
+                    rdfs:domain caso:Deduction ;
+                    rdfs:range caso:State ;
+                    rdfs:comment "has state result - Relation linking a Deduction and its result that is to say the State that is applied on the Property for a time."@en ;
+                    rdfs:label "has result state"@en .
+
+
+###  http://www.w3id.org/def/caso#hasState
+caso:hasState rdf:type owl:ObjectProperty ;
+              rdfs:domain caso:Property ;
+              rdfs:range caso:State ;
+              rdfs:comment "has state - Relation from a Property to one of the possible States of that Property"@en ;
+              rdfs:label "has state"@en .
+
+
+###  http://www.w3id.org/def/caso#hasValidTime
+caso:hasValidTime rdf:type owl:ObjectProperty ;
+                  rdfs:domain caso:Deduction ;
+                  rdfs:range <http://www.w3.org/2006/time#TemporalEntity> ;
+                  rdfs:comment "has valid time - The time that the result of a Deduction (state) applies to the ObservableProperty. Not necessarily the same as the sosa:PhenomenonTime or the sosa:ResultTime. May be an Interval or an Instant, or some other compound TemporalEntity."@en ;
+                  rdfs:label "has valid time"@en .
+
+
+###  http://www.w3id.org/def/caso#lesserThan
+caso:lesserThan rdf:type owl:ObjectProperty ;
+                rdfs:domain caso:State ;
+                rdfs:range caso:State ;
+                rdfs:comment "less than - Relation between States to define an order. The domain State is lesser than the range State."@en ;
+                rdfs:label "lesser than"@en .
+
+
+###  http://www.w3id.org/def/caso#lesserThanOrEqualTo
+caso:lesserThanOrEqualTo rdf:type owl:ObjectProperty ;
+                         rdfs:domain caso:State ;
+                         rdfs:range caso:State ;
+                         rdfs:comment "lesser than or equal to - Relation between States to define an order. The domain State is lesser than or equal to the range State."@en ;
+                         rdfs:label "lesser than or equal to"@en .
+
+
+###  http://www.w3id.org/def/caso#triggersFunction
+caso:triggersFunction rdf:type owl:ObjectProperty ;
+                      rdfs:domain caso:Actuation ;
+                      rdfs:range saref:Function ;
+                      rdfs:comment "triggers function - Relation from an Actuation to a Function. The Actuation trigger the operation of the Function."@en ;
+                      rdfs:label "triggers function"@en .
+
+
+###  https://saref.etsi.org/core/hasCommand
+saref:hasCommand rdf:type owl:ObjectProperty ;
+                 owl:inverseOf saref:isCommandOf ;
+                 rdfs:comment "A relationship between an entity (such as a function) and a command"^^xsd:string ;
+                 rdfs:isDefinedBy saref: ;
+                 rdfs:label "has command"^^xsd:string .
+
+
+###  https://saref.etsi.org/core/hasFunction
+saref:hasFunction rdf:type owl:ObjectProperty ;
+                  rdfs:comment "A relationship identifying the type of function of a device"^^xsd:string ;
+                  rdfs:isDefinedBy saref: ;
+                  rdfs:label "has function"^^xsd:string .
+
+
+###  https://saref.etsi.org/core/isCommandOf
+saref:isCommandOf rdf:type owl:ObjectProperty ;
+                  rdfs:comment "A relationship between a command and a function."^^xsd:string ;
+                  rdfs:label "is command of"^^xsd:string .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue
+<http://www.ontology-of-units-of-measure.org/resource/om-2/hasNumericalValue> rdf:type owl:DatatypeProperty ;
+                                                                              rdfs:comment "This property links an entity to a numerical value."@en ;
+                                                                              rdfs:label "has numerical value"@en .
+
+
+###  http://www.w3.org/ns/sosa/hasSimpleResult
+<http://www.w3.org/ns/sosa/hasSimpleResult> rdf:type owl:DatatypeProperty ;
+                                            schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation> ,
+                                                                  <http://www.w3.org/ns/sosa/Observation> ,
+                                                                  <http://www.w3.org/ns/sosa/Sampling> ;
+                                            rdfs:comment "The simple value of an Observation or Actuation or act of Sampling."@en ;
+                                            rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                            rdfs:label "has simple result"@en ;
+                                            skos:example "For instance, the values 23 or true."@en .
+
+
+###  http://www.w3.org/ns/sosa/resultTime
+<http://www.w3.org/ns/sosa/resultTime> rdf:type owl:DatatypeProperty ;
+                                       rdfs:range xsd:dateTime ;
+                                       schema:domainIncludes <http://www.w3.org/ns/sosa/Actuation> ,
+                                                             <http://www.w3.org/ns/sosa/Observation> ,
+                                                             <http://www.w3.org/ns/sosa/Sampling> ;
+                                       rdfs:comment "The result time is the instant of time when the Observation, Actuation or Sampling activity was completed."@en ;
+                                       rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                       rdfs:label "result time"@en .
+
+
+###  http://www.w3id.org/def/caso#boundaryValue
+caso:boundaryValue rdf:type owl:DatatypeProperty ;
+                   rdfs:comment "boundary value - Numeric value of a Boundary"@en ;
+                   rdfs:label "boundary value"@en .
+
+
+###  https://saref.etsi.org/core/hasManufacturer
+saref:hasManufacturer rdf:type owl:DatatypeProperty ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "A relationship identifying the manufacturer of an entity (e.g., device)" ;
+                      rdfs:label "has manufacturer" .
+
+
+###  https://saref.etsi.org/core/hasModel
+saref:hasModel rdf:type owl:DatatypeProperty ;
+               rdfs:range xsd:string ;
+               rdfs:comment "A relationship identifying the model of an entity (e.g., device)" ;
+               rdfs:label "has model" .
+
+
+###  https://saref.etsi.org/core/hasName
+saref:hasName rdf:type owl:DatatypeProperty ;
+              rdfs:range xsd:string ;
+              rdfs:comment "A relationship providing the name of an entity (e.g., device)" ;
+              rdfs:label "has name" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://twin-example/geneva#PhytlSign
+<http://twin-example/geneva#PhytlSign> rdf:type owl:Class ;
+                                       rdfs:subClassOf saref:Sensor .
+
+
+###  http://www.irrig/master/thesis/2022#ElectroPhysiologicalObservation
+:ElectroPhysiologicalObservation rdf:type owl:Class ;
+                                 owl:equivalentClass [ owl:intersectionOf ( <http://www.w3.org/ns/sosa/Observation>
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                                              owl:someValuesFrom :Tree
+                                                                            ]
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                                              owl:hasValue :observableProperty_electro_potential
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ] ;
+                                 rdfs:subClassOf caso:Observation .
+
+
+###  http://www.irrig/master/thesis/2022#ElectroPotentialState
+:ElectroPotentialState rdf:type owl:Class ;
+                       rdfs:subClassOf caso:State .
+
+
+###  http://www.irrig/master/thesis/2022#NoirCamera
+:NoirCamera rdf:type owl:Class ;
+            rdfs:subClassOf saref:Actuator .
+
+
+###  http://www.irrig/master/thesis/2022#PhytlSignDeduction
+:PhytlSignDeduction rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( caso:Observation
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                                 owl:someValuesFrom :Tree
+                                                               ]
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                                 owl:hasValue :observableProperty_electro_potential
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf caso:Deduction .
+
+
+###  http://www.irrig/master/thesis/2022#WaterPump
+:WaterPump rdf:type owl:Class ;
+           rdfs:subClassOf saref:Actuator ;
+           rdfs:comment "An actuator that open the water valve."^^xsd:string ;
+           rdfs:label "Watering Valve"^^xsd:string .
+
+
+###  http://www.ontology-of-units-of-measure.org/resource/om-2/Unit
+<http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> rdf:type owl:Class ;
+                                                                 rdfs:comment "A unit of measure is a definite magnitude of a quantity, defined and adopted by convention or by law. It is used as a standard for measurement of the same quantity, where any other value of the quantity can be expressed as a simple multiple of the unit. For example, length is a quantity; the metre is a unit of length that represents a definite predetermined length. When we say 10 metre (or 10 m), we actually mean 10 times the definite predetermined length called \"metre\"."@en ;
+                                                                 rdfs:label "Unit"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class ;
+             rdfs:comment """The class skos:Concept is the class of SKOS concepts.
+
+A SKOS concept can be viewed as an idea or notion; a unit of thought. However, what constitutes a unit of thought is subjective, and this definition is meant to be suggestive, rather than restrictive.
+
+The notion of a SKOS concept is useful when describing the conceptual or intellectual structure of a knowledge organization system, and when referring to specific ideas or meanings established within a KOS.
+
+Note that, because SKOS is designed to be a vehicle for representing semi-formal KOS, such as thesauri and classification schemes, a certain amount of flexibility has been built in to the formal definition of this class."""@en ;
+             rdfs:label "Concept"@en .
+
+
+###  http://www.w3.org/2006/time#TemporalEntity
+<http://www.w3.org/2006/time#TemporalEntity> rdf:type owl:Class ;
+                                             rdfs:subClassOf owl:Thing ;
+                                             rdfs:comment "A temporal interval or instant."@en ;
+                                             rdfs:isDefinedBy "http://www.w3.org/2006/time#" ;
+                                             rdfs:label "Temporal entity"@en .
+
+
+###  http://www.w3.org/ns/sosa/ActuatableProperty
+<http://www.w3.org/ns/sosa/ActuatableProperty> rdf:type owl:Class ;
+                                               rdfs:subClassOf ssn:Property ;
+                                               rdfs:comment "An actuatable quality (property, characteristic) of a FeatureOfInterest."@en ;
+                                               rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                               rdfs:label "Actuatable Property"@en ;
+                                               skos:example "A window actuator acts by changing the state between a frame and a window. The ability of the window to be opened and closed is its ActuatableProperty."@en .
+
+
+###  http://www.w3.org/ns/sosa/Actuation
+<http://www.w3.org/ns/sosa/Actuation> rdf:type owl:Class ;
+                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/sosa/actsOnProperty> ;
+                                                        owl:allValuesFrom <http://www.w3.org/ns/sosa/ActuatableProperty>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                        owl:allValuesFrom <http://www.w3.org/ns/sosa/FeatureOfInterest>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+                                                        owl:allValuesFrom <http://www.w3.org/ns/sosa/Result>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/sosa/madeByActuator> ;
+                                                        owl:allValuesFrom <http://www.w3.org/ns/sosa/Actuator>
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/sosa/actsOnProperty> ;
+                                                        owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+                                                        owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/sosa/madeByActuator> ;
+                                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                      ] ,
+                                                      [ rdf:type owl:Restriction ;
+                                                        owl:onProperty <http://www.w3.org/ns/sosa/resultTime> ;
+                                                        owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                      ] ;
+                                      rdfs:comment "An Actuation carries out an (Actuation) Procedure to change the state of the world using an Actuator."@en ;
+                                      rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                      rdfs:label "Actuation"@en ;
+                                      skos:example "The activity of automatically closing a window if the temperature in a room drops below 20 degree Celsius. The activity is the Actuation and the device that closes the window is the Actuator. The Procedure is the rule, plan, or specification that defines the conditions that triggers the Actuation, here a drop in temperature. "@en .
+
+
+###  http://www.w3.org/ns/sosa/Actuator
+<http://www.w3.org/ns/sosa/Actuator> rdf:type owl:Class ;
+                                     rdfs:subClassOf ssn:System ;
+                                     rdfs:comment "A device that is used by, or implements, an (Actuation) Procedure that changes the state of the world."@en ;
+                                     rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                     rdfs:label "Actuator"@en ;
+                                     skos:example "A window actuator for automatic window control, i.e., opening or closing the window."@en .
+
+
+###  http://www.w3.org/ns/sosa/FeatureOfInterest
+<http://www.w3.org/ns/sosa/FeatureOfInterest> rdf:type owl:Class ;
+                                              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                owl:onProperty ssn:hasProperty ;
+                                                                owl:allValuesFrom ssn:Property
+                                                              ] ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty ssn:hasProperty ;
+                                                                owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                              ] ;
+                                              rdfs:comment "The thing whose property is being estimated or calculated in the course of an Observation to arrive at a Result or whose property is being manipulated by an Actuator, or which is being sampled or transformed in an act of Sampling."@en ;
+                                              rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                              rdfs:label "Feature Of Interest"@en ;
+                                              skos:example "When measuring the height of a tree, the height is the observed ObservableProperty, 20m may be the Result of the Observation, and the tree is the FeatureOfInterest. A window is a FeatureOfInterest for an automatic window control Actuator."@en .
+
+
+###  http://www.w3.org/ns/sosa/ObservableProperty
+<http://www.w3.org/ns/sosa/ObservableProperty> rdf:type owl:Class ;
+                                               rdfs:subClassOf ssn:Property ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty [ owl:inverseOf <http://www.w3.org/ns/sosa/observedProperty>
+                                                                                ] ;
+                                                                 owl:allValuesFrom <http://www.w3.org/ns/sosa/Observation>
+                                                               ] ;
+                                               rdfs:comment "An observable quality (property, characteristic) of a FeatureOfInterest."@en ;
+                                               rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                               rdfs:label "Observable Property"@en ;
+                                               skos:example "The height of a tree, the depth of a water body, or the temperature of a surface are examples of observable properties, while the value of a classic car is not (directly) observable but asserted."@en .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+<http://www.w3.org/ns/sosa/Observation> rdf:type owl:Class ;
+                                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                          owl:allValuesFrom <http://www.w3.org/ns/sosa/FeatureOfInterest>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+                                                          owl:allValuesFrom <http://www.w3.org/ns/sosa/Result>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/madeBySensor> ;
+                                                          owl:allValuesFrom <http://www.w3.org/ns/sosa/Sensor>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                          owl:allValuesFrom <http://www.w3.org/ns/sosa/ObservableProperty>
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+                                                          owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/madeBySensor> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/phenomenonTime> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ,
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty <http://www.w3.org/ns/sosa/resultTime> ;
+                                                          owl:cardinality "1"^^xsd:nonNegativeInteger
+                                                        ] ;
+                                        rdfs:comment "Observation - Act of carrying out an (Observation) Procedure to estimate or calculate a value of a property of a FeatureOfInterest. Links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of, and to a FeatureOfInterest to detail what that property was associated with."@en ;
+                                        rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                        rdfs:label "Observation"@en ;
+                                        skos:example "The activity of estimating the intensity of an Earthquake using the Mercalli intensity scale is an Observation as is measuring the moment magnitude, i.e., the energy released by said earthquake."@en .
+
+
+###  http://www.w3.org/ns/sosa/Platform
+<http://www.w3.org/ns/sosa/Platform> rdf:type owl:Class ;
+                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://www.w3.org/ns/sosa/hosts> ;
+                                                       owl:allValuesFrom ssn:System
+                                                     ] ;
+                                     rdfs:comment "A Platform is an entity that hosts other entities, particularly Sensors, Actuators, Samplers, and other Platforms."@en ;
+                                     rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                     rdfs:label "Platform"@en ;
+                                     skos:example "A post, buoy, vehicle, ship, aircraft, satellite, cell-phone, human or animal may act as platforms for (technical or biological) sensors or actuators."@en .
+
+
+###  http://www.w3.org/ns/sosa/Result
+<http://www.w3.org/ns/sosa/Result> rdf:type owl:Class ;
+                                   rdfs:comment "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
+                                   rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                   rdfs:label "Result"@en ;
+                                   skos:example "The value 20 as the height of a certain tree together with the unit, e.g., Meter."@en .
+
+
+###  http://www.w3.org/ns/sosa/Sample
+<http://www.w3.org/ns/sosa/Sample> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://www.w3.org/ns/sosa/FeatureOfInterest> ,
+                                                   <http://www.w3.org/ns/sosa/Result> ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.w3.org/ns/sosa/isSampleOf> ;
+                                                     owl:allValuesFrom <http://www.w3.org/ns/sosa/FeatureOfInterest>
+                                                   ] ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://www.w3.org/ns/sosa/isSampleOf> ;
+                                                     owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                                   ] ;
+                                   rdfs:comment "A Sample is the result from an act of Sampling."@en ,
+                                                "Feature which is intended to be representative of a FeatureOfInterest on which Observations may be made."@en ,
+                                                "Physical samples are sometimes known as 'specimens'."@en ,
+                                                """Samples are artifacts of an observational strategy, and have no significant function outside of their role in the observation process. The characteristics of the samples themselves are of little interest, except perhaps to the manager of a sampling campaign.
+
+A Sample is intended to sample some FatureOfInterest, so there is an expectation of at least one isSampleOf property. However, in some cases the identity, and even the exact type, of the sampled feature may not be known when observations are made using the sampling features."""@en ;
+                                   rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                   rdfs:label "Sample"@en ;
+                                   skos:example "A 'station' is essentially an identifiable locality where a sensor system or Procedure may be deployed and an observation made. In the context of the observation model, it connotes the 'world in the vicinity of the station', so the observed properties relate to the physical medium at the station, and not to any physical artifact such as a mooring, buoy, benchmark, monument, well, etc."@en ,
+                                                "A statistical sample is often designed to be characteristic of an entire population, so that observations can be made regarding the sample that provide a good estimate of the properties of the population."@en ;
+                                   skos:note "A transient sample, such as a ships-track or flight-line, might be identified and described, but is unlikely to be revisited exactly."@en .
+
+
+###  http://www.w3.org/ns/sosa/Sensor
+<http://www.w3.org/ns/sosa/Sensor> rdf:type owl:Class ;
+                                   rdfs:subClassOf ssn:System ;
+                                   rdfs:comment "Device, agent (including humans), or software (simulation) involved in, or implementing, a Procedure. Sensors respond to a stimulus, e.g., a change in the environment, or input data composed from the results of prior Observations, and generate a Result. Sensors can be hosted by Platforms."@en ;
+                                   rdfs:isDefinedBy <http://www.w3.org/ns/sosa/> ;
+                                   rdfs:label "Sensor"@en ;
+                                   skos:example "Accelerometers, gyroscopes, barometers, magnetometers, and so forth are Sensors that are typically mounted on a modern smart phone (which acts as Platform). Other examples of sensors include the human eyes."@en .
+
+
+###  http://www.w3.org/ns/ssn/Property
+ssn:Property rdf:type owl:Class ;
+             rdfs:comment "A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity."@en ;
+             rdfs:isDefinedBy ssn: ;
+             rdfs:label "Property"@en .
+
+
+###  http://www.w3.org/ns/ssn/System
+ssn:System rdf:type owl:Class ;
+           rdfs:comment "System is a unit of abstraction for pieces of infrastructure that implement Procedures. A System may have components, its subsystems, which are other Systems."@en ;
+           rdfs:label "System"@en .
+
+
+###  http://www.w3id.org/def/caso#Actuation
+caso:Actuation rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.w3.org/ns/sosa/Actuation> ;
+               rdfs:comment "Actuation - Act of carrying out an (Actuation) Procedure to change the state of world  using an Actuator. This act is performed during the context exploitation phase of a context aware system. An Actuation links to an Actuator to describe what made the Actuation and how; links to an ActuatableProperty to describe the target that the Actuation change; links to a FeatureOfInterest to detail what that property was associated with; links to a Deduction by the wasInfluencedBy property when the act is performed based on the given Deduction; and links to the Function that is triggered by the Actuation by the triggersFunction property."@en ;
+               rdfs:label "Actuation"@en .
+
+
+###  http://www.w3id.org/def/caso#Deduction
+caso:Deduction rdf:type owl:Class ;
+               rdfs:subClassOf caso:Observation ;
+               rdfs:comment "Deduction - Act of carrying out an (Observation) Procedure to estimate the State of a Property of a FeatureOfInterest. The Observation may be performed by an inference engine. A Deduction links to a State by the hasResultState property to describe what the result is; links to a TemporalEntity by the hasValidTime property to indicate when the result is valid and for how many time."@en ;
+               rdfs:label "Deduction"@en .
+
+
+###  http://www.w3id.org/def/caso#Observation
+caso:Observation rdf:type owl:Class ;
+                 rdfs:subClassOf <http://www.w3.org/ns/sosa/Observation> ;
+                 rdfs:comment "Observation - Act of carrying out an (Observation) Procedure to estimate or calculate a value of a Property of a FeatureOfInterest. This act can be performed during the context acquisition or context processing phases of a context aware system. An Observation links to a Sensor to describe what made the Observation and how; links to an ObservableProperty to describe what the result is an estimate of; and links to a FeatureOfInterest to detail what that property was associated with. When the act is made during the context processing phase the entry values of the procedure should be linked to the observation by the wasDerivedFrom property."@en ;
+                 rdfs:label "Observation"@en .
+
+
+###  http://www.w3id.org/def/caso#Property
+caso:Property rdf:type owl:Class ;
+              rdfs:subClassOf ssn:Property ;
+              rdfs:comment "Property - A quality of an entity. An aspect of an entity that is intrinsic to and cannot exist without the entity.The possible quality values should be expressed by State. A Property is linked to its possible States using the hasState property."@en ;
+              rdfs:label "Property"@en .
+
+
+###  http://www.w3id.org/def/caso#State
+caso:State rdf:type owl:Class ;
+           rdfs:subClassOf skos:Concept ;
+           rdfs:comment "State - A qualitative value of a Property, summarizing a set of information about that Property. A State links to its Property by the isStateOf property. To delimit the State of a Property, some Boundary may be defined."@en ;
+           rdfs:label "State"@en .
+
+
+###  http://www.w3id.org/def/irrig#AmountProperty
+:AmountProperty rdf:type owl:Class ;
+                rdfs:subClassOf ssn:Property ;
+                rdfs:comment "AmountProperty - Amount or quantity aspect of an entity. The amount aspect of an entity is intrinsic and cannot exist without the entity. The value of the amount should be expressed by a qualitative value such as a state or by a quantitative value."@en ;
+                rdfs:label "Amount Property" ;
+                skos:example "RainQuantity is an AmountProperty representing the amount of rain."@en .
+
+
+###  http://www.w3id.org/def/irrig#ElectronicPotential
+:ElectronicPotential rdf:type owl:Class ;
+                     rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                     ssn:Property ;
+                     rdfs:comment "Electronic Potentials which occur whitin the plant"^^xsd:string ;
+                     rdfs:label "Electronic Potential Property" .
+
+
+###  http://www.w3id.org/def/irrig#GrowthProperty
+:GrowthProperty rdf:type owl:Class ;
+                rdfs:subClassOf ssn:Property ;
+                rdfs:comment "GrowthProperty - Growth aspect of an entity representing the physical development or the increasing of amount, number, or size of the entity. The growth aspect of an entity is intrinsic and cannot exist without the entity. The growth quality should be expressed by a qualitative value such as a state or by a quantitative value."@en ;
+                rdfs:label "Growth Property"@en ;
+                skos:example "treeGrowth is a growth property representing the development of a tree."@en .
+
+
+###  http://www.w3id.org/def/irrig#IntensityProperty
+:IntensityProperty rdf:type owl:Class ;
+                   rdfs:subClassOf ssn:Property ;
+                   rdfs:comment "IntensityProperty - Intensity aspect of an entity, that is,  the strong effect or the level of power per unit area of the entity. The intensity aspect of an entity is intrinsic and cannot exist without the entity. The intensity quality should be expressed by a qualitative value such as a state or by a quantitative value."@en ;
+                   rdfs:label "Intensity Property"@en ;
+                   skos:example "RainIntensity is an intensity representing the strength of rain."@en .
+
+
+###  http://www.w3id.org/def/irrig#IrrigationActuation
+:IrrigationActuation rdf:type owl:Class ;
+                     rdfs:subClassOf caso:Actuation ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                       owl:someValuesFrom :Tree
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://www.w3.org/ns/sosa/actsOnProperty> ;
+                                       owl:hasValue :act_prop_root_zone_current
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty caso:triggersFunction ;
+                                       owl:hasValue :irrigation_function
+                                     ] ;
+                     rdfs:comment "IrrigationActuation - Act of carrying out an Irrigation (Actuation) Procedure to change the State of a Moisture ActuatableProperty of a Soil FeatureOfInterest using a watering Actuator. This act is performed during the context exploitation phase of a context aware system. Links to an Actuator to describe what made the Actuation and how; links to an ActuatableProperty to describe the target that the Actuation change; links to a FeatureOfInterest to detail what that property was associated with. When the act is performed based on a Deduction, it should be linked to this Deduction by the wasInfluencedBy property. Links to the Function that is triggered by the Actuation."@en ;
+                     rdfs:label "Irrigation actuation"@en ;
+                     skos:example "An IrrigationActuation is made by Watering Valve Actuator, links to Soil30cmDepth FeatureOfInterest and its Soil30cmDepthMoisture ActuatableProperty."@en .
+
+
+###  http://www.w3id.org/def/irrig#MoistureProperty
+:MoistureProperty rdf:type owl:Class ;
+                  rdfs:subClassOf ssn:Property ;
+                  rdfs:comment "MoistureProperty - Moisture aspect of an entity representing the amount of water available inside the entity. The moisture aspect of the entity is intrinsic to and cannot exist without the entity. The moisture quality should be expressed by a qualitative value such as States or by a quantitative value."@en ;
+                  rdfs:label "Moisture Property"@en ;
+                  skos:example "RootZoneMoistureLevel is a MoistureProperty representing the amount of water available around the soil’s root zone area of a plant."@en .
+
+
+###  http://www.w3id.org/def/irrig#RainIntensityDeduction
+:RainIntensityDeduction rdf:type owl:Class ;
+                        owl:equivalentClass [ owl:intersectionOf ( caso:Deduction
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                                     owl:hasValue :featureOfInterest_rain
+                                                                   ]
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                                     owl:hasValue :observableProperty_rain_quantity
+                                                                   ]
+                                                                 ) ;
+                                              rdf:type owl:Class
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty caso:hasResultState ;
+                                              owl:someValuesFrom :RainQuantityState
+                                            ] ;
+                        rdfs:subClassOf caso:Deduction ;
+                        rdfs:comment "RainIntensityDeduction - a defined class that represents act of carrying out a procedure to estimate the state of the intensity property for the rain entity. The intensity property is represented by the individual irrig:observableProperty_rain_intensity. The rain entity is represented by the individual irrig:featureOfInterest_rain. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_rain_intensity via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rain via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:RainIntensityState by the caso:hasResultState object property; is linked to an instance of the class irrig:RainDailyTotalQuantityObservation by the prov:wasInformedBy object property; and is linked to a sensor to describe the agent that made the deduction."@en ;
+                        rdfs:label "Rain Intensity Deduction"@en ;
+                        skos:example "A RainIntensityDeduction that made by an inference engine based on observations made by an aggregator."@en .
+
+
+###  http://www.w3id.org/def/irrig#RainQuantityObservation
+:RainQuantityObservation rdf:type owl:Class ;
+                         owl:equivalentClass [ owl:intersectionOf ( caso:Observation
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                                      owl:hasValue :featureOfInterest_rain
+                                                                    ]
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                                      owl:hasValue :observableProperty_rain_quantity
+                                                                    ]
+                                                                  ) ;
+                                               rdf:type owl:Class
+                                             ] ;
+                         rdfs:subClassOf caso:Observation ;
+                         rdfs:comment "RainQuantityObservation - A defined class that represents the act of carrying out a procedure (observation) to estimate the value of the quantity property for the rain entity. The quantity property is represented by the individual irrig:observableProperty_rain_quantity. The rain entity is represented by the individual irrig:featureOfInterest_rain. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_rain_quantity via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rain via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to a sensor to describe the agent that made the observation."@en ;
+                         rdfs:label "Rain Quantity Observation"@en ;
+                         skos:example "A RainQuantityObservation that made by a pluviometer."@en .
+
+
+###  http://www.w3id.org/def/irrig#RainQuantityState
+:RainQuantityState rdf:type owl:Class ;
+                   rdfs:subClassOf caso:State ;
+                   rdfs:comment "RainQuantityState - Qualitative value of the rain quantity property, which changes over time, summarizing a set of information about that property. To evaluate the state of the property, some boundaries need to be defined."@en ;
+                   rdfs:label "Rain Quantity State"@en .
+
+
+###  http://www.w3id.org/def/irrig#RootZoneMoistureLevelDeduction
+:RootZoneMoistureLevelDeduction rdf:type owl:Class ;
+                                rdfs:subClassOf caso:Deduction ,
+                                                [ owl:intersectionOf ( caso:Deduction
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                                         owl:someValuesFrom :Tree
+                                                                       ]
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                                         owl:hasValue :observableProperty_rootZone_moistureLevel
+                                                                       ]
+                                                                     ) ;
+                                                  rdf:type owl:Class
+                                                ] ,
+                                                [ rdf:type owl:Restriction ;
+                                                  owl:onProperty caso:hasResultState ;
+                                                  owl:someValuesFrom :RootZoneMoistureLevelState
+                                                ] ;
+                                rdfs:comment "RootZoneMoistureLevelDeduction - A defined class that represents the act of carrying out a procedure to estimate the state of the moisture level property for the root zone entity. The moisture level property is represented by the individual irrig:observableProperty_rootZone_moistureLevel. The root zone entity is represented by the individual irrig:featureOfInterest_rootZone. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_rootZone_moistureLevel} via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rootZone via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:RootZoneMoistureLevelState by the caso:hasResultState object property; is linked to an instance of the class irrig:RootZoneDailyAverageMoistureObservation by the prov:wasInformedBy object property; and is linked to a sensor to describe the agent that made the deduction."@en ;
+                                rdfs:label "Root Zone Moisture Level Deduction"@en ;
+                                skos:example "A RootZoneMoistureLevelDeduction that made by an inference engine based on observations from an aggregator."@en .
+
+
+###  http://www.w3id.org/def/irrig#RootZoneMoistureLevelState
+:RootZoneMoistureLevelState rdf:type owl:Class ;
+                            rdfs:subClassOf caso:State ;
+                            rdfs:comment "RootZoneMoistureLevelState - Qualitative value of the root zone moisture level property, which changes over time, summarizing a set of information about that property. To evaluate the state of the property, some boundaries need to be defined."@en ;
+                            rdfs:label "Root Zone Moisture Level State"@en ;
+                            skos:example "The saturated state of the RootZoneMoistureLevel Property represents a fact that the moisture in the root zone is saturated with water."@en .
+
+
+###  http://www.w3id.org/def/irrig#RootZoneMoistureObservation
+:RootZoneMoistureObservation rdf:type owl:Class ;
+                             rdfs:subClassOf caso:Observation ;
+                             rdfs:label "Root Zone Moisture Observation" .
+
+
+###  http://www.w3id.org/def/irrig#RuleEngine
+:RuleEngine rdf:type owl:Class ;
+            rdfs:subClassOf saref:Sensor ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty <http://www.w3.org/ns/sosa/madeObservation> ;
+                              owl:allValuesFrom caso:Deduction
+                            ] .
+
+
+###  http://www.w3id.org/def/irrig#StressProperty
+:StressProperty rdf:type owl:Class ;
+                rdfs:subClassOf ssn:Property ;
+                rdfs:comment "StressProperty - Stress aspect of an entity, that is, the pressure inside the entity. The stress aspect of an entity is intrinsic and cannot exist without the entity. The stress quality should be expressed by a qualitative value such as a state or by a quantitative value."@en ;
+                rdfs:label "Stress Property"@en ;
+                skos:example "TreeWaterNeed is a StressProperty representing the stress inside the plant when it needs extra water."@en .
+
+
+###  http://www.w3id.org/def/irrig#TemperatureObservation
+:TemperatureObservation rdf:type owl:Class ;
+                        rdfs:subClassOf caso:Observation ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                          owl:hasValue :featureOfInterest_air
+                                        ] ,
+                                        [ rdf:type owl:Restriction ;
+                                          owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                          owl:hasValue :observableProperty_air_temperature
+                                        ] ;
+                        rdfs:label "Temperature Observation" .
+
+
+###  http://www.w3id.org/def/irrig#TemperatureProperty
+:TemperatureProperty rdf:type owl:Class ;
+                     rdfs:subClassOf ssn:Property ;
+                     rdfs:comment "TemperatureProperty - Temperature aspect of an entity. The temperature aspect of an entity is intrinsic and cannot exist without the entity. The temperature quality should be expressed by a qualitative value such as a state or by a quantitative value." ;
+                     rdfs:label "Temperature Property" ;
+                     skos:example "AirTemperature is a TemperatureProperty representing the temperature value of the air."@en .
+
+
+###  http://www.w3id.org/def/irrig#Tree
+:Tree rdf:type owl:Class ;
+      rdfs:subClassOf <http://www.w3.org/ns/sosa/FeatureOfInterest> ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty ssn:hasProperty ;
+                        owl:hasValue :act_prop_root_zone_current
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty ssn:hasProperty ;
+                        owl:hasValue :observableProperty_tree_growth
+                      ] .
+
+
+###  http://www.w3id.org/def/irrig#TreeGrowthDeduction
+:TreeGrowthDeduction rdf:type owl:Class ;
+                     rdfs:subClassOf [ owl:intersectionOf ( caso:Deduction
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                              owl:someValuesFrom :Tree
+                                                            ]
+                                                            [ rdf:type owl:Restriction ;
+                                                              owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                              owl:hasValue :observableProperty_tree_growth
+                                                            ]
+                                                          ) ;
+                                       rdf:type owl:Class
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty caso:hasResultState ;
+                                       owl:someValuesFrom :TreeGrowthState
+                                     ] ;
+                     rdfs:comment "TreeGrowthDeduction - A defined class that represents the act of carrying out a procedure to estimate the state of the growth property for the tree entity. The growth property is represented by the individual irrig:observableProperty_tree_growth. The tree entity is represented by the individual of class irrig:Tree. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_tree_growth via the sosa:observedProperty object property; (2) All instance of this class are linked to the individual irrig:featureOfInterest of thype irrig:Tree  via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:TreeGrowthState by the caso:hasResultState object property, is linked to an instance of the class irrig:TreeGrowthObservation by the prov:wasInformedBy object property, and is linked to a sensor to describe the agent that made the deduction."@en ;
+                     rdfs:label "Tree Growth Deduction"@en ;
+                     skos:example "A TreeGrowthDeduction is made by an inference engine based on human observation."@en .
+
+
+###  http://www.w3id.org/def/irrig#TreeGrowthObservation
+:TreeGrowthObservation rdf:type owl:Class ;
+                       rdfs:subClassOf caso:Observation ;
+                       rdfs:comment "TreeGrowthObservation - A defined class that represents the act of carrying out a procedure (observation) to estimate the value of the growth property for the tree entity. The growth property is represented by the individual irrig:observableProperty_tree_growth. The tree entity is represented by the individual irrig:featureOfInterest_tree. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_tree_growth} via the sosa:observedProperty object property; (2) All instance of this class are linked to the individual irrig:featureOfInterest_?? of class irrig:Tree  via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to a sensor to describe the agent that made the observation."@en ;
+                       rdfs:label "Tree Growth Observation"@en ;
+                       skos:example "A TreeGrowthObservation that made by a gardener called John Doe."@en .
+
+
+###  http://www.w3id.org/def/irrig#TreeGrowthState
+:TreeGrowthState rdf:type owl:Class ;
+                 rdfs:subClassOf caso:State ;
+                 rdfs:comment "TreeGrowthState - A qualitative value of the tree growth property, which changes over time, summarising a set of information about that property. To evaluate the state of the property, some boundaries need to be defined."@en ;
+                 rdfs:label "Tree Growth State"@en ;
+                 skos:example "A state V2 is linked to an individual of the TreeGrowth property dedicated to maize tree. The state V2 is reached when two leaves have fully emerged with collars visible in a maize plant."@en .
+
+
+###  http://www.w3id.org/def/irrig#TreeWaterNeedDeduction
+:TreeWaterNeedDeduction rdf:type owl:Class ;
+                        owl:equivalentClass [ owl:intersectionOf ( caso:Deduction
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                                     owl:someValuesFrom :Tree
+                                                                   ]
+                                                                   [ rdf:type owl:Restriction ;
+                                                                     owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                                     owl:hasValue :observableProperty_tree_waterNeed
+                                                                   ]
+                                                                 ) ;
+                                              rdf:type owl:Class
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty caso:hasResultState ;
+                                              owl:someValuesFrom :TreeWaterNeedState
+                                            ] ;
+                        rdfs:subClassOf caso:Deduction ;
+                        rdfs:comment "TreeWaterNeedDeduction - a defined class represents act of carrying out an (Observation) Procedure to estimate a State of the irrig:ObservableProperty_tree_waterNeed of individual of class  irrig:Tree. The Observation may be performed by an inference engine. Links to a State to describe what the result is. Links to a TemporalEntity to indicate when the result is valid and for how many time."@en ;
+                        rdfs:label "Tree Water Need Deduction"@en ;
+                        skos:example "A TreeWaterNeedDeduction that made by an inference engine based on the state of the other properties such as RainIntensity property."@en .
+
+
+###  http://www.w3id.org/def/irrig#TreeWaterNeedState
+:TreeWaterNeedState rdf:type owl:Class ;
+                    rdfs:subClassOf caso:State ;
+                    rdfs:comment "TreeWaterNeedState - A qualitative value of the tree water need property, which changes over time, summarizing a set of information about that property. To evaluate the state of the property, some boundaries need to be defined."@en ;
+                    rdfs:label "Tree Water Need State"@en ;
+                    skos:example "The state No of the tree water need Property represents the fact that the tree does not need water."@en .
+
+
+###  https://saref.etsi.org/core/ActuatingFunction
+saref:ActuatingFunction rdf:type owl:Class ;
+                        rdfs:subClassOf saref:Function .
+
+
+###  https://saref.etsi.org/core/Actuator
+saref:Actuator rdf:type owl:Class ;
+               rdfs:subClassOf saref:Device ;
+               rdfs:comment "A device responsible for moving or controlling a mechanism or system by performing an actuating function"^^xsd:string ;
+               rdfs:isDefinedBy saref: ;
+               rdfs:label "Actuator"^^xsd:string .
+
+
+###  https://saref.etsi.org/core/Command
+saref:Command rdf:type owl:Class ;
+              rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty saref:isCommandOf ;
+                                owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass saref:Function
+                              ] ;
+              rdfs:comment "A directive that a device must support to perform a certain function. A command may act upon a state, but does not necessarily act upon a state. For example, the ON command acts upon the ON/OFF state, but the GET command does not act upon any state, it simply gives a directive to retrieve a certain value. We propose here a list of commands that are relevant for the purpose of SAREF, but this list can be extended." ;
+              rdfs:label "Command" .
+
+
+###  https://saref.etsi.org/core/Device
+saref:Device rdf:type owl:Class ;
+             rdfs:subClassOf ssn:System ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty saref:hasFunction ;
+                               owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onClass saref:Function
+                             ] ;
+             rdfs:comment "A tangible object designed to accomplish a particular task in households, common public buildings or offices. In order to accomplish this task, the device performs one or more functions. For example, a washing machine is designed to wash (task) and to accomplish this task it performs a start and stop function. Devices can be structured in categories (subclasses) that reflect the different domain in which a device is used, e.g., smart appliances domain (subclass FunctionRelated) vs. building domain (subclass BuildingRelated) vs. smart grid domain (subclass EnergyRelated). New categories can be defined,if needed, to reflect other differences, for example different points of view, such as the point of view of the device's user vs. the point of view of the device's manufacturer. We propose a list of devices that are relevant for the purpose of SAREF, but this list can be extended."^^xsd:string ;
+             rdfs:isDefinedBy saref: ;
+             rdfs:label "Device"^^xsd:string .
+
+
+###  https://saref.etsi.org/core/Function
+saref:Function rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty saref:hasCommand ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass saref:Command
+                               ] ;
+               rdfs:comment "The functionality necessary to accomplish the task for which a Device is designed. A device can be designed to perform more than one function. Functions can be structured in categories (subclasses) that reflect different points of view, for example, considering the specific application area for which a function can be used (e.g., light, temperature, motion, heat, power, etc.), or the capability that a function can support (e.g., receive, reply, notify, etc.), and so forth. "^^xsd:string ;
+               rdfs:label "Function"@en .
+
+
+###  https://saref.etsi.org/core/Sensor
+saref:Sensor rdf:type owl:Class ;
+             rdfs:subClassOf saref:Device ;
+             rdfs:comment "A device that detects and responds to events or changes in the physical environment such as light, motion, or temperature changes. Further, a device of category saref:Sensor that performs a saref:SensingFunction."^^xsd:string ;
+             rdfs:isDefinedBy saref: ;
+             rdfs:label "Sensor"^^xsd:string .
+
+
+###  https://w3id.org/def/4agri#Pluviometer
+<https://w3id.org/def/4agri#Pluviometer> rdf:type owl:Class ;
+                                         rdfs:subClassOf saref:Sensor ;
+                                         rdfs:comment "A sensor that measures the rain fall."@en ;
+                                         rdfs:label "Pluviometer"@en .
+
+
+###  https://w3id.org/def/saref4agri#SoilTensiometer
+<https://w3id.org/def/saref4agri#SoilTensiometer> rdf:type owl:Class ;
+                                                  rdfs:subClassOf saref:Sensor ,
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty <http://www.w3.org/ns/sosa/madeObservation> ;
+                                                                    owl:someValuesFrom :RootZoneMoistureObservation
+                                                                  ] ;
+                                                  rdfs:comment "A sensor that measures the soil moisture."@en ;
+                                                  rdfs:label "Soil Tensiometer"@en .
+
+
+###  https://w3id.org/def/saref4agri#Thermometer
+<https://w3id.org/def/saref4agri#Thermometer> rdf:type owl:Class ;
+                                              rdfs:subClassOf saref:Sensor ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty <http://www.w3.org/ns/sosa/madeObservation> ;
+                                                                owl:someValuesFrom :TemperatureObservation
+                                                              ] ,
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty <http://www.w3.org/ns/sosa/observes> ;
+                                                                owl:hasValue :observableProperty_air_temperature
+                                                              ] ;
+                                              rdfs:comment "A sensor that measure weather conditions."@en ;
+                                              rdfs:label "Thermometer"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.irrig/master/thesis/2022#observableProperty_electro_potential
+:observableProperty_electro_potential rdf:type owl:NamedIndividual ,
+                                               :ElectronicPotential .
+
+
+###  http://www.irrig/master/thesis/2022#state_electro_potential_high
+:state_electro_potential_high rdf:type owl:NamedIndividual ,
+                                       :ElectroPotentialState .
+
+
+###  http://www.irrig/master/thesis/2022#state_electro_potential_low
+:state_electro_potential_low rdf:type owl:NamedIndividual ,
+                                      :ElectroPotentialState .
+
+
+###  http://www.w3id.org/def/irrig#FeatureOfInterest_RootZone
+:FeatureOfInterest_RootZone rdf:type owl:NamedIndividual ,
+                                     <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+                            ssn:hasProperty :observableProperty_rootZone_moistureLevel ;
+                            rdfs:label "Feature Of Interest Root Zone" .
+
+
+###  http://www.w3id.org/def/irrig#act_prop_root_zone_current
+:act_prop_root_zone_current rdf:type owl:NamedIndividual ,
+                                     <http://www.w3.org/ns/sosa/ActuatableProperty> ;
+                            rdfs:label "Actuatable Property root zone level" .
+
+
+###  http://www.w3id.org/def/irrig#featureOfInterest_air
+:featureOfInterest_air rdf:type owl:NamedIndividual ,
+                                <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+                       ssn:hasProperty :observableProperty_air_temperature ;
+                       rdfs:comment "FeatureOfInterest_air - an instance of the class sosa:FeatureOfInterest that represents air." ;
+                       rdfs:label "Feature Of Interest Air" .
+
+
+###  http://www.w3id.org/def/irrig#featureOfInterest_delay
+:featureOfInterest_delay rdf:type owl:NamedIndividual ,
+                                  <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+                         ssn:hasProperty :observableProperty_delayDuration ;
+                         rdfs:comment "FeatureOfInterest_delay - an instance of the class sosa:FeatureOfInterest that represents delay phenomenon."@en ;
+                         rdfs:label "Feature Of Interest Delay" .
+
+
+###  http://www.w3id.org/def/irrig#featureOfInterest_rain
+:featureOfInterest_rain rdf:type owl:NamedIndividual ,
+                                 <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+                        ssn:hasProperty :observableProperty_rain_quantity ;
+                        rdfs:comment "FeatureOfInterest_rain - an instance of the class sosa:FeatureOfInterest that represents rain." ;
+                        rdfs:label "Feature Of Interest Rain" .
+
+
+###  http://www.w3id.org/def/irrig#featureOfInterest_sleeping
+:featureOfInterest_sleeping rdf:type owl:NamedIndividual ,
+                                     <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
+                            ssn:hasProperty :observableProperty_sleepingDuration ;
+                            rdfs:comment "FeatureOfInterest_sleeping - an instance of the class sosa:FeatureOfInterest that represents sleeping phenomenon."@en ;
+                            rdfs:label "Feature Of Interest Sleeping" .
+
+
+###  http://www.w3id.org/def/irrig#irrigation_function
+:irrigation_function rdf:type owl:NamedIndividual ,
+                              saref:ActuatingFunction ;
+                     rdfs:comment "Irrigation Function: This functions aim is to increase the Root Zone Moisture Level. This function can only increase the Root Zone Moisture level." ;
+                     rdfs:label "Irrigation Function" .
+
+
+###  http://www.w3id.org/def/irrig#observableProperty_air_temperature
+:observableProperty_air_temperature rdf:type owl:NamedIndividual ,
+                                             <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                             :TemperatureProperty ;
+                                    rdfs:comment "ObservableProperty_air_temperature - an instance of the class irrig:TemperatureProperty and sosa:ObservableProperty that represents the observable property of temperature of an air feature of interest." ;
+                                    rdfs:label "Observable Property Air Temperature" .
+
+
+###  http://www.w3id.org/def/irrig#observableProperty_delayDuration
+:observableProperty_delayDuration rdf:type owl:NamedIndividual ,
+                                           <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                                  rdfs:comment "Number of days that an watering is delayed."@en ;
+                                  rdfs:label "Observable Property Irrigation Delay"@en .
+
+
+###  http://www.w3id.org/def/irrig#observableProperty_rain_quantity
+:observableProperty_rain_quantity rdf:type owl:NamedIndividual ,
+                                           <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                           :AmountProperty ,
+                                           :IntensityProperty ;
+                                  caso:hasState :state_rain_quantity_heavy ,
+                                                :state_rain_quantity_init ,
+                                                :state_rain_quantity_light ,
+                                                :state_rain_quantity_moderate ;
+                                  rdfs:comment "ObservableProperty_rain_quantity - an instance of the class irrig:AmountProperty and sosa:ObservableProperty that represents the quantity observable property of a rain feature of interest." ;
+                                  rdfs:label "Observable Property Rain Quantity" .
+
+
+###  http://www.w3id.org/def/irrig#observableProperty_rootZone_moistureLevel
+:observableProperty_rootZone_moistureLevel rdf:type owl:NamedIndividual ,
+                                                    <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                                    :MoistureProperty ;
+                                           caso:hasState :state_rootZone_moistureLevel_average ,
+                                                         :state_rootZone_moistureLevel_dry ,
+                                                         :state_rootZone_moistureLevel_high ,
+                                                         :state_rootZone_moistureLevel_init ,
+                                                         :state_rootZone_moistureLevel_low ,
+                                                         :state_rootZone_moistureLevel_saturated ,
+                                                         :state_rootZone_moistureLevel_veryHigh ,
+                                                         :state_rootZone_moistureLevel_veryLow ;
+                                           rdfs:comment "ObservableProperty_rootZone_moistureLevel - an instance of the class irrig:MoistureProperty and caso:Property that represents the observable property of moisture level of a root zone feature of interest." ;
+                                           rdfs:label "Observable Property Root Zone Moisture Level" .
+
+
+###  http://www.w3id.org/def/irrig#observableProperty_sleepingDuration
+:observableProperty_sleepingDuration rdf:type owl:NamedIndividual ,
+                                              <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                                     rdfs:comment "Number of days that the system is waiting until the next irrigation."@en ;
+                                     rdfs:label "Observable Property Sleeping Duration" .
+
+
+###  http://www.w3id.org/def/irrig#observableProperty_tree_growth
+:observableProperty_tree_growth rdf:type owl:NamedIndividual ,
+                                         :GrowthProperty ;
+                                caso:hasState :state_tree_growth_init ,
+                                              :state_tree_growth_r1 ,
+                                              :state_tree_growth_r1d15 ,
+                                              :state_tree_growth_r5 ;
+                                rdfs:comment "ObservableProperty_tree_growth - an instance of the class irrig:GrowthProperty and caso:Property that represents the observable property of growth of a irrig:Tree individual feature of interest." ;
+                                rdfs:label "Observable Property Tree Growth" .
+
+
+###  http://www.w3id.org/def/irrig#observableProperty_tree_stage
+:observableProperty_tree_stage rdf:type owl:NamedIndividual ,
+                                        :GrowthProperty ;
+                               rdfs:comment "ObservableProperty_tree_stage - an instance of the class irrig:GrowthProperty and caso:Property that represents the stage observable property of a irrig:Tree individual feature of interest." ;
+                               rdfs:label "Observable Property Tree Stage" .
+
+
+###  http://www.w3id.org/def/irrig#observableProperty_tree_waterNeed
+:observableProperty_tree_waterNeed rdf:type owl:NamedIndividual ,
+                                            :StressProperty ;
+                                   caso:hasState :state_tree_waterNeed_init ,
+                                                 :state_tree_waterNeed_no ,
+                                                 :state_tree_waterNeed_unavailable ,
+                                                 :state_tree_waterNeed_yes ;
+                                   rdfs:comment "ObservableProperty_tree_waterNeed - an instance of the class irrig:StressProperty and caso:Property that represents the observable property of water need of a tree feature of interest." ;
+                                   rdfs:label "Observable Property Tree Water Need" .
+
+
+###  http://www.w3id.org/def/irrig#shacl_rule_engine
+:shacl_rule_engine rdf:type owl:NamedIndividual ,
+                            :RuleEngine .
+
+
+###  http://www.w3id.org/def/irrig#state_rain_quantity_heavy
+:state_rain_quantity_heavy rdf:type owl:NamedIndividual ,
+                                    :RainQuantityState ;
+                           caso:greaterThan :state_rain_quantity_moderate ;
+                           rdfs:comment """State_rain_quantity_heavy - an instance of the class caso:State that represents the rain quantity is heavy.
+
+In the example of Arvalis' dataset, this RainIntensity property reaches this state the open upper boundary is RQ_maximum and the close lower boundary is RQ_high.""" ;
+                           rdfs:label "State Rain Quantity Heavy" .
+
+
+###  http://www.w3id.org/def/irrig#state_rain_quantity_init
+:state_rain_quantity_init rdf:type owl:NamedIndividual ,
+                                   :RainQuantityState ;
+                          rdfs:comment "State_rain_quantity_init - an instance of the class caso:State that represents the rain quantity is temporary undefined." ;
+                          rdfs:label "State Rain Quantity Init" .
+
+
+###  http://www.w3id.org/def/irrig#state_rain_quantity_light
+:state_rain_quantity_light rdf:type owl:NamedIndividual ,
+                                    :RainQuantityState ;
+                           caso:lesserThan :state_rain_quantity_moderate ;
+                           rdfs:comment """State_rain_quantity_light - an instance of the class caso:State that represents the rain quantity is light.
+
+In the example of Arvalis' dataset, this RainIntensity property reaches this state the open upper boundary is RQ_low and the close lower boundary is RQ_minimum.""" ;
+                           rdfs:label "State Rain Quantity Light" .
+
+
+###  http://www.w3id.org/def/irrig#state_rain_quantity_moderate
+:state_rain_quantity_moderate rdf:type owl:NamedIndividual ,
+                                       :RainQuantityState ;
+                              caso:greaterThan :state_rain_quantity_light ;
+                              caso:lesserThan :state_rain_quantity_heavy ;
+                              rdfs:comment """State_rain_quantity_moderate - an instance of the class caso:State that represents the rain quantity is moderate.
+
+In the example of Arvalis' dataset, this RainIntensity property reaches this state the open upper boundary is RQ_high and the close lower boundary is RQ_low.""" ;
+                              rdfs:label "State Rain Quantity Moderate" .
+
+
+###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_average
+:state_rootZone_moistureLevel_average rdf:type owl:NamedIndividual ,
+                                               :RootZoneMoistureLevelState ;
+                                      caso:greaterThan :state_rootZone_moistureLevel_low ;
+                                      caso:lesserThan :state_rootZone_moistureLevel_high ;
+                                      rdfs:comment """State_rootZone_moistureLevel_average - an instance of the class caso:State that represents the root zone moisture level is at the average state.
+
+In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_average and the close lower boundary is ST_high.""" ;
+                                      rdfs:label "State Root Zone Moisture Level Average" .
+
+
+###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_dry
+:state_rootZone_moistureLevel_dry rdf:type owl:NamedIndividual ,
+                                           :RootZoneMoistureLevelState ;
+                                  caso:lesserThan :state_rootZone_moistureLevel_veryLow ;
+                                  rdfs:comment """State_rootZone_moistureLevel_dry - an instance of the class caso:State that represents the root zone moisture level is at the dry state.
+
+In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_maximum and the close lower boundary is ST_very_low.""" ;
+                                  rdfs:label "State Root Zone Moisture Level Dry" .
+
+
+###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_high
+:state_rootZone_moistureLevel_high rdf:type owl:NamedIndividual ,
+                                            :RootZoneMoistureLevelState ;
+                                   caso:greaterThan :state_rootZone_moistureLevel_average ;
+                                   caso:lesserThan :state_rootZone_moistureLevel_veryHigh ;
+                                   rdfs:comment """State_rootZone_moistureLevel_high - an instance of the class caso:State that represents the root zone moisture level is at the high state.
+
+In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_high and the close lower boundary is ST_very_high.""" ;
+                                   rdfs:label "State Root Zone Moisture Level High" .
+
+
+###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_init
+:state_rootZone_moistureLevel_init rdf:type owl:NamedIndividual ,
+                                            :RootZoneMoistureLevelState ;
+                                   rdfs:comment "State_rootZone_moistureLevel_init - an instance of the class caso:State that represents the root zone moisture level is temporary undefined." ;
+                                   rdfs:label "State Root Zone Moisture Level Init" .
+
+
+###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_low
+:state_rootZone_moistureLevel_low rdf:type owl:NamedIndividual ,
+                                           :RootZoneMoistureLevelState ;
+                                  caso:greaterThan :state_rootZone_moistureLevel_veryLow ;
+                                  caso:lesserThan :state_rootZone_moistureLevel_average ;
+                                  rdfs:comment """State_rootZone_moistureLevel_low - an instance of the class caso:State that represents the root zone moisture level is at the low state.
+
+In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_low and the close lower boundary is ST_average.""" ;
+                                  rdfs:label "State Root Zone Moisture Level Low" .
+
+
+###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_saturated
+:state_rootZone_moistureLevel_saturated rdf:type owl:NamedIndividual ,
+                                                 :RootZoneMoistureLevelState ;
+                                        caso:greaterThan :state_rootZone_moistureLevel_veryHigh ;
+                                        rdfs:comment """State_rootZone_moistureLevel_saturated - an instance of the class caso:State that represents the root zone moisture level is at the saturated state.
+
+In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_saturated and the close lower boundary is ST_minimum.""" ;
+                                        rdfs:label "State Root Zone Moisture Level Saturated" .
+
+
+###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_veryHigh
+:state_rootZone_moistureLevel_veryHigh rdf:type owl:NamedIndividual ,
+                                                :RootZoneMoistureLevelState ;
+                                       caso:greaterThan :state_rootZone_moistureLevel_high ;
+                                       caso:lesserThan :state_rootZone_moistureLevel_saturated ;
+                                       rdfs:comment """State_rootZone_moistureLevel_veryHigh - an instance of the class caso:State that represents the root zone moisture level is at the very high state.
+
+In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_very_high and the close lower boundary is ST_saturated.""" ;
+                                       rdfs:label "State Root Zone Moisture Level Very High" .
+
+
+###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_veryLow
+:state_rootZone_moistureLevel_veryLow rdf:type owl:NamedIndividual ,
+                                               :RootZoneMoistureLevelState ;
+                                      caso:greaterThan :state_rootZone_moistureLevel_dry ;
+                                      caso:lesserThan :state_rootZone_moistureLevel_low ;
+                                      rdfs:comment """State_rootZone_moistureLevel_veryLow - an instance of the class caso:State that represents the root zone moisture level is at the very low state.
+
+In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_very_low and the close lower boundary is ST_low.""" ;
+                                      rdfs:label "State Root Zone Moisture Level Very Low" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_growth_init
+:state_tree_growth_init rdf:type owl:NamedIndividual ,
+                                 :TreeGrowthState ;
+                        rdfs:comment "State_tree_growth_init - an instance of the class caso:State that represents the state of tree growth is temporary undefined." ;
+                        rdfs:label "State Tree Growth Init" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_growth_r1
+:state_tree_growth_r1 rdf:type owl:NamedIndividual ,
+                               :TreeGrowthState ;
+                      caso:lesserThan :state_tree_growth_r1d15 ;
+                      rdfs:comment "State_tree_growth_r1 - an instance of the class caso:State that represents the tree after reaching the “silking” stage. This stage is also named R1." ;
+                      rdfs:label "State Tree Growth R1" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_growth_r1d15
+:state_tree_growth_r1d15 rdf:type owl:NamedIndividual ,
+                                  :TreeGrowthState ;
+                         caso:greaterThan :state_tree_growth_r1 ;
+                         caso:lesserThan :state_tree_growth_r5 ;
+                         rdfs:comment "State_tree_growth_r1d15 - an instance of the class caso:State that represents the tree 15 days after reaching the “silking” stage." ;
+                         rdfs:label "State Tree Growth R1d15" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_growth_r5
+:state_tree_growth_r5 rdf:type owl:NamedIndividual ,
+                               :TreeGrowthState ;
+                      caso:greaterThan :state_tree_growth_r1d15 ;
+                      rdfs:comment "State_tree_growth_r5 - an instance of the class caso:State that represents the tree after reaching the “dent stage within kernel containing 50% moisture”. This stage is also named R5" ;
+                      rdfs:label "State Tree Growth R5" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_waterNeed_init
+:state_tree_waterNeed_init rdf:type owl:NamedIndividual ,
+                                    :TreeWaterNeedState ;
+                           rdfs:comment "State_tree_waterNeed_init - an instance of the class caso:State that represents the state of tree water need is temporary undefined." ;
+                           rdfs:label "State Tree Water Need Init" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_waterNeed_no
+:state_tree_waterNeed_no rdf:type owl:NamedIndividual ,
+                                  :TreeWaterNeedState ;
+                         rdfs:comment "State_tree_waterNeed_no - an instance of the class caso:State that represents the tree does not need water." ;
+                         rdfs:label "State Tree Water Need No" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_waterNeed_notApplicable
+:state_tree_waterNeed_notApplicable rdf:type owl:NamedIndividual ,
+                                             :TreeWaterNeedState ;
+                                    rdfs:comment "State_tree_waterNeed_notApplicable - an instance of the class caso:State that represents the state of tree water need has not been evaluated yet." ;
+                                    rdfs:label "State Tree Water Need Not Applicable" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_waterNeed_unavailable
+:state_tree_waterNeed_unavailable rdf:type owl:NamedIndividual ,
+                                           :TreeWaterNeedState ;
+                                  rdfs:comment "State_tree_waterNeed_unavailable - an instance of the class caso:State that represents the tree may need water soon." ;
+                                  rdfs:label "State Tree Water Need Unavailable" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_waterNeed_yes
+:state_tree_waterNeed_yes rdf:type owl:NamedIndividual ,
+                                   :TreeWaterNeedState ;
+                          rdfs:comment "State_tree_waterNeed_yes - an instance of the class caso:State that represents the tree needs water." ;
+                          rdfs:label "State Tree Water Need Yes" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointProperties ;
+  owl:members ( caso:hasClosedLowerBoundary
+                caso:hasClosedUpperBoundary
+                caso:hasOpenLowerBoundary
+                caso:hasOpenUpperBoundary
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
