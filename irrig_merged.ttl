@@ -557,57 +557,6 @@ saref:hasName rdf:type owl:DatatypeProperty ;
                                        rdfs:subClassOf saref:Sensor .
 
 
-###  http://www.irrig/master/thesis/2022#ElectroPhysiologicalObservation
-:ElectroPhysiologicalObservation rdf:type owl:Class ;
-                                 owl:equivalentClass [ owl:intersectionOf ( <http://www.w3.org/ns/sosa/Observation>
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
-                                                                              owl:someValuesFrom :Tree
-                                                                            ]
-                                                                            [ rdf:type owl:Restriction ;
-                                                                              owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
-                                                                              owl:hasValue :observableProperty_electro_potential
-                                                                            ]
-                                                                          ) ;
-                                                       rdf:type owl:Class
-                                                     ] ;
-                                 rdfs:subClassOf caso:Observation .
-
-
-###  http://www.irrig/master/thesis/2022#ElectroPotentialState
-:ElectroPotentialState rdf:type owl:Class ;
-                       rdfs:subClassOf caso:State .
-
-
-###  http://www.irrig/master/thesis/2022#NoirCamera
-:NoirCamera rdf:type owl:Class ;
-            rdfs:subClassOf saref:Actuator .
-
-
-###  http://www.irrig/master/thesis/2022#PhytlSignDeduction
-:PhytlSignDeduction rdf:type owl:Class ;
-                    owl:equivalentClass [ owl:intersectionOf ( caso:Observation
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
-                                                                 owl:someValuesFrom :Tree
-                                                               ]
-                                                               [ rdf:type owl:Restriction ;
-                                                                 owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
-                                                                 owl:hasValue :observableProperty_electro_potential
-                                                               ]
-                                                             ) ;
-                                          rdf:type owl:Class
-                                        ] ;
-                    rdfs:subClassOf caso:Deduction .
-
-
-###  http://www.irrig/master/thesis/2022#WaterPump
-:WaterPump rdf:type owl:Class ;
-           rdfs:subClassOf saref:Actuator ;
-           rdfs:comment "An actuator that open the water valve."^^xsd:string ;
-           rdfs:label "Watering Valve"^^xsd:string .
-
-
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Unit
 <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> rdf:type owl:Class ;
                                                                  rdfs:comment "A unit of measure is a definite magnitude of a quantity, defined and adopted by convention or by law. It is used as a standard for measurement of the same quantity, where any other value of the quantity can be expressed as a simple multiple of the unit. For example, length is a quantity; the metre is a unit of length that represents a definite predetermined length. When we say 10 metre (or 10 m), we actually mean 10 times the definite predetermined length called \"metre\"."@en ;
@@ -884,6 +833,28 @@ caso:State rdf:type owl:Class ;
                 skos:example "RainQuantity is an AmountProperty representing the amount of rain."@en .
 
 
+###  http://www.w3id.org/def/irrig#ElectroPhysiologicalObservation
+:ElectroPhysiologicalObservation rdf:type owl:Class ;
+                                 owl:equivalentClass [ owl:intersectionOf ( <http://www.w3.org/ns/sosa/Observation>
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                                              owl:someValuesFrom :Tree
+                                                                            ]
+                                                                            [ rdf:type owl:Restriction ;
+                                                                              owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                                              owl:hasValue :observableProperty_electro_potential
+                                                                            ]
+                                                                          ) ;
+                                                       rdf:type owl:Class
+                                                     ] ;
+                                 rdfs:subClassOf caso:Observation .
+
+
+###  http://www.w3id.org/def/irrig#ElectroPotentialState
+:ElectroPotentialState rdf:type owl:Class ;
+                       rdfs:subClassOf caso:State .
+
+
 ###  http://www.w3id.org/def/irrig#ElectronicPotential
 :ElectronicPotential rdf:type owl:Class ;
                      rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservableProperty> ,
@@ -934,6 +905,28 @@ caso:State rdf:type owl:Class ;
                   rdfs:comment "MoistureProperty - Moisture aspect of an entity representing the amount of water available inside the entity. The moisture aspect of the entity is intrinsic to and cannot exist without the entity. The moisture quality should be expressed by a qualitative value such as States or by a quantitative value."@en ;
                   rdfs:label "Moisture Property"@en ;
                   skos:example "RootZoneMoistureLevel is a MoistureProperty representing the amount of water available around the soil’s root zone area of a plant."@en .
+
+
+###  http://www.w3id.org/def/irrig#NoirCamera
+:NoirCamera rdf:type owl:Class ;
+            rdfs:subClassOf saref:Actuator .
+
+
+###  http://www.w3id.org/def/irrig#PhytlSignDeduction
+:PhytlSignDeduction rdf:type owl:Class ;
+                    owl:equivalentClass [ owl:intersectionOf ( caso:Observation
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
+                                                                 owl:someValuesFrom :Tree
+                                                               ]
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
+                                                                 owl:hasValue :observableProperty_electro_potential
+                                                               ]
+                                                             ) ;
+                                          rdf:type owl:Class
+                                        ] ;
+                    rdfs:subClassOf caso:Deduction .
 
 
 ###  http://www.w3id.org/def/irrig#RainIntensityDeduction
@@ -1148,6 +1141,13 @@ caso:State rdf:type owl:Class ;
                     skos:example "The state No of the tree water need Property represents the fact that the tree does not need water."@en .
 
 
+###  http://www.w3id.org/def/irrig#WaterPump
+:WaterPump rdf:type owl:Class ;
+           rdfs:subClassOf saref:Actuator ;
+           rdfs:comment "An actuator that open the water valve."^^xsd:string ;
+           rdfs:label "Watering Valve"^^xsd:string .
+
+
 ###  https://saref.etsi.org/core/ActuatingFunction
 saref:ActuatingFunction rdf:type owl:Class ;
                         rdfs:subClassOf saref:Function .
@@ -1155,7 +1155,8 @@ saref:ActuatingFunction rdf:type owl:Class ;
 
 ###  https://saref.etsi.org/core/Actuator
 saref:Actuator rdf:type owl:Class ;
-               rdfs:subClassOf saref:Device ;
+               rdfs:subClassOf <http://www.w3.org/ns/sosa/Actuator> ,
+                               saref:Device ;
                rdfs:comment "A device responsible for moving or controlling a mechanism or system by performing an actuating function"^^xsd:string ;
                rdfs:isDefinedBy saref: ;
                rdfs:label "Actuator"^^xsd:string .
@@ -1198,7 +1199,8 @@ saref:Function rdf:type owl:Class ;
 
 ###  https://saref.etsi.org/core/Sensor
 saref:Sensor rdf:type owl:Class ;
-             rdfs:subClassOf saref:Device ;
+             rdfs:subClassOf <http://www.w3.org/ns/sosa/Sensor> ,
+                             saref:Device ;
              rdfs:comment "A device that detects and responds to events or changes in the physical environment such as light, motion, or temperature changes. Further, a device of category saref:Sensor that performs a saref:SensingFunction."^^xsd:string ;
              rdfs:isDefinedBy saref: ;
              rdfs:label "Sensor"^^xsd:string .
@@ -1240,21 +1242,6 @@ saref:Sensor rdf:type owl:Class ;
 #################################################################
 #    Individuals
 #################################################################
-
-###  http://www.irrig/master/thesis/2022#observableProperty_electro_potential
-:observableProperty_electro_potential rdf:type owl:NamedIndividual ,
-                                               :ElectronicPotential .
-
-
-###  http://www.irrig/master/thesis/2022#state_electro_potential_high
-:state_electro_potential_high rdf:type owl:NamedIndividual ,
-                                       :ElectroPotentialState .
-
-
-###  http://www.irrig/master/thesis/2022#state_electro_potential_low
-:state_electro_potential_low rdf:type owl:NamedIndividual ,
-                                      :ElectroPotentialState .
-
 
 ###  http://www.w3id.org/def/irrig#FeatureOfInterest_RootZone
 :FeatureOfInterest_RootZone rdf:type owl:NamedIndividual ,
@@ -1321,6 +1308,11 @@ saref:Sensor rdf:type owl:Class ;
                                            <http://www.w3.org/ns/sosa/ObservableProperty> ;
                                   rdfs:comment "Number of days that an watering is delayed."@en ;
                                   rdfs:label "Observable Property Irrigation Delay"@en .
+
+
+###  http://www.w3id.org/def/irrig#observableProperty_electro_potential
+:observableProperty_electro_potential rdf:type owl:NamedIndividual ,
+                                               :ElectronicPotential .
 
 
 ###  http://www.w3id.org/def/irrig#observableProperty_rain_quantity
@@ -1391,6 +1383,16 @@ saref:Sensor rdf:type owl:Class ;
 ###  http://www.w3id.org/def/irrig#shacl_rule_engine
 :shacl_rule_engine rdf:type owl:NamedIndividual ,
                             :RuleEngine .
+
+
+###  http://www.w3id.org/def/irrig#state_electro_potential_high
+:state_electro_potential_high rdf:type owl:NamedIndividual ,
+                                       :ElectroPotentialState .
+
+
+###  http://www.w3id.org/def/irrig#state_electro_potential_low
+:state_electro_potential_low rdf:type owl:NamedIndividual ,
+                                      :ElectroPotentialState .
 
 
 ###  http://www.w3id.org/def/irrig#state_rain_quantity_heavy
