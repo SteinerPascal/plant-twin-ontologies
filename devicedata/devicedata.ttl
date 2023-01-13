@@ -14,21 +14,21 @@
 @prefix om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/> .
 
 ex:tempsens_0 rdf:type saref4agri:Thermometer , saref:Sensor ;
-	ssn-system:hasSystemCapability ex:normalThermSensCond;
+	ssn-system:hasSystemCapability ex:normalThermSensCond_0;
 	rdfs:label "Temperature Sensor 0";
 	geo:hasGeometry ex:Point0.
 
 ex:Point0 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.539884289342975 47.36875793851416)"^^geo:wktLiteral ;
 	rdf:type geo:Point .
 
-ex:ThermSensCond_0 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
+ex:normalThermSensCond_0 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
   rdfs:comment "The capabilities of the temperature sensor in normal temperature and humidity conditions." ;
   ssn-system:inCondition ex:NormalTemperatureCondition , ex:NormalHumidityCondition ;
   ssn-system:hasSystemProperty ex:TemperatureSensorPrecision , ex:TemperatureSensorAccuracy , ex:TemperatureSensorSensitivity  , ex:TemperatureSensorFrequency , ex:TemperatureSensorSensingRadius_0 .
 
   ex:TemperatureSensorSensingRadius_0 a ssn:Property , ssn-system:SpatialCoverage;
   rdfs:comment: "Spatial coverage refers to a geographical area where data was collected, a place which is the subject of a collection, or a location which is the focus of an activity.";
-  geo:hasGeometry ex:SpatRadius .
+  geo:hasGeometry ex:SpatRadius_0 .
   
   ex:SpatRadius_0 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POLYGON((8.539970120031452 47.36579316540567,8.542330463964557 47.36634543969276,8.541600903112506 47.371112198447655,8.536794384557819 47.36977522421873,8.539970120031452 47.36579316540567))"^^geo:wktLiteral ;
 	rdf:type geo:Polygon .
