@@ -1,6 +1,6 @@
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ex: <http://twin-example/geneva#> .
+@prefix ex: <http://twin-example/zurich#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix config: <http://twin-example/config#>.
@@ -70,11 +70,11 @@ ex:NormalHumidityCondition a ssn-system:Condition , schema:PropertyValue ;
 # TEMPSENS 1
 
 ex:tempsens_1 rdf:type saref4agri:Thermometer  , saref:Sensor ;
-	ssn-system:hasSystemCapability ex:normalThermSensCond;
+	ssn-system:hasSystemCapability ex:normalThermSensCond_1;
 	rdfs:label "Temperature Sensor 1";
 	geo:hasGeometry ex:Point2.
 
-ex:ThermSensCond_1 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
+ex:normalThermSensCond_1 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
   rdfs:comment "The capabilities of the temperature sensor in normal temperature and humidity conditions." ;
   ssn-system:inCondition ex:NormalTemperatureCondition , ex:NormalHumidityCondition ;
   ssn-system:hasSystemProperty ex:TemperatureSensorPrecision , ex:TemperatureSensorAccuracy , ex:TemperatureSensorSensitivity  , ex:TemperatureSensorFrequency , ex:TemperatureSensorSensingRadius_1 .
@@ -93,11 +93,11 @@ ex:Point2 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.5391
 #TEMPSENSOR 2
 
 ex:tempsens_2 rdf:type saref4agri:Thermometer  , saref:Sensor ;
-	ssn-system:hasSystemCapability ex:normalThermSensCond;
+	ssn-system:hasSystemCapability ex:normalThermSensCond_2;
 	rdfs:label "Temperature Sensor 2";
 	geo:hasGeometry ex:Point3.
 
-ex:ThermSensCond_2 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
+ex:normalThermSensCond_2 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
   rdfs:comment "The capabilities of the temperature sensor in normal temperature and humidity conditions." ;
   ssn-system:inCondition ex:NormalTemperatureCondition , ex:NormalHumidityCondition ;
   ssn-system:hasSystemProperty ex:TemperatureSensorPrecision , ex:TemperatureSensorAccuracy , ex:TemperatureSensorSensitivity  , ex:TemperatureSensorFrequency , ex:TemperatureSensorSensingRadius_2 .
@@ -116,11 +116,11 @@ ex:Point3 geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> POINT(8.5411
 # PLUVIOMETER 1
 
 ex:pluviometer_1 rdf:type saref4agri:Pluviometer  , saref:Sensor ;
-	ssn-system:hasSystemCapability ex:NormalPluviometerCap_1;
+	ssn-system:hasSystemCapability ex:normalPluviometerCap_1;
 	geo:hasGeometry ex:Point4;
 	rdfs:label "Pluviometer 1".
 
-ex:NormalPluviometerCap_1 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
+ex:normalPluviometerCap_1 rdf:type ssn:Property , ssn-system:SystemCapability , schema:PropertyValue ;
   rdfs:comment "The capabilities of an pluviometer in normal conditions." ;
   ssn-system:hasSystemProperty ex:PluviometerSensingRadius_1 .
 
@@ -165,16 +165,17 @@ ex:phytlsigns_4 rdf:type saref:Sensor ;
 	ssn-system:hasSystemCapability ex:normalPhytlCap;
 	rdfs:label "PhytlSigns 4".
 
-# PHYTLSIGNS 5
-ex:phytlsigns_5 rdf:type saref:Sensor ;
-	ssn-system:hasSystemCapability ex:normalPhytlCap;
-	rdfs:label "PhytlSigns 5".
+# REASONER
+ex:shacl_0 rdf:type saref:Sensor;
+  rdfs:label "Inferencer SHACL engine".
 
-# PHYTLSIGNS 6
-ex:phytlsigns_6 rdf:type saref:Sensor ;
-	ssn-system:hasSystemCapability ex:normalPhytlCap;
-	rdfs:label "PhytlSigns 6".
+# Capacitive soil moisture sensor
+ex:cap_soil_sens_0 rdf:type saref:Sensor;
+  rdfs:label "Capacitive Moisture Sensor".
 
+# Tree Caliper
+ex:tree_caliper_0 rdf:type saref:Sensor ;
+  rdfs:label "Tree Caliper".
 
 # REST
 
@@ -190,10 +191,3 @@ ex:irrigation_1 rdf:type sosa:Actuator ;
     sosa:hasFeatureOfInterest ex:tree_186930;
 	rdfs:label "Water Irrigation x2039".
 
-ex:irrigation_2 rdf:type sosa:Actuator ;
-	sosa:hasFeatureOfInterest ex:tree_186993;
-	rdfs:label "Water Irrigation h33".
-
-ex:irrigation_3 rdf:type sosa:Actuator ;
-    sosa:hasFeatureOfInterest ex:tree_187074;
-	rdfs:label "Water Irrigation g620".

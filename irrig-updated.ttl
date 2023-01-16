@@ -842,7 +842,7 @@ caso:State rdf:type owl:Class ;
                                                                             ]
                                                                             [ rdf:type owl:Restriction ;
                                                                               owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
-                                                                              owl:hasValue :observableProperty_electro_potential
+                                                                              owl:hasValue :property_electro_potential
                                                                             ]
                                                                           ) ;
                                                        rdf:type owl:Class
@@ -857,8 +857,7 @@ caso:State rdf:type owl:Class ;
 
 ###  http://www.w3id.org/def/irrig#ElectronicPotential
 :ElectronicPotential rdf:type owl:Class ;
-                     rdfs:subClassOf <http://www.w3.org/ns/sosa/ObservableProperty> ,
-                                     ssn:Property ;
+                     rdfs:subClassOf ssn:Property ;
                      rdfs:comment "Electronic Potentials which occur whitin the plant"^^xsd:string ;
                      rdfs:label "Electronic Potential Property" .
 
@@ -885,10 +884,6 @@ caso:State rdf:type owl:Class ;
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
                                        owl:someValuesFrom :Tree
-                                     ] ,
-                                     [ rdf:type owl:Restriction ;
-                                       owl:onProperty <http://www.w3.org/ns/sosa/actsOnProperty> ;
-                                       owl:hasValue :act_prop_root_zone_current
                                      ] ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty caso:triggersFunction ;
@@ -921,7 +916,7 @@ caso:State rdf:type owl:Class ;
                                                                ]
                                                                [ rdf:type owl:Restriction ;
                                                                  owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
-                                                                 owl:hasValue :observableProperty_electro_potential
+                                                                 owl:hasValue :property_electro_potential
                                                                ]
                                                              ) ;
                                           rdf:type owl:Class
@@ -938,7 +933,7 @@ caso:State rdf:type owl:Class ;
                                                                    ]
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
-                                                                     owl:hasValue :observableProperty_rain_quantity
+                                                                     owl:hasValue :property_rain_quantity
                                                                    ]
                                                                  ) ;
                                               rdf:type owl:Class
@@ -948,7 +943,7 @@ caso:State rdf:type owl:Class ;
                                               owl:someValuesFrom :RainQuantityState
                                             ] ;
                         rdfs:subClassOf caso:Deduction ;
-                        rdfs:comment "RainIntensityDeduction - a defined class that represents act of carrying out a procedure to estimate the state of the intensity property for the rain entity. The intensity property is represented by the individual irrig:observableProperty_rain_intensity. The rain entity is represented by the individual irrig:featureOfInterest_rain. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_rain_intensity via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rain via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:RainIntensityState by the caso:hasResultState object property; is linked to an instance of the class irrig:RainDailyTotalQuantityObservation by the prov:wasInformedBy object property; and is linked to a sensor to describe the agent that made the deduction."@en ;
+                        rdfs:comment "RainIntensityDeduction - a defined class that represents act of carrying out a procedure to estimate the state of the intensity property for the rain entity. The intensity property is represented by the individual irrig:property_rain_intensity. The rain entity is represented by the individual irrig:featureOfInterest_rain. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:property_rain_intensity via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rain via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:RainIntensityState by the caso:hasResultState object property; is linked to an instance of the class irrig:RainDailyTotalQuantityObservation by the prov:wasInformedBy object property; and is linked to a sensor to describe the agent that made the deduction."@en ;
                         rdfs:label "Rain Intensity Deduction"@en ;
                         skos:example "A RainIntensityDeduction that made by an inference engine based on observations made by an aggregator."@en .
 
@@ -962,13 +957,13 @@ caso:State rdf:type owl:Class ;
                                                                     ]
                                                                     [ rdf:type owl:Restriction ;
                                                                       owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
-                                                                      owl:hasValue :observableProperty_rain_quantity
+                                                                      owl:hasValue :property_rain_quantity
                                                                     ]
                                                                   ) ;
                                                rdf:type owl:Class
                                              ] ;
                          rdfs:subClassOf caso:Observation ;
-                         rdfs:comment "RainQuantityObservation - A defined class that represents the act of carrying out a procedure (observation) to estimate the value of the quantity property for the rain entity. The quantity property is represented by the individual irrig:observableProperty_rain_quantity. The rain entity is represented by the individual irrig:featureOfInterest_rain. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_rain_quantity via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rain via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to a sensor to describe the agent that made the observation."@en ;
+                         rdfs:comment "RainQuantityObservation - A defined class that represents the act of carrying out a procedure (observation) to estimate the value of the quantity property for the rain entity. The quantity property is represented by the individual irrig:property_rain_quantity. The rain entity is represented by the individual irrig:featureOfInterest_rain. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:property_rain_quantity via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rain via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to a sensor to describe the agent that made the observation."@en ;
                          rdfs:label "Rain Quantity Observation"@en ;
                          skos:example "A RainQuantityObservation that made by a pluviometer."@en .
 
@@ -990,7 +985,7 @@ caso:State rdf:type owl:Class ;
                                                                        ]
                                                                        [ rdf:type owl:Restriction ;
                                                                          owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
-                                                                         owl:hasValue :observableProperty_rootZone_moistureLevel
+                                                                         owl:hasValue :property_rootZone_moistureLevel
                                                                        ]
                                                                      ) ;
                                                   rdf:type owl:Class
@@ -999,7 +994,7 @@ caso:State rdf:type owl:Class ;
                                                   owl:onProperty caso:hasResultState ;
                                                   owl:someValuesFrom :RootZoneMoistureLevelState
                                                 ] ;
-                                rdfs:comment "RootZoneMoistureLevelDeduction - A defined class that represents the act of carrying out a procedure to estimate the state of the moisture level property for the root zone entity. The moisture level property is represented by the individual irrig:observableProperty_rootZone_moistureLevel. The root zone entity is represented by the individual irrig:featureOfInterest_rootZone. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_rootZone_moistureLevel} via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rootZone via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:RootZoneMoistureLevelState by the caso:hasResultState object property; is linked to an instance of the class irrig:RootZoneDailyAverageMoistureObservation by the prov:wasInformedBy object property; and is linked to a sensor to describe the agent that made the deduction."@en ;
+                                rdfs:comment "RootZoneMoistureLevelDeduction - A defined class that represents the act of carrying out a procedure to estimate the state of the moisture level property for the root zone entity. The moisture level property is represented by the individual irrig:property_rootZone_moistureLevel. The root zone entity is represented by the individual irrig:featureOfInterest_rootZone. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:property_rootZone_moistureLevel} via the sosa:observedProperty object property; (2) All instances of this class are linked to the individual irrig:featureOfInterest_rootZone via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:RootZoneMoistureLevelState by the caso:hasResultState object property; is linked to an instance of the class irrig:RootZoneDailyAverageMoistureObservation by the prov:wasInformedBy object property; and is linked to a sensor to describe the agent that made the deduction."@en ;
                                 rdfs:label "Root Zone Moisture Level Deduction"@en ;
                                 skos:example "A RootZoneMoistureLevelDeduction that made by an inference engine based on observations from an aggregator."@en .
 
@@ -1044,7 +1039,7 @@ caso:State rdf:type owl:Class ;
                                         ] ,
                                         [ rdf:type owl:Restriction ;
                                           owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
-                                          owl:hasValue :observableProperty_air_temperature
+                                          owl:hasValue :property_air_temperature
                                         ] ;
                         rdfs:label "Temperature Observation" .
 
@@ -1062,11 +1057,23 @@ caso:State rdf:type owl:Class ;
       rdfs:subClassOf <http://www.w3.org/ns/sosa/FeatureOfInterest> ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty ssn:hasProperty ;
-                        owl:hasValue :act_prop_root_zone_current
+                        owl:hasValue :property_electro_potential
                       ] ,
                       [ rdf:type owl:Restriction ;
                         owl:onProperty ssn:hasProperty ;
-                        owl:hasValue :observableProperty_tree_growth
+                        owl:hasValue :property_rootZone_moistureLevel
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty ssn:hasProperty ;
+                        owl:hasValue :property_tree_growth
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty ssn:hasProperty ;
+                        owl:hasValue :property_tree_stage
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty ssn:hasProperty ;
+                        owl:hasValue :property_tree_waterNeed
                       ] .
 
 
@@ -1079,7 +1086,7 @@ caso:State rdf:type owl:Class ;
                                                             ]
                                                             [ rdf:type owl:Restriction ;
                                                               owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
-                                                              owl:hasValue :observableProperty_tree_growth
+                                                              owl:hasValue :property_tree_growth
                                                             ]
                                                           ) ;
                                        rdf:type owl:Class
@@ -1088,7 +1095,7 @@ caso:State rdf:type owl:Class ;
                                        owl:onProperty caso:hasResultState ;
                                        owl:someValuesFrom :TreeGrowthState
                                      ] ;
-                     rdfs:comment "TreeGrowthDeduction - A defined class that represents the act of carrying out a procedure to estimate the state of the growth property for the tree entity. The growth property is represented by the individual irrig:observableProperty_tree_growth. The tree entity is represented by the individual of class irrig:Tree. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_tree_growth via the sosa:observedProperty object property; (2) All instance of this class are linked to the individual irrig:featureOfInterest of thype irrig:Tree  via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:TreeGrowthState by the caso:hasResultState object property, is linked to an instance of the class irrig:TreeGrowthObservation by the prov:wasInformedBy object property, and is linked to a sensor to describe the agent that made the deduction."@en ;
+                     rdfs:comment "TreeGrowthDeduction - A defined class that represents the act of carrying out a procedure to estimate the state of the growth property for the tree entity. The growth property is represented by the individual irrig:property_tree_growth. The tree entity is represented by the individual of class irrig:Tree. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:property_tree_growth via the sosa:observedProperty object property; (2) All instance of this class are linked to the individual irrig:featureOfInterest of thype irrig:Tree  via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to an instance of the class irrig:TreeGrowthState by the caso:hasResultState object property, is linked to an instance of the class irrig:TreeGrowthObservation by the prov:wasInformedBy object property, and is linked to a sensor to describe the agent that made the deduction."@en ;
                      rdfs:label "Tree Growth Deduction"@en ;
                      skos:example "A TreeGrowthDeduction is made by an inference engine based on human observation."@en .
 
@@ -1096,7 +1103,7 @@ caso:State rdf:type owl:Class ;
 ###  http://www.w3id.org/def/irrig#TreeGrowthObservation
 :TreeGrowthObservation rdf:type owl:Class ;
                        rdfs:subClassOf caso:Observation ;
-                       rdfs:comment "TreeGrowthObservation - A defined class that represents the act of carrying out a procedure (observation) to estimate the value of the growth property for the tree entity. The growth property is represented by the individual irrig:observableProperty_tree_growth. The tree entity is represented by the individual irrig:featureOfInterest_tree. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:observableProperty_tree_growth} via the sosa:observedProperty object property; (2) All instance of this class are linked to the individual irrig:featureOfInterest_?? of class irrig:Tree  via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to a sensor to describe the agent that made the observation."@en ;
+                       rdfs:comment "TreeGrowthObservation - A defined class that represents the act of carrying out a procedure (observation) to estimate the value of the growth property for the tree entity. The growth property is represented by the individual irrig:property_tree_growth. The tree entity is represented by the individual irrig:featureOfInterest_tree. Two necessary and sufficient conditions are defined: (1) All instances of this class are linked to the individual irrig:property_tree_growth} via the sosa:observedProperty object property; (2) All instance of this class are linked to the individual irrig:featureOfInterest_?? of class irrig:Tree  via the sosa:hasFeatureOfInterest object property. Additionally, each instance of this class is linked to a sensor to describe the agent that made the observation."@en ;
                        rdfs:label "Tree Growth Observation"@en ;
                        skos:example "A TreeGrowthObservation that made by a gardener called John Doe."@en .
 
@@ -1118,7 +1125,7 @@ caso:State rdf:type owl:Class ;
                                                                    ]
                                                                    [ rdf:type owl:Restriction ;
                                                                      owl:onProperty <http://www.w3.org/ns/sosa/observedProperty> ;
-                                                                     owl:hasValue :observableProperty_tree_waterNeed
+                                                                     owl:hasValue :property_tree_waterNeed
                                                                    ]
                                                                  ) ;
                                               rdf:type owl:Class
@@ -1233,7 +1240,7 @@ saref:Sensor rdf:type owl:Class ;
                                                               ] ,
                                                               [ rdf:type owl:Restriction ;
                                                                 owl:onProperty <http://www.w3.org/ns/sosa/observes> ;
-                                                                owl:hasValue :observableProperty_air_temperature
+                                                                owl:hasValue :property_air_temperature
                                                               ] ;
                                               rdfs:comment "A sensor that measure weather conditions."@en ;
                                               rdfs:label "Thermometer"@en .
@@ -1244,22 +1251,16 @@ saref:Sensor rdf:type owl:Class ;
 #################################################################
 
 ###  http://www.w3id.org/def/irrig#FeatureOfInterest_RootZone
-:FeatureOfInterest_RootZone rdf:type owl:NamedIndividual ,
-                                     <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                            ssn:hasProperty :observableProperty_rootZone_moistureLevel ;
+:FeatureOfInterest_RootZone rdf:type owl:NamedIndividual ;
+                            ssn:hasProperty :property_rootZone_moistureLevel ;
                             rdfs:label "Feature Of Interest Root Zone" .
-
-
-###  http://www.w3id.org/def/irrig#act_prop_root_zone_current
-:act_prop_root_zone_current rdf:type owl:NamedIndividual ,
-                                     <http://www.w3.org/ns/sosa/ActuatableProperty> ;
-                            rdfs:label "Actuatable Property root zone level" .
 
 
 ###  http://www.w3id.org/def/irrig#featureOfInterest_air
 :featureOfInterest_air rdf:type owl:NamedIndividual ,
                                 <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                       ssn:hasProperty :observableProperty_air_temperature ;
+                       ssn:hasProperty :property_air_humidity ,
+                                       :property_air_temperature ;
                        rdfs:comment "FeatureOfInterest_air - an instance of the class sosa:FeatureOfInterest that represents air." ;
                        rdfs:label "Feature Of Interest Air" .
 
@@ -1267,7 +1268,7 @@ saref:Sensor rdf:type owl:Class ;
 ###  http://www.w3id.org/def/irrig#featureOfInterest_delay
 :featureOfInterest_delay rdf:type owl:NamedIndividual ,
                                   <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                         ssn:hasProperty :observableProperty_delayDuration ;
+                         ssn:hasProperty :property_delayDuration ;
                          rdfs:comment "FeatureOfInterest_delay - an instance of the class sosa:FeatureOfInterest that represents delay phenomenon."@en ;
                          rdfs:label "Feature Of Interest Delay" .
 
@@ -1275,7 +1276,7 @@ saref:Sensor rdf:type owl:Class ;
 ###  http://www.w3id.org/def/irrig#featureOfInterest_rain
 :featureOfInterest_rain rdf:type owl:NamedIndividual ,
                                  <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                        ssn:hasProperty :observableProperty_rain_quantity ;
+                        ssn:hasProperty :property_rain_quantity ;
                         rdfs:comment "FeatureOfInterest_rain - an instance of the class sosa:FeatureOfInterest that represents rain." ;
                         rdfs:label "Feature Of Interest Rain" .
 
@@ -1283,7 +1284,7 @@ saref:Sensor rdf:type owl:Class ;
 ###  http://www.w3id.org/def/irrig#featureOfInterest_sleeping
 :featureOfInterest_sleeping rdf:type owl:NamedIndividual ,
                                      <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                            ssn:hasProperty :observableProperty_sleepingDuration ;
+                            ssn:hasProperty :property_sleepingDuration ;
                             rdfs:comment "FeatureOfInterest_sleeping - an instance of the class sosa:FeatureOfInterest that represents sleeping phenomenon."@en ;
                             rdfs:label "Feature Of Interest Sleeping" .
 
@@ -1295,89 +1296,110 @@ saref:Sensor rdf:type owl:Class ;
                      rdfs:label "Irrigation Function" .
 
 
-###  http://www.w3id.org/def/irrig#observableProperty_air_temperature
-:observableProperty_air_temperature rdf:type owl:NamedIndividual ,
-                                             <http://www.w3.org/ns/sosa/ObservableProperty> ,
-                                             :TemperatureProperty ;
-                                    rdfs:comment "ObservableProperty_air_temperature - an instance of the class irrig:TemperatureProperty and sosa:ObservableProperty that represents the observable property of temperature of an air feature of interest." ;
-                                    rdfs:label "Observable Property Air Temperature" .
+###  http://www.w3id.org/def/irrig#property_air_humidity
+:property_air_humidity rdf:type owl:NamedIndividual ;
+                       rdfs:label "Property Air Humidity" .
 
 
-###  http://www.w3id.org/def/irrig#observableProperty_delayDuration
-:observableProperty_delayDuration rdf:type owl:NamedIndividual ,
-                                           <http://www.w3.org/ns/sosa/ObservableProperty> ;
-                                  rdfs:comment "Number of days that an watering is delayed."@en ;
-                                  rdfs:label "Observable Property Irrigation Delay"@en .
+###  http://www.w3id.org/def/irrig#property_air_temperature
+:property_air_temperature rdf:type owl:NamedIndividual ,
+                                   <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                   :TemperatureProperty ;
+                          rdfs:comment "ObservableProperty_air_temperature - an instance of the class irrig:TemperatureProperty and sosa:ObservableProperty that represents the observable property of temperature of an air feature of interest." ;
+                          rdfs:label "Property Air Temperature" .
 
 
-###  http://www.w3id.org/def/irrig#observableProperty_electro_potential
-:observableProperty_electro_potential rdf:type owl:NamedIndividual ,
-                                               :ElectronicPotential .
+###  http://www.w3id.org/def/irrig#property_delayDuration
+:property_delayDuration rdf:type owl:NamedIndividual ,
+                                 <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                        rdfs:comment "Number of days that an watering is delayed."@en ;
+                        rdfs:label "Property Irrigation Delay"@en .
 
 
-###  http://www.w3id.org/def/irrig#observableProperty_rain_quantity
-:observableProperty_rain_quantity rdf:type owl:NamedIndividual ,
-                                           <http://www.w3.org/ns/sosa/ObservableProperty> ,
-                                           :AmountProperty ,
-                                           :IntensityProperty ;
-                                  caso:hasState :state_rain_quantity_heavy ,
-                                                :state_rain_quantity_init ,
-                                                :state_rain_quantity_light ,
-                                                :state_rain_quantity_moderate ;
-                                  rdfs:comment "ObservableProperty_rain_quantity - an instance of the class irrig:AmountProperty and sosa:ObservableProperty that represents the quantity observable property of a rain feature of interest." ;
-                                  rdfs:label "Observable Property Rain Quantity" .
+###  http://www.w3id.org/def/irrig#property_electro_potential
+:property_electro_potential rdf:type owl:NamedIndividual ,
+                                     <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                     :ElectronicPotential ;
+                            rdfs:label "Property Electro Potential" .
 
 
-###  http://www.w3id.org/def/irrig#observableProperty_rootZone_moistureLevel
-:observableProperty_rootZone_moistureLevel rdf:type owl:NamedIndividual ,
-                                                    <http://www.w3.org/ns/sosa/ObservableProperty> ,
-                                                    :MoistureProperty ;
-                                           caso:hasState :state_rootZone_moistureLevel_average ,
-                                                         :state_rootZone_moistureLevel_dry ,
-                                                         :state_rootZone_moistureLevel_high ,
-                                                         :state_rootZone_moistureLevel_init ,
-                                                         :state_rootZone_moistureLevel_low ,
-                                                         :state_rootZone_moistureLevel_saturated ,
-                                                         :state_rootZone_moistureLevel_veryHigh ,
-                                                         :state_rootZone_moistureLevel_veryLow ;
-                                           rdfs:comment "ObservableProperty_rootZone_moistureLevel - an instance of the class irrig:MoistureProperty and caso:Property that represents the observable property of moisture level of a root zone feature of interest." ;
-                                           rdfs:label "Observable Property Root Zone Moisture Level" .
+###  http://www.w3id.org/def/irrig#property_rain_quantity
+:property_rain_quantity rdf:type owl:NamedIndividual ,
+                                 <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                 :AmountProperty ,
+                                 :IntensityProperty ;
+                        caso:hasState :state_rain_quantity_heavy ,
+                                      :state_rain_quantity_init ,
+                                      :state_rain_quantity_light ,
+                                      :state_rain_quantity_moderate ;
+                        rdfs:comment "ObservableProperty_rain_quantity - an instance of the class irrig:AmountProperty and sosa:ObservableProperty that represents the quantity observable property of a rain feature of interest." ;
+                        rdfs:label "Property Rain Quantity" .
 
 
-###  http://www.w3id.org/def/irrig#observableProperty_sleepingDuration
-:observableProperty_sleepingDuration rdf:type owl:NamedIndividual ,
-                                              <http://www.w3.org/ns/sosa/ObservableProperty> ;
-                                     rdfs:comment "Number of days that the system is waiting until the next irrigation."@en ;
-                                     rdfs:label "Observable Property Sleeping Duration" .
+###  http://www.w3id.org/def/irrig#property_rootZone_moistureLevel
+:property_rootZone_moistureLevel rdf:type owl:NamedIndividual ,
+                                          <http://www.w3.org/ns/sosa/ActuatableProperty> ,
+                                          <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                          :MoistureProperty ;
+                                 caso:hasState :state_rootZone_moistureLevel_average ,
+                                               :state_rootZone_moistureLevel_dry ,
+                                               :state_rootZone_moistureLevel_high ,
+                                               :state_rootZone_moistureLevel_init ,
+                                               :state_rootZone_moistureLevel_low ,
+                                               :state_rootZone_moistureLevel_saturated ,
+                                               :state_rootZone_moistureLevel_veryHigh ,
+                                               :state_rootZone_moistureLevel_veryLow ;
+                                 rdfs:comment "ObservableProperty_rootZone_moistureLevel - an instance of the class irrig:MoistureProperty and caso:Property that represents the observable property of moisture level of a root zone feature of interest." ;
+                                 rdfs:label "Property Root Zone Moisture Level" .
 
 
-###  http://www.w3id.org/def/irrig#observableProperty_tree_growth
-:observableProperty_tree_growth rdf:type owl:NamedIndividual ,
-                                         :GrowthProperty ;
-                                caso:hasState :state_tree_growth_init ,
-                                              :state_tree_growth_r1 ,
-                                              :state_tree_growth_r1d15 ,
-                                              :state_tree_growth_r5 ;
-                                rdfs:comment "ObservableProperty_tree_growth - an instance of the class irrig:GrowthProperty and caso:Property that represents the observable property of growth of a irrig:Tree individual feature of interest." ;
-                                rdfs:label "Observable Property Tree Growth" .
+###  http://www.w3id.org/def/irrig#property_sleepingDuration
+:property_sleepingDuration rdf:type owl:NamedIndividual ,
+                                    <http://www.w3.org/ns/sosa/ObservableProperty> ;
+                           rdfs:comment "Number of days that the system is waiting until the next irrigation."@en ;
+                           rdfs:label "Property Sleeping Duration" .
 
 
-###  http://www.w3id.org/def/irrig#observableProperty_tree_stage
-:observableProperty_tree_stage rdf:type owl:NamedIndividual ,
-                                        :GrowthProperty ;
-                               rdfs:comment "ObservableProperty_tree_stage - an instance of the class irrig:GrowthProperty and caso:Property that represents the stage observable property of a irrig:Tree individual feature of interest." ;
-                               rdfs:label "Observable Property Tree Stage" .
+###  http://www.w3id.org/def/irrig#property_tree_growth
+:property_tree_growth rdf:type owl:NamedIndividual ,
+                               :GrowthProperty ;
+                      caso:hasState :state_tree_growth_init ,
+                                    :state_tree_growth_r1 ,
+                                    :state_tree_growth_r2 ,
+                                    :state_tree_growth_r3 ;
+                      rdfs:comment "ObservableProperty_tree_growth - an instance of the class irrig:GrowthProperty and caso:Property that represents the observable property of growth of a irrig:Tree individual feature of interest." ;
+                      rdfs:label "Property Tree Growth" .
 
 
-###  http://www.w3id.org/def/irrig#observableProperty_tree_waterNeed
-:observableProperty_tree_waterNeed rdf:type owl:NamedIndividual ,
-                                            :StressProperty ;
-                                   caso:hasState :state_tree_waterNeed_init ,
-                                                 :state_tree_waterNeed_no ,
-                                                 :state_tree_waterNeed_unavailable ,
-                                                 :state_tree_waterNeed_yes ;
-                                   rdfs:comment "ObservableProperty_tree_waterNeed - an instance of the class irrig:StressProperty and caso:Property that represents the observable property of water need of a tree feature of interest." ;
-                                   rdfs:label "Observable Property Tree Water Need" .
+###  http://www.w3id.org/def/irrig#property_tree_stage
+:property_tree_stage rdf:type owl:NamedIndividual ,
+                              :GrowthProperty ;
+                     caso:hasState :property_tree_stage_growth_cessation ,
+                                   :state_tree_stage_active_growth ,
+                                   :state_tree_stage_bud_burst ,
+                                   :state_tree_stage_dormancy ,
+                                   :state_tree_stage_dormancy_release ;
+                     rdfs:comment "ObservableProperty_tree_stage - an instance of the class irrig:GrowthProperty and caso:Property that represents the stage observable property of a irrig:Tree individual feature of interest." ;
+                     rdfs:label "Property Tree Stage" .
+
+
+###  http://www.w3id.org/def/irrig#property_tree_stage_growth_cessation
+:property_tree_stage_growth_cessation rdf:type owl:NamedIndividual ;
+                                      rdfs:comment "During Autumn" ;
+                                      rdfs:label "Growth cessation" .
+
+
+###  http://www.w3id.org/def/irrig#property_tree_waterNeed
+:property_tree_waterNeed rdf:type owl:NamedIndividual ,
+                                  <http://www.w3.org/ns/sosa/ActuatableProperty> ,
+                                  <http://www.w3.org/ns/sosa/ObservableProperty> ,
+                                  :StressProperty ;
+                         caso:hasState :state_tree_waterNeed_init ,
+                                       :state_tree_waterNeed_no ,
+                                       :state_tree_waterNeed_unavailable ,
+                                       :state_tree_waterNeed_yes ;
+                         rdfs:comment "ObservableProperty_tree_waterNeed - an instance of the class irrig:StressProperty and caso:Property that represents the observable property of water need of a tree feature of interest." ;
+                         rdfs:label "Property Tree Water Need" .
 
 
 ###  http://www.w3id.org/def/irrig#shacl_rule_engine
@@ -1525,26 +1547,47 @@ In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches 
 ###  http://www.w3id.org/def/irrig#state_tree_growth_r1
 :state_tree_growth_r1 rdf:type owl:NamedIndividual ,
                                :TreeGrowthState ;
-                      caso:lesserThan :state_tree_growth_r1d15 ;
                       rdfs:comment "State_tree_growth_r1 - an instance of the class caso:State that represents the tree after reaching the “silking” stage. This stage is also named R1." ;
                       rdfs:label "State Tree Growth R1" .
 
 
-###  http://www.w3id.org/def/irrig#state_tree_growth_r1d15
-:state_tree_growth_r1d15 rdf:type owl:NamedIndividual ,
-                                  :TreeGrowthState ;
-                         caso:greaterThan :state_tree_growth_r1 ;
-                         caso:lesserThan :state_tree_growth_r5 ;
-                         rdfs:comment "State_tree_growth_r1d15 - an instance of the class caso:State that represents the tree 15 days after reaching the “silking” stage." ;
-                         rdfs:label "State Tree Growth R1d15" .
-
-
-###  http://www.w3id.org/def/irrig#state_tree_growth_r5
-:state_tree_growth_r5 rdf:type owl:NamedIndividual ,
+###  http://www.w3id.org/def/irrig#state_tree_growth_r2
+:state_tree_growth_r2 rdf:type owl:NamedIndividual ,
                                :TreeGrowthState ;
-                      caso:greaterThan :state_tree_growth_r1d15 ;
-                      rdfs:comment "State_tree_growth_r5 - an instance of the class caso:State that represents the tree after reaching the “dent stage within kernel containing 50% moisture”. This stage is also named R5" ;
-                      rdfs:label "State Tree Growth R5" .
+                      rdfs:comment "State_tree_growth_r1d15 - an instance of the class caso:State that represents the tree 15 days after reaching the “silking” stage." ;
+                      rdfs:label "State Tree Growth R2" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_growth_r3
+:state_tree_growth_r3 rdf:type owl:NamedIndividual ,
+                               :TreeGrowthState ;
+                      caso:greaterThan :state_tree_growth_r2 ;
+                      rdfs:comment "State_tree_growth_r3 - an instance of the class caso:State that represents the tree after reaching the “dent stage within kernel containing 50% moisture”. This stage is also named R5" ;
+                      rdfs:label "State Tree Growth R3" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_stage_active_growth
+:state_tree_stage_active_growth rdf:type owl:NamedIndividual ;
+                                rdfs:comment "During late spring , summer and early autumn" ;
+                                rdfs:label "Active growth stage" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_stage_bud_burst
+:state_tree_stage_bud_burst rdf:type owl:NamedIndividual ;
+                            rdfs:comment "During spring time" ;
+                            rdfs:label "Bud burst stage" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_stage_dormancy
+:state_tree_stage_dormancy rdf:type owl:NamedIndividual ;
+                           rdfs:comment "During late autumn and winter" ;
+                           rdfs:label "Dormancy" .
+
+
+###  http://www.w3id.org/def/irrig#state_tree_stage_dormancy_release
+:state_tree_stage_dormancy_release rdf:type owl:NamedIndividual ;
+                                   rdfs:comment "During late winter" ;
+                                   rdfs:label "Dormancy release" .
 
 
 ###  http://www.w3id.org/def/irrig#state_tree_waterNeed_init

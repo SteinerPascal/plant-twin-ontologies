@@ -1,6 +1,6 @@
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix ex: <http://twin-example/geneva#> .
+@prefix ex: <http://twin-example/zurich#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix agro: <http://aims.fao.org/aos/agrontology/> .
 @prefix agrovoc: <http://aims.fao.org/aos/agrovoc/> .

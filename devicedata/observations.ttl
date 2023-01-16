@@ -1,4 +1,4 @@
-@prefix ex: <http://twin-example/geneva#> .
+@prefix ex: <http://twin-example/zurich#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix config: <http://twin-example/config#>.
@@ -13,112 +13,146 @@
 @prefix caso: <http://www.w3id.org/def/caso#> .
 
 
-ex:obs_tempsens_0 rdf:type irrig:TemperatureObservation ;
+ex:obs_tempsens_0 rdf:type irrig:TemperatureObservation , sosa:Observation ;
     sosa:madeBySensor ex:tempsens_0;
-    sosa:observedProperty irrig:observableProperty_air_temperature;
+    sosa:observedProperty irrig:property_air_temperature;
     sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
     sosa:hasResult [om:hasUnit om:degreeCelsius].
 
-ex:ded_tempsens_0 rdf:type irrig:TemperatureDeduction;
+ex:ded_tempsens_0 rdf:type irrig:TemperatureDeduction , caso:Deduction;
     prov:wasInformedBy ex:obs_tempsens_0;
+    sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
     caso:hasResultState irrig:state_rain_quantity_light.
 
-ex:obs_tempsens_1 rdf:type irrig:TemperatureObservation ;
+ex:obs_tempsens_1 rdf:type irrig:TemperatureObservation , sosa:Observation ;
     sosa:madeBySensor ex:tempsens_1;
-    sosa:observedProperty irrig:observableProperty_air_temperature;
+    sosa:observedProperty irrig:property_air_temperature;
     sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
     sosa:hasResult [om:hasUnit om:degreeCelsius].
 
-ex:ded_tempsens_1 rdf:type irrig:TemperatureDeduction;
+ex:ded_tempsens_1 rdf:type irrig:TemperatureDeduction , caso:Deduction;
     prov:wasInformedBy ex:obs_tempsens_1;
+    sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
     caso:hasResultState irrig:state_rain_quantity_moderate.
 
-ex:obs_tempsens_2 rdf:type irrig:TemperatureObservation ;
+ex:obs_tempsens_2 rdf:type irrig:TemperatureObservation , sosa:Observation ;
     sosa:madeBySensor ex:tempsens_2;
-    sosa:observedProperty irrig:observableProperty_air_temperature;
+    sosa:observedProperty irrig:property_air_temperature;
     sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
     sosa:hasResult [om:hasUnit om:degreeCelsius].
 
-ex:ded_tempsens_2 rdf:type irrig:TemperatureDeduction;
+ex:ded_tempsens_2 rdf:type irrig:TemperatureDeduction , caso:Deduction;
     prov:wasInformedBy ex:obs_tempsens_2;
+    sosa:observedProperty irrig:property_air_temperature;
+    sosa:hasFeatureOfInterest irrig:featureOfInterest_air;
     caso:hasResultState irrig:state_rain_quantity_moderate.
 
-ex:obs_pluviometer_1 rdf:type irrig:RainQuantityObservation ;
+ex:obs_pluviometer_1 rdf:type irrig:RainQuantityObservation , sosa:Observation ;
     sosa:madeBySensor ex:pluviometer_1;
-    sosa:observedProperty irrig:observableProperty_rain_quantity;
+    sosa:observedProperty irrig:property_rain_quantity;
     sosa:hasFeatureOfInterest irrig:featureOfInterest_rain;
     sosa:hasResult [om:hasUnit om:millibar].
 
-ex:ded_pluviometer_1 rdf:type irrig:RainQuantityDeduction;
+ex:ded_pluviometer_1 rdf:type irrig:RainQuantityDeduction , caso:Deduction;
     prov:wasInformedBy ex:obs_pluviometer_1;
+    sosa:hasFeatureOfInterest irrig:featureOfInterest_rain;
+    sosa:observedProperty irrig:property_rain_quantity;
     caso:hasResultState irrig:state_rain_quantity_moderate.
 
-ex:obs_phytlsigns_0 rdf:type irrig:ElectroPhysiologicalObservation ;
+ex:obs_phytlsigns_0 rdf:type irrig:ElectroPhysiologicalObservation , sosa:Observation ;
     sosa:madeBySensor ex:phytlsigns_0;
-    sosa:observedProperty irrig:observableProperty_electro_potential;
-    sosa:hasFeatureOfInterest ex:tree_186903 ;
+    sosa:observedProperty irrig:property_electro_potential;
+    sosa:hasFeatureOfInterest ex:tree_29838 ;
     sosa:hasResult [om:hasUnit om:millivolt].
 
-ex:ded_phytlsigns_0 rdf:type irrig:PhytlSignDeduction;
+ex:ded_phytlsigns_0 rdf:type irrig:PhytlSignDeduction , caso:Deduction;
     prov:wasInformedBy ex:obs_phytlsigns_0;
+    sosa:observedProperty irrig:property_electro_potential;
+    sosa:hasFeatureOfInterest ex:tree_186903 ;
     caso:hasResultState irrig:state_phytlsigns_water_low.
 
-ex:obs_phytlsigns_1 rdf:type irrig:ElectroPhysiologicalObservation ;
+ex:obs_phytlsigns_1 rdf:type irrig:ElectroPhysiologicalObservation , sosa:Observation ;
     sosa:madeBySensor ex:phytlsigns_1;
-    sosa:observedProperty irrig:observableProperty_electro_potential;
+    sosa:observedProperty irrig:property_electro_potential;
     sosa:hasFeatureOfInterest ex:tree_186903;
     sosa:hasResult [om:hasUnit om:millivolt].
 
-ex:ded_phytlsigns_1 rdf:type irrig:PhytlSignDeduction;
+ex:ded_phytlsigns_1 rdf:type irrig:PhytlSignDeduction , caso:Deduction;
+    sosa:observedProperty irrig:property_electro_potential;
+    sosa:hasFeatureOfInterest ex:tree_186903;
     prov:wasInformedBy ex:obs_phytlsigns_1;
     caso:hasResultState irrig:state_phytlsigns_water_high.
 
-ex:obs_phytlsigns_2 rdf:type irrig:ElectroPhysiologicalObservation ;
+ex:obs_phytlsigns_2 rdf:type irrig:ElectroPhysiologicalObservation , sosa:Observation ;
     sosa:madeBySensor ex:phytlsigns_2;
-    sosa:observedProperty irrig:observableProperty_electro_potential;
+    sosa:observedProperty irrig:property_electro_potential;
     sosa:hasFeatureOfInterest ex:tree_186930;
     sosa:hasResult [om:hasUnit om:millivolt].
 
-ex:ded_phytlsigns_2 rdf:type irrig:PhytlSignDeduction;
+ex:ded_phytlsigns_2 rdf:type irrig:PhytlSignDeduction , caso:Deduction;
     prov:wasInformedBy ex:obs_phytlsigns_2;
+    sosa:observedProperty irrig:property_electro_potential;
+    sosa:hasFeatureOfInterest ex:tree_186930;
     caso:hasResultState irrig:state_phytlsigns_water_low.
 
-ex:obs_phytlsigns_3 rdf:type irrig:ElectroPhysiologicalObservation ;
+ex:obs_phytlsigns_3 rdf:type irrig:ElectroPhysiologicalObservation , sosa:Observation ;
     sosa:madeBySensor ex:phytlsigns_3;
-    sosa:observedProperty irrig:observableProperty_electro_potential;
+    sosa:observedProperty irrig:property_electro_potential;
     sosa:hasFeatureOfInterest ex:tree_186993;
     sosa:hasResult [om:hasUnit om:millivolt].
 
-ex:ded_phytlsigns_3 rdf:type irrig:PhytlSignDeduction;
+ex:ded_phytlsigns_3 rdf:type irrig:PhytlSignDeduction , caso:Deduction;
     prov:wasInformedBy ex:obs_phytlsigns_3;
+    sosa:observedProperty irrig:property_electro_potential;
+    sosa:hasFeatureOfInterest ex:tree_186993;
     caso:hasResultState irrig:state_phytlsigns_water_low.
 
-ex:obs_phytlsigns_4 rdf:type irrig:ElectroPhysiologicalObservation ;
+ex:obs_phytlsigns_4 rdf:type irrig:ElectroPhysiologicalObservation , sosa:Observation ;
     sosa:madeBySensor ex:phytlsigns_4;
-    sosa:observedProperty irrig:observableProperty_electro_potential;
+    sosa:observedProperty irrig:property_electro_potential;
     sosa:hasFeatureOfInterest ex:tree_187074;
     sosa:hasResult [om:hasUnit om:millivolt].
 
-ex:ded_phytlsigns_4 rdf:type irrig:PhytlSignDeduction;
+ex:ded_phytlsigns_4 rdf:type irrig:PhytlSignDeduction , caso:Deduction;
     prov:wasInformedBy ex:obs_phytlsigns_4;
+    sosa:observedProperty irrig:property_electro_potential;
+    sosa:hasFeatureOfInterest ex:tree_187074;
     caso:hasResultState irrig:state_phytlsigns_water_low.
 
-ex:obs_phytlsigns_5 rdf:type irrig:ElectroPhysiologicalObservation ;
-    sosa:madeBySensor ex:phytlsigns_5;
-    sosa:observedProperty irrig:observableProperty_electro_potential;
-    sosa:hasFeatureOfInterest ex:tree_71460;
-    sosa:hasResult [om:hasUnit om:millivolt].
+# Tree Growth
+ex:obs_tree_growth_0 rdf:type irrig:TreeGrowthObservation , sosa:Observation ;
+    sosa:madeBySensor ex:tree_caliper_0;
+    sosa:observedProperty irrig:property_tree_growth;
+    sosa:hasFeatureOfInterest ex:tree_29838.
 
-ex:ded_phytlsigns_5 rdf:type irrig:PhytlSignDeduction;
-    prov:wasInformedBy ex:obs_phytlsigns_5;
-    caso:hasResultState irrig:state_phytlsigns_water_low.    
-
-ex:obs_phytlsigns_6 rdf:type irrig:ElectroPhysiologicalObservation ;
-    sosa:madeBySensor ex:phytlsigns_6;
-    sosa:observedProperty irrig:observableProperty_electro_potential;
+ex:ded_tree_growth_0 rdf:type irrig:TreeGrowthDeduction , caso:Deduction ;
+    prov:wasInformedBy ex:obs_tree_growth_0;
+    sosa:observedProperty irrig:property_tree_growth;
     sosa:hasFeatureOfInterest ex:tree_29838;
-    sosa:hasResult [om:hasUnit om:millivolt].
+    caso:hasResultState irrig:state_tree_growth_r2.
 
-ex:ded_phytlsigns_6 rdf:type irrig:PhytlSignDeduction;
-    prov:wasInformedBy ex:obs_phytlsigns_6;
-    caso:hasResultState irrig:state_phytlsigns_water_high.
+# Tree Stage 
+ex:ded_tree_stage_0 rdf:type irrig:TreeStageDeduction , caso:Deduction;
+    sosa:observedProperty irrig:property_tree_stage;
+    sosa:hasFeatureOfInterest ex:tree_29838;
+    caso:hasResultState irrig:state_tree_stage_dormancy.
+
+#Capacitive soil sensor observation
+ex:obs_cap_soil_sens_0 rdf:type irrig:CapacitiveSoilObservation , sosa:Observation;
+    sosa:madeBySensor ex:cap_soil_sens_0;
+    sosa:hasFeatureOfInterest ex:tree_29838;
+    sosa:observedProperty irrig:property_rootZone_moistureLevel;
+    sosa:hasResult [om:hasUnit om:percent]. 
+
+ex:ded_cap_soil_sens_0 rdf:type irrig:CapacitiveSoilDeduction , caso:Deduction;
+    prov:wasInformedBy ex:obs_cap_soil_sens_0;
+    sosa:hasFeatureOfInterest ex:tree_29838;
+    sosa:observedProperty irrig:property_rootZone_moistureLevel;
+    caso:hasResultState irrig:state_rootZone_moistureLevel_saturated.
+
+#SHACL reasoner
+ex:ded_shacl_0 rdf:type irrig:TreeWaterDeduction , caso:Deduction;
+    sosa:madeBySensor ex:shacl_0;
+    sosa:hasFeatureOfInterest ex:tree_29838;
+    sosa:observedProperty irrig:property_tree_waterNeed;
+    caso:hasResultState irrig:state_tree_waterNeed_no.
