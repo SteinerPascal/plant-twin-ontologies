@@ -1341,14 +1341,10 @@ saref:Sensor rdf:type owl:Class ;
                                           <http://www.w3.org/ns/sosa/ActuatableProperty> ,
                                           <http://www.w3.org/ns/sosa/ObservableProperty> ,
                                           :MoistureProperty ;
-                                 caso:hasState :state_rootZone_moistureLevel_average ,
-                                               :state_rootZone_moistureLevel_dry ,
-                                               :state_rootZone_moistureLevel_high ,
+                                 caso:hasState :state_rootZone_moistureLevel_high ,
                                                :state_rootZone_moistureLevel_init ,
                                                :state_rootZone_moistureLevel_low ,
-                                               :state_rootZone_moistureLevel_saturated ,
-                                               :state_rootZone_moistureLevel_veryHigh ,
-                                               :state_rootZone_moistureLevel_veryLow ;
+                                               :state_rootZone_moistureLevel_saturated ;
                                  rdfs:comment "ObservableProperty_rootZone_moistureLevel - an instance of the class irrig:MoistureProperty and caso:Property that represents the observable property of moisture level of a root zone feature of interest." ;
                                  rdfs:label "Property Root Zone Moisture Level" .
 
@@ -1466,21 +1462,10 @@ In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches 
                                       rdfs:label "State Root Zone Moisture Level Average" .
 
 
-###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_dry
-:state_rootZone_moistureLevel_dry rdf:type owl:NamedIndividual ,
-                                           :RootZoneMoistureLevelState ;
-                                  caso:lesserThan :state_rootZone_moistureLevel_veryLow ;
-                                  rdfs:comment """State_rootZone_moistureLevel_dry - an instance of the class caso:State that represents the root zone moisture level is at the dry state.
-
-In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_maximum and the close lower boundary is ST_very_low.""" ;
-                                  rdfs:label "State Root Zone Moisture Level Dry" .
-
-
 ###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_high
 :state_rootZone_moistureLevel_high rdf:type owl:NamedIndividual ,
                                             :RootZoneMoistureLevelState ;
                                    caso:greaterThan :state_rootZone_moistureLevel_average ;
-                                   caso:lesserThan :state_rootZone_moistureLevel_veryHigh ;
                                    rdfs:comment """State_rootZone_moistureLevel_high - an instance of the class caso:State that represents the root zone moisture level is at the high state.
 
 In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_high and the close lower boundary is ST_very_high.""" ;
@@ -1497,7 +1482,6 @@ In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches 
 ###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_low
 :state_rootZone_moistureLevel_low rdf:type owl:NamedIndividual ,
                                            :RootZoneMoistureLevelState ;
-                                  caso:greaterThan :state_rootZone_moistureLevel_veryLow ;
                                   caso:lesserThan :state_rootZone_moistureLevel_average ;
                                   rdfs:comment """State_rootZone_moistureLevel_low - an instance of the class caso:State that represents the root zone moisture level is at the low state.
 
@@ -1508,33 +1492,10 @@ In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches 
 ###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_saturated
 :state_rootZone_moistureLevel_saturated rdf:type owl:NamedIndividual ,
                                                  :RootZoneMoistureLevelState ;
-                                        caso:greaterThan :state_rootZone_moistureLevel_veryHigh ;
                                         rdfs:comment """State_rootZone_moistureLevel_saturated - an instance of the class caso:State that represents the root zone moisture level is at the saturated state.
 
 In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_saturated and the close lower boundary is ST_minimum.""" ;
                                         rdfs:label "State Root Zone Moisture Level Saturated" .
-
-
-###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_veryHigh
-:state_rootZone_moistureLevel_veryHigh rdf:type owl:NamedIndividual ,
-                                                :RootZoneMoistureLevelState ;
-                                       caso:greaterThan :state_rootZone_moistureLevel_high ;
-                                       caso:lesserThan :state_rootZone_moistureLevel_saturated ;
-                                       rdfs:comment """State_rootZone_moistureLevel_veryHigh - an instance of the class caso:State that represents the root zone moisture level is at the very high state.
-
-In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_very_high and the close lower boundary is ST_saturated.""" ;
-                                       rdfs:label "State Root Zone Moisture Level Very High" .
-
-
-###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_veryLow
-:state_rootZone_moistureLevel_veryLow rdf:type owl:NamedIndividual ,
-                                               :RootZoneMoistureLevelState ;
-                                      caso:greaterThan :state_rootZone_moistureLevel_dry ;
-                                      caso:lesserThan :state_rootZone_moistureLevel_low ;
-                                      rdfs:comment """State_rootZone_moistureLevel_veryLow - an instance of the class caso:State that represents the root zone moisture level is at the very low state.
-
-In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_very_low and the close lower boundary is ST_low.""" ;
-                                      rdfs:label "State Root Zone Moisture Level Very Low" .
 
 
 ###  http://www.w3id.org/def/irrig#state_tree_growth_init
@@ -1601,7 +1562,7 @@ In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches 
 :state_tree_waterNeed_no rdf:type owl:NamedIndividual ,
                                   :TreeWaterNeedState ;
                          rdfs:comment "State_tree_waterNeed_no - an instance of the class caso:State that represents the tree does not need water." ;
-                         rdfs:label "State Tree Water Need No" .
+                         rdfs:label "No water need" .
 
 
 ###  http://www.w3id.org/def/irrig#state_tree_waterNeed_notApplicable
@@ -1622,7 +1583,7 @@ In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches 
 :state_tree_waterNeed_yes rdf:type owl:NamedIndividual ,
                                    :TreeWaterNeedState ;
                           rdfs:comment "State_tree_waterNeed_yes - an instance of the class caso:State that represents the tree needs water." ;
-                          rdfs:label "State Tree Water Need Yes" .
+                          rdfs:label "Needs water" .
 
 
 #################################################################
