@@ -120,6 +120,12 @@ prov:qualifiedForm rdf:type owl:AnnotationProperty .
 #    Object Properties
 #################################################################
 
+###  http://www.irrig/master/thesis/2022#hasGoalState
+:hasGoalState rdf:type owl:ObjectProperty ;
+              rdfs:domain :Tree ;
+              rdfs:range caso:State .
+
+
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit
 <http://www.ontology-of-units-of-measure.org/resource/om-2/hasUnit> rdf:type owl:ObjectProperty ;
                                                                     rdfs:range <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> ;
@@ -356,6 +362,15 @@ prov:wasInformedBy rdf:type owl:ObjectProperty ;
                                            rdfs:label "phenomenon time"@en .
 
 
+###  http://www.w3.org/ns/ssn/hasInput
+ssn:hasInput rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/ns/ssn/hasOutput
+ssn:hasOutput rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf owl:topObjectProperty .
+
+
 ###  http://www.w3.org/ns/ssn/hasProperty
 ssn:hasProperty rdf:type owl:ObjectProperty ;
                 owl:inverseOf ssn:isPropertyOf ;
@@ -557,6 +572,26 @@ saref:hasName rdf:type owl:DatatypeProperty ;
                                        rdfs:subClassOf saref:Sensor .
 
 
+###  http://www.irrig/master/thesis/2022#IncreasedHumidity
+:IncreasedHumidity rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.w3.org/ns/sosa/Result> .
+
+
+###  http://www.irrig/master/thesis/2022#IrrigationProcedure
+:IrrigationProcedure rdf:type owl:Class ;
+                     rdfs:subClassOf <http://www.w3.org/ns/sosa/Procedure> .
+
+
+###  http://www.irrig/master/thesis/2022#TemperatureState
+:TemperatureState rdf:type owl:Class ;
+                  rdfs:subClassOf caso:State .
+
+
+###  http://www.irrig/master/thesis/2022#WaterPump
+:WaterPump rdf:type owl:Class ;
+           rdfs:subClassOf saref:Actuator .
+
+
 ###  http://www.ontology-of-units-of-measure.org/resource/om-2/Unit
 <http://www.ontology-of-units-of-measure.org/resource/om-2/Unit> rdf:type owl:Class ;
                                                                  rdfs:comment "A unit of measure is a definite magnitude of a quantity, defined and adopted by convention or by law. It is used as a standard for measurement of the same quantity, where any other value of the quantity can be expressed as a simple multiple of the unit. For example, length is a quantity; the metre is a unit of length that represents a definite predetermined length. When we say 10 metre (or 10 m), we actually mean 10 times the definite predetermined length called \"metre\"."@en ;
@@ -735,6 +770,10 @@ Note that, because SKOS is designed to be a vehicle for representing semi-formal
                                      skos:example "A post, buoy, vehicle, ship, aircraft, satellite, cell-phone, human or animal may act as platforms for (technical or biological) sensors or actuators."@en .
 
 
+###  http://www.w3.org/ns/sosa/Procedure
+<http://www.w3.org/ns/sosa/Procedure> rdf:type owl:Class .
+
+
 ###  http://www.w3.org/ns/sosa/Result
 <http://www.w3.org/ns/sosa/Result> rdf:type owl:Class ;
                                    rdfs:comment "The Result of an Observation, Actuation, or act of Sampling. To store an observation's simple result value one can use the hasSimpleResult property."@en ;
@@ -884,6 +923,10 @@ caso:State rdf:type owl:Class ;
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty <http://www.w3.org/ns/sosa/hasFeatureOfInterest> ;
                                        owl:someValuesFrom :Tree
+                                     ] ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
+                                       owl:hasValue :res_increased_humidity
                                      ] ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty caso:triggersFunction ;
@@ -1056,6 +1099,18 @@ caso:State rdf:type owl:Class ;
 :Tree rdf:type owl:Class ;
       rdfs:subClassOf <http://www.w3.org/ns/sosa/FeatureOfInterest> ,
                       [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasGoalState ;
+                        owl:hasValue :state_rootZone_moistureLevel_saturated
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasGoalState ;
+                        owl:hasValue :state_tree_growth_r3
+                      ] ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasGoalState ;
+                        owl:hasValue :state_tree_waterNeed_no
+                      ] ,
+                      [ rdf:type owl:Restriction ;
                         owl:onProperty ssn:hasProperty ;
                         owl:hasValue :property_electro_potential
                       ] ,
@@ -1146,13 +1201,6 @@ caso:State rdf:type owl:Class ;
                     rdfs:comment "TreeWaterNeedState - A qualitative value of the tree water need property, which changes over time, summarizing a set of information about that property. To evaluate the state of the property, some boundaries need to be defined."@en ;
                     rdfs:label "Tree Water Need State"@en ;
                     skos:example "The state No of the tree water need Property represents the fact that the tree does not need water."@en .
-
-
-###  http://www.w3id.org/def/irrig#WaterPump
-:WaterPump rdf:type owl:Class ;
-           rdfs:subClassOf saref:Actuator ;
-           rdfs:comment "An actuator that open the water valve."^^xsd:string ;
-           rdfs:label "Watering Valve"^^xsd:string .
 
 
 ###  https://saref.etsi.org/core/ActuatingFunction
@@ -1250,6 +1298,50 @@ saref:Sensor rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
+###  http://www.irrig/master/thesis/2022#proc_low_saturated
+:proc_low_saturated rdf:type owl:NamedIndividual ,
+                             :IrrigationProcedure ;
+                    ssn:hasInput :state_rootZone_moistureLevel_low ;
+                    ssn:hasOutput :state_rootZone_moistureLevel_saturated ;
+                    rdfs:comment "Procedure taking status 'low root zone moisture level' as input and has output \"saturated root zone moisture level'" ;
+                    rdfs:label "Irrigation procedure" .
+
+
+###  http://www.irrig/master/thesis/2022#proc_saturated_high
+:proc_saturated_high rdf:type owl:NamedIndividual ,
+                              :IrrigationProcedure ;
+                     ssn:hasInput :state_rootZone_moistureLevel_saturated ;
+                     ssn:hasOutput :state_rootZone_moistureLevel_high ;
+                     rdfs:comment "Procedure taking status 'saturated root zone moisture level' as input and has output \"high root zone moisture level'" ;
+                     rdfs:label "Irrigation procedure" .
+
+
+###  http://www.irrig/master/thesis/2022#res_increased_humidity
+:res_increased_humidity rdf:type owl:NamedIndividual ,
+                                 :IncreasedHumidity ;
+                        rdfs:label "Increased humidity" .
+
+
+###  http://www.irrig/master/thesis/2022#state_rain_quantity_no
+:state_rain_quantity_no rdf:type owl:NamedIndividual ;
+                        rdfs:label "No Rain" .
+
+
+###  http://www.irrig/master/thesis/2022#state_temperature_high
+:state_temperature_high rdf:type owl:NamedIndividual ;
+                        rdfs:label "High temperature" .
+
+
+###  http://www.irrig/master/thesis/2022#state_temperature_low
+:state_temperature_low rdf:type owl:NamedIndividual ;
+                       rdfs:label "Low Temperature" .
+
+
+###  http://www.irrig/master/thesis/2022#state_temperature_normal
+:state_temperature_normal rdf:type owl:NamedIndividual ;
+                          rdfs:label "Normal Temperature" .
+
+
 ###  http://www.w3id.org/def/irrig#FeatureOfInterest_RootZone
 :FeatureOfInterest_RootZone rdf:type owl:NamedIndividual ;
                             ssn:hasProperty :property_rootZone_moistureLevel ;
@@ -1284,7 +1376,6 @@ saref:Sensor rdf:type owl:Class ;
 ###  http://www.w3id.org/def/irrig#featureOfInterest_sleeping
 :featureOfInterest_sleeping rdf:type owl:NamedIndividual ,
                                      <http://www.w3.org/ns/sosa/FeatureOfInterest> ;
-                            ssn:hasProperty :property_sleepingDuration ;
                             rdfs:comment "FeatureOfInterest_sleeping - an instance of the class sosa:FeatureOfInterest that represents sleeping phenomenon."@en ;
                             rdfs:label "Feature Of Interest Sleeping" .
 
@@ -1306,21 +1397,21 @@ saref:Sensor rdf:type owl:Class ;
                                    <http://www.w3.org/ns/sosa/ObservableProperty> ,
                                    :TemperatureProperty ;
                           rdfs:comment "ObservableProperty_air_temperature - an instance of the class irrig:TemperatureProperty and sosa:ObservableProperty that represents the observable property of temperature of an air feature of interest." ;
-                          rdfs:label "Property Air Temperature" .
+                          rdfs:label "Air Temperature" .
 
 
 ###  http://www.w3id.org/def/irrig#property_delayDuration
 :property_delayDuration rdf:type owl:NamedIndividual ,
                                  <http://www.w3.org/ns/sosa/ObservableProperty> ;
                         rdfs:comment "Number of days that an watering is delayed."@en ;
-                        rdfs:label "Property Irrigation Delay"@en .
+                        rdfs:label "Irrigation Delay"@en .
 
 
 ###  http://www.w3id.org/def/irrig#property_electro_potential
 :property_electro_potential rdf:type owl:NamedIndividual ,
                                      <http://www.w3.org/ns/sosa/ObservableProperty> ,
                                      :ElectronicPotential ;
-                            rdfs:label "Property Electro Potential" .
+                            rdfs:label "Electro Potential" .
 
 
 ###  http://www.w3id.org/def/irrig#property_rain_quantity
@@ -1333,7 +1424,7 @@ saref:Sensor rdf:type owl:Class ;
                                       :state_rain_quantity_light ,
                                       :state_rain_quantity_moderate ;
                         rdfs:comment "ObservableProperty_rain_quantity - an instance of the class irrig:AmountProperty and sosa:ObservableProperty that represents the quantity observable property of a rain feature of interest." ;
-                        rdfs:label "Property Rain Quantity" .
+                        rdfs:label "Rain Quantity" .
 
 
 ###  http://www.w3id.org/def/irrig#property_rootZone_moistureLevel
@@ -1342,29 +1433,20 @@ saref:Sensor rdf:type owl:Class ;
                                           <http://www.w3.org/ns/sosa/ObservableProperty> ,
                                           :MoistureProperty ;
                                  caso:hasState :state_rootZone_moistureLevel_high ,
-                                               :state_rootZone_moistureLevel_init ,
                                                :state_rootZone_moistureLevel_low ,
                                                :state_rootZone_moistureLevel_saturated ;
                                  rdfs:comment "ObservableProperty_rootZone_moistureLevel - an instance of the class irrig:MoistureProperty and caso:Property that represents the observable property of moisture level of a root zone feature of interest." ;
-                                 rdfs:label "Property Root Zone Moisture Level" .
-
-
-###  http://www.w3id.org/def/irrig#property_sleepingDuration
-:property_sleepingDuration rdf:type owl:NamedIndividual ,
-                                    <http://www.w3.org/ns/sosa/ObservableProperty> ;
-                           rdfs:comment "Number of days that the system is waiting until the next irrigation."@en ;
-                           rdfs:label "Property Sleeping Duration" .
+                                 rdfs:label "Root Zone Moisture Level" .
 
 
 ###  http://www.w3id.org/def/irrig#property_tree_growth
 :property_tree_growth rdf:type owl:NamedIndividual ,
                                :GrowthProperty ;
-                      caso:hasState :state_tree_growth_init ,
-                                    :state_tree_growth_r1 ,
+                      caso:hasState :state_tree_growth_r1 ,
                                     :state_tree_growth_r2 ,
                                     :state_tree_growth_r3 ;
                       rdfs:comment "ObservableProperty_tree_growth - an instance of the class irrig:GrowthProperty and caso:Property that represents the observable property of growth of a irrig:Tree individual feature of interest." ;
-                      rdfs:label "Property Tree Growth" .
+                      rdfs:label "Tree Growth" .
 
 
 ###  http://www.w3id.org/def/irrig#property_tree_stage
@@ -1376,7 +1458,7 @@ saref:Sensor rdf:type owl:Class ;
                                    :state_tree_stage_dormancy ,
                                    :state_tree_stage_dormancy_release ;
                      rdfs:comment "ObservableProperty_tree_stage - an instance of the class irrig:GrowthProperty and caso:Property that represents the stage observable property of a irrig:Tree individual feature of interest." ;
-                     rdfs:label "Property Tree Stage" .
+                     rdfs:label "Tree Stage" .
 
 
 ###  http://www.w3id.org/def/irrig#property_tree_stage_growth_cessation
@@ -1395,7 +1477,7 @@ saref:Sensor rdf:type owl:Class ;
                                        :state_tree_waterNeed_unavailable ,
                                        :state_tree_waterNeed_yes ;
                          rdfs:comment "ObservableProperty_tree_waterNeed - an instance of the class irrig:StressProperty and caso:Property that represents the observable property of water need of a tree feature of interest." ;
-                         rdfs:label "Property Tree Water Need" .
+                         rdfs:label "Tree Water Need" .
 
 
 ###  http://www.w3id.org/def/irrig#shacl_rule_engine
@@ -1420,14 +1502,14 @@ saref:Sensor rdf:type owl:Class ;
                            rdfs:comment """State_rain_quantity_heavy - an instance of the class caso:State that represents the rain quantity is heavy.
 
 In the example of Arvalis' dataset, this RainIntensity property reaches this state the open upper boundary is RQ_maximum and the close lower boundary is RQ_high.""" ;
-                           rdfs:label "State Rain Quantity Heavy" .
+                           rdfs:label "Rain Quantity Heavy" .
 
 
 ###  http://www.w3id.org/def/irrig#state_rain_quantity_init
 :state_rain_quantity_init rdf:type owl:NamedIndividual ,
                                    :RainQuantityState ;
                           rdfs:comment "State_rain_quantity_init - an instance of the class caso:State that represents the rain quantity is temporary undefined." ;
-                          rdfs:label "State Rain Quantity Init" .
+                          rdfs:label "Rain Quantity Init" .
 
 
 ###  http://www.w3id.org/def/irrig#state_rain_quantity_light
@@ -1437,7 +1519,7 @@ In the example of Arvalis' dataset, this RainIntensity property reaches this sta
                            rdfs:comment """State_rain_quantity_light - an instance of the class caso:State that represents the rain quantity is light.
 
 In the example of Arvalis' dataset, this RainIntensity property reaches this state the open upper boundary is RQ_low and the close lower boundary is RQ_minimum.""" ;
-                           rdfs:label "State Rain Quantity Light" .
+                           rdfs:label "Rain Quantity Light" .
 
 
 ###  http://www.w3id.org/def/irrig#state_rain_quantity_moderate
@@ -1448,45 +1530,25 @@ In the example of Arvalis' dataset, this RainIntensity property reaches this sta
                               rdfs:comment """State_rain_quantity_moderate - an instance of the class caso:State that represents the rain quantity is moderate.
 
 In the example of Arvalis' dataset, this RainIntensity property reaches this state the open upper boundary is RQ_high and the close lower boundary is RQ_low.""" ;
-                              rdfs:label "State Rain Quantity Moderate" .
-
-
-###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_average
-:state_rootZone_moistureLevel_average rdf:type owl:NamedIndividual ,
-                                               :RootZoneMoistureLevelState ;
-                                      caso:greaterThan :state_rootZone_moistureLevel_low ;
-                                      caso:lesserThan :state_rootZone_moistureLevel_high ;
-                                      rdfs:comment """State_rootZone_moistureLevel_average - an instance of the class caso:State that represents the root zone moisture level is at the average state.
-
-In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_average and the close lower boundary is ST_high.""" ;
-                                      rdfs:label "State Root Zone Moisture Level Average" .
+                              rdfs:label "Rain Quantity Moderate" .
 
 
 ###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_high
 :state_rootZone_moistureLevel_high rdf:type owl:NamedIndividual ,
                                             :RootZoneMoistureLevelState ;
-                                   caso:greaterThan :state_rootZone_moistureLevel_average ;
                                    rdfs:comment """State_rootZone_moistureLevel_high - an instance of the class caso:State that represents the root zone moisture level is at the high state.
 
 In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_high and the close lower boundary is ST_very_high.""" ;
-                                   rdfs:label "State Root Zone Moisture Level High" .
-
-
-###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_init
-:state_rootZone_moistureLevel_init rdf:type owl:NamedIndividual ,
-                                            :RootZoneMoistureLevelState ;
-                                   rdfs:comment "State_rootZone_moistureLevel_init - an instance of the class caso:State that represents the root zone moisture level is temporary undefined." ;
-                                   rdfs:label "State Root Zone Moisture Level Init" .
+                                   rdfs:label "Root Zone Moisture Level High" .
 
 
 ###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_low
 :state_rootZone_moistureLevel_low rdf:type owl:NamedIndividual ,
                                            :RootZoneMoistureLevelState ;
-                                  caso:lesserThan :state_rootZone_moistureLevel_average ;
                                   rdfs:comment """State_rootZone_moistureLevel_low - an instance of the class caso:State that represents the root zone moisture level is at the low state.
 
 In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_low and the close lower boundary is ST_average.""" ;
-                                  rdfs:label "State Root Zone Moisture Level Low" .
+                                  rdfs:label "Root Zone Moisture Level Low" .
 
 
 ###  http://www.w3id.org/def/irrig#state_rootZone_moistureLevel_saturated
@@ -1495,14 +1557,7 @@ In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches 
                                         rdfs:comment """State_rootZone_moistureLevel_saturated - an instance of the class caso:State that represents the root zone moisture level is at the saturated state.
 
 In the example of Arvalis' dataset, this RootZoneMoistureLevel property reaches this state the open upper boundary is ST_saturated and the close lower boundary is ST_minimum.""" ;
-                                        rdfs:label "State Root Zone Moisture Level Saturated" .
-
-
-###  http://www.w3id.org/def/irrig#state_tree_growth_init
-:state_tree_growth_init rdf:type owl:NamedIndividual ,
-                                 :TreeGrowthState ;
-                        rdfs:comment "State_tree_growth_init - an instance of the class caso:State that represents the state of tree growth is temporary undefined." ;
-                        rdfs:label "State Tree Growth Init" .
+                                        rdfs:label "Root Zone  Saturated" .
 
 
 ###  http://www.w3id.org/def/irrig#state_tree_growth_r1
