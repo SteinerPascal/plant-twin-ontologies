@@ -1,0 +1,29 @@
+	PREFIX irrig: <http://www.w3id.org/def/irrig#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX ex: <http://twin-example/zurich#>
+construct{
+    ?tree1 ex:agrovocBroader ?agrovoc.
+    ?tree1 ex:agrovocTerm ?narrow
+} where { 
+	
+    {
+SELECT (SAMPLE(?tree) as?tree1 ) ?prefLabel ?broadLabel where{
+            ?tree a irrig:Tree.
+            ?tree skos:prefLabel ?prefLabel.
+            ?tree skos:broader ?broad.
+            ?broad skos:prefLabel ?broadLabel
+		} group by ?prefLabel ?broadLabel
+    }
+
+	 SERVICE <https://agrovoc.fao.org/sparql> {
+        ?agrovoc skos:prefLabel ?broadLabel
+        FILTER (LANGMATCHES(lang(?broadLabel),'en'))
+        OPTIONAL{
+             ?agrovoc skos:narrower+ ?narrow.
+            ?narrow skos:prefLabel ?narrowLabel.
+            FILTER (LANGMATCHES(lang(?narrowLabel),'en'))
+            FILTER(CONTAINS(str(?prefLabel),str(?narrowLabel)))
+        }
+    }
+    
+}

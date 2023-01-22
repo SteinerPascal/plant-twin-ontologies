@@ -379,6 +379,10 @@ ssn:hasProperty rdf:type owl:ObjectProperty ;
                 rdfs:label "has property"@en .
 
 
+###  http://www.w3.org/ns/ssn/implements
+ssn:implements rdf:type owl:ObjectProperty .
+
+
 ###  http://www.w3.org/ns/ssn/isPropertyOf
 ssn:isPropertyOf rdf:type owl:ObjectProperty ;
                  rdfs:comment "Relation between a Property and the entity it belongs to."@en ;
@@ -925,8 +929,8 @@ caso:State rdf:type owl:Class ;
                                        owl:someValuesFrom :Tree
                                      ] ,
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty <http://www.w3.org/ns/sosa/hasResult> ;
-                                       owl:hasValue :res_increased_humidity
+                                       owl:onProperty ssn:implements ;
+                                       owl:hasValue :proc_saturated_high
                                      ] ,
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty caso:triggersFunction ;
@@ -1298,20 +1302,13 @@ saref:Sensor rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  http://www.irrig/master/thesis/2022#proc_low_saturated
-:proc_low_saturated rdf:type owl:NamedIndividual ,
-                             :IrrigationProcedure ;
-                    ssn:hasInput :state_rootZone_moistureLevel_low ;
-                    ssn:hasOutput :state_rootZone_moistureLevel_saturated ;
-                    rdfs:comment "Procedure taking status 'low root zone moisture level' as input and has output \"saturated root zone moisture level'" ;
-                    rdfs:label "Irrigation procedure" .
-
-
 ###  http://www.irrig/master/thesis/2022#proc_saturated_high
 :proc_saturated_high rdf:type owl:NamedIndividual ,
                               :IrrigationProcedure ;
-                     ssn:hasInput :state_rootZone_moistureLevel_saturated ;
-                     ssn:hasOutput :state_rootZone_moistureLevel_high ;
+                     ssn:hasInput :state_rootZone_moistureLevel_low ,
+                                  :state_rootZone_moistureLevel_saturated ;
+                     ssn:hasOutput :state_rootZone_moistureLevel_high ,
+                                   :state_rootZone_moistureLevel_saturated ;
                      rdfs:comment "Procedure taking status 'saturated root zone moisture level' as input and has output \"high root zone moisture level'" ;
                      rdfs:label "Irrigation procedure" .
 

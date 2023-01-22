@@ -1,0 +1,10 @@
+PREFIX ex: <http://twin-example/zurich#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+construct {
+    ?tree ex:agrovocTerm ?term
+} where { 
+    ?tree skos:prefLabel ?prefLabel.
+    ?s skos:prefLabel ?prefLabel.
+	?s ex:agrovocTerm ?term.
+    filter(?s != ?tree)
+} 

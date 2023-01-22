@@ -145,7 +145,7 @@ ex:ded_cap_soil_sens_0 rdf:type irrig:CapacitiveSoilDeduction , caso:Deduction;
     prov:wasInformedBy ex:obs_cap_soil_sens_0;
     sosa:hasFeatureOfInterest ex:tree_52716;
     sosa:observedProperty irrig:property_rootZone_moistureLevel;
-    caso:hasResultState irrig:state_rootZone_moistureLevel_saturated.
+    caso:hasResultState irrig:state_rootZone_moistureLevel_low.
 
 #SHACL reasoner - tree water need
 ex:obs_tree_water_need_0 rdf:type irrig:TreeWaterNeedDeduction , caso:Deduction;

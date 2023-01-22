@@ -33,13 +33,13 @@ def addFamilyInformation(subject,feature,id,g):
     category = properties['kategorie']
     poiId = properties['poi_id']
     # add triples
-    g.add((subject,SKOS.prefLabel,Literal(name)))
-    g.add((subject, SKOS.altLabel,Literal(nameDE)))
-    g.add((subject,SKOS.altLabel,Literal(species)))
+    g.add((subject,SKOS.prefLabel,Literal(name,'en')))
+    g.add((subject, SKOS.altLabel,Literal(nameDE,'de')))
+    g.add((subject,SKOS.altLabel,Literal(species,'en')))
     # broader concept
     bn = BNode()
     g.add((subject,SKOS.broader,bn))
-    g.add((bn,SKOS.prefLabel,Literal(genus)))
+    g.add((bn,SKOS.prefLabel,Literal(genus,'en')))
     # other data
     g.add((subject,EX.hasDiameter,Literal(treetopdiameter,datatype=URIRef(XSD.integer))))
     g.add((subject,EX.street,Literal(street,datatype=URIRef(XSD.string))))
